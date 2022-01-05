@@ -9,6 +9,11 @@ lessons:
     example: "rstudio-tidyverse"
     bg: 1
 
+  - title: 'Weekly check-in 1&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "January 20"
+    assignment: "weekly-check-in"
+    bg: 1
+
   - title: 'Problem set 1&emsp;&emsp;<small>(submit by 11:59 PM)</small>'
     date: "January 20"
     assignment: "01-problem-set"
