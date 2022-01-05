@@ -1,0 +1,265 @@
+lessons:
+  - title: 'Evaluation and causation'
+    header: True
+
+  - title: '<span class="content-title">Evaluation and the causal revolution</span>'
+    session: "Session 1"
+    date: "January 13"
+    content: "01-content"
+    example: "rstudio-tidyverse"
+    bg: 1
+
+  - title: 'Problem set 1&emsp;&emsp;<small>(submit by 11:59 PM)</small>'
+    date: "January 20"
+    assignment: "01-problem-set"
+    bg: 1
+    bottomborder: True
+
+  - title: '<span class="content-title">Regression and inference</span>'
+    session: "Session 2"
+    date: "January 20"
+    content: "02-content"
+    bg: 2
+
+  - title: 'Weekly check-in 2&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "January 20"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: 'Problem set 2&emsp;&emsp;<small>(submit by 11:59 PM)</small>'
+    date: "January 27"
+    assignment: "02-problem-set"
+    bg: 2
+    bottomborder: True
+
+  - title: '<span class="content-title">Theories of change and logic models</span>'
+    session: "Session 3"
+    date: "January 27"
+    content: "03-content"
+    bg: 1
+
+  - title: 'Weekly check-in 3&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "January 27"
+    assignment: "weekly-check-in"
+    bg: 1
+
+  - title: "Evaluation: Background and theory&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "February 3"
+    assignment: "01-eval-background-theory"
+    bg: 1
+    bottomborder: True
+
+  - title: '<span class="content-title">Measurement and DAGs</span>'
+    session: "Session 4"
+    date: "February 3"
+    content: "04-content"
+    example: "dags"
+    bg: 2
+
+  - title: 'Weekly check-in 4&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "February 3"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: "Evaluation: Measurement&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "February 10"
+    assignment: "02-eval-measurement"
+    bg: 2
+    bottomborder: True
+
+  - title: '<span class="content-title">DAGs and potential outcomes</span>'
+    session: "Session 5"
+    date: "February 10"
+    content: "05-content"
+    example: "po-ate-cate"
+    bg: 1
+
+  - title: 'Weekly check-in 5&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "February 10"
+    assignment: "weekly-check-in"
+    bg: 1
+
+  - title: "Evaluation: Causal model&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "February 17"
+    assignment: "03-eval-dag"
+    bg: 1
+    bottomborder: True
+
+  - title: '<span class="content-title">Threats to validity</span>'
+    session: "Session 6"
+    date: "February 17"
+    content: "06-content"
+    bg: 2
+
+  - title: 'Weekly check-in 6&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "February 17"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: "Evaluation: Threats to validity&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "February 24"
+    assignment: "04-eval-threats"
+    bg: 2
+    bottomborder: True
+    
+  - title: '<i class="fas fa-star"></i> **Exam 1**&emsp;&emsp;<small>(complete by 11:59 PM on March 3)</small>'
+    date: "February 24–March 3"
+    date_start: "February 24"
+    date_end: "March 3"
+    bg: 3
+
+  - title: 'Tools and methods'
+    header: True
+
+  - title: '<span class="content-title">Randomization and matching</span>'
+    session: "Session 7"
+    example: "matching-ipw"
+    date: "February 24"
+    content: "07-content"
+    bg: 1
+
+  - title: 'Weekly check-in 7&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "February 24"
+    assignment: "weekly-check-in"
+    bg: 1
+
+  - title: "Problem set 3&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "March 3"
+    assignment: "03-problem-set"
+    bg: 1
+    bottomborder: True
+
+  - title: '<span class="content-title">Difference-in-differences I</span>'
+    session: "Session 8"
+    example: "diff-in-diff"
+    date: "March 3"
+    content: "08-content"
+    bg: 2
+
+  - title: 'Weekly check-in 8&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "March 3"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: "Problem set 4&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "March 10"
+    assignment: "04-problem-set"
+    bg: 2
+    bottomborderdotted: True
+
+  - title: '<span class="content-title">Difference-in-differences II</span>'
+    session: "Session 9"
+    date: "March 10"
+    content: "09-content"
+    bg: 2
+
+  - title: 'Weekly check-in 9&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "March 10"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: "Problem set 5&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "March 24"
+    assignment: "05-problem-set"
+    bg: 2
+    bottomborder: True
+    
+  - title: '<span class="content-title">Regression discontinuity I</span>'
+    session: "Session 10"
+    date: "March 24"
+    content: "10-content"
+    example: "rdd"
+    bg: 1
+
+  - title: 'Weekly check-in 10&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "March 24"
+    assignment: "weekly-check-in"
+    bg: 1
+
+  - title: "Problem set 6&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "March 31"
+    assignment: "06-problem-set"
+    bg: 1
+    bottomborder: True
+
+  - title: '<span class="content-title">Instrumental variables I</span>'
+    session: "Session 11"
+    date: "March 31"
+    content: "11-content"
+    example: "iv"
+    bg: 2
+
+  - title: 'Weekly check-in 11&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "March 31"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: "Problem set 7&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "April 7"
+    assignment: "07-problem-set"
+    bg: 2
+    bottomborder: True
+
+  - title: '<span class="content-title">Instrumental variables II + Regression discontinuity II</span>'
+    session: "Session 12"
+    date: "April 7"
+    content: "12-content"
+    example: "rdd-fuzzy"
+    bg: 1
+
+  - title: 'Weekly check-in 12&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "April 7"
+    assignment: "weekly-check-in"
+    bg: 1
+
+  - title: "Problem set 8&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "April 14"
+    assignment: "08-problem-set"
+    bg: 1
+    bottomborder: True
+
+  - title: '<i class="fas fa-star"></i> **Exam 2**&emsp;&emsp;<small>(complete by 11:59 PM on November 21)</small>'
+    date: "April 14–20"
+    date_start: "April 14"
+    date_end: "April 20"
+    bg: 3
+
+  - title: 'Applied evaluation'
+    header: True
+
+  - title: '<span class="content-title">Choosing and planning ethical evaluations</span>'
+    session: "Session 13"
+    date: "April 14"
+    content: "13-content"
+    example: "synthetic-data"
+    bg: 2
+
+  - title: 'Weekly check-in 13&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "April 14"
+    assignment: "weekly-check-in"
+    bg: 2
+
+  - title: "Problem set 9&emsp;&emsp;<small>(submit by 11:59 PM)</small>"
+    date: "April 21"
+    assignment: "09-problem-set"
+    bg: 2
+    bottomborder: True
+
+  - title: '<span class="content-title">Ethics, stories, and curiosity</span>'
+    session: "Session 14"
+    date: "April 21"
+    content: "14-content"
+    bg: 1
+
+  - title: 'Weekly check-in 14&emsp;&emsp;<small>(submit by noon)</small>'
+    date: "April 21"
+    assignment: "weekly-check-in"
+    bg: 1
+
+  - title: '<span class="fake-header-table">Final</span>'
+    header: True
+
+  - title: '<i class="fas fa-star"></i> **Final project due**&emsp;&emsp;<small>(submit by 11:59 PM)</small>'
+    date: "May 2"
+    assignment: "final-project"
+    bg: 3

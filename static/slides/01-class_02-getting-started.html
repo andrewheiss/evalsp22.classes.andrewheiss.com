@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Getting started</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-08-23" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <link href="libs/countdown-0.3.5/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown-0.3.5/countdown.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-5
+
+# Getting started with&lt;br&gt;R and RStudio
+
+.class-info[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/RStudio.png" alt="RStudio" title="RStudio" width="15%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+class: middle
+
+.pull-left.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/Rlogo.png" alt="R logo" title="R logo" width="80%"&gt;
+&lt;/figure&gt;
+
+.box-inv-5[The engine]
+]
+
+.pull-right.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-logo.png" alt="RStudio logo" title="RStudio logo" width="100%"&gt;
+&lt;/figure&gt;
+
+.box-inv-5[The dashboard]
+]
+
+---
+
+class: middle section-title-inv-5
+
+.box-5.large[A tour of RStudio]
+
+---
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-normal.png" alt="RStudio" title="RStudio" width="100%"&gt;
+&lt;/figure&gt;
+
+---
+
+class: title title-5
+
+# Console 
+
+.pull-left-wide[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-console.png" alt="RStudio console" title="RStudio console" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right-narrow[
+.box-inv-5[R is awaiting your instructions]
+
+.box-inv-5[Type code here, press enter, and R will run it]
+]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.pull-left-wide[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-console.png" alt="RStudio console" title="RStudio console" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right-narrow[
+.box-5[Type `2 + 2` in the console]
+
+.box-5[Press enter]
+]
+
+---
+
+
+```r
+2 + 2
+```
+
+```
+## [1] 4
+```
+
+.box-5[This is ephemeral though.&lt;br&gt;If you want to run this again, you'll have to type it again.]
+
+.box-5[Store R code in a document instead]
+
+---
+
+class: title title-5
+
+# Files pane
+
+.pull-left-wide[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-files.png" alt="RStudio files panel" title="RStudio files panel" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right-narrow[
+.box-inv-5[All the files in your current working directory]
+]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.pull-left-wide[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-files.png" alt="RStudio files pane" title="RStudio files pane" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right-narrow[
+.box-5[Find `01_getting-started.Rmd`]
+
+.box-5[Click on its name to open the file]
+]
+
+---
+
+class: title title-5
+
+# Source pane
+
+.pull-left-wide.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-editor.png" alt="RStudio source panel" title="RStudio source panel" width="80%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right-narrow[
+.box-inv-5[Documents&lt;br&gt;open here]
+]
+
+---
+
+class: title title-5
+
+# R Markdown
+
+.pull-left.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-rmd.png" alt="RStudio R Markdown document" title="RStudio R Markdown document" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-inv-5[Document format that&lt;br&gt;combines text and code]
+
+.box-inv-5[Acts like a notebook&lt;br&gt;for your analysis]
+]
+
+---
+
+class: title title-5
+
+# R Markdown
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-rmd-text.png" alt="RStudio R Markdown text" title="RStudio R Markdown text" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-inv-5.medium[Text]
+]
+
+---
+
+class: title title-5
+
+# R Markdown
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-rmd-code.png" alt="RStudio R Markdown code" title="RStudio R Markdown code" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-inv-5.medium[Text]
+
+.box-inv-5.medium[Code]
+]
+
+---
+
+class: title title-5
+
+# R Markdown
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-rmd-output.png" alt="RStudio R Markdown output" title="RStudio R Markdown output" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-inv-5.medium[Text]
+
+.box-inv-5.medium[Code]
+
+.box-inv-5.medium[Output]
+]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-rmd-code.png" alt="RStudio R Markdown code" title="RStudio R Markdown code" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-5[Read the instructions]
+
+.box-5[Run the code chunk by&lt;br&gt;clicking the play button]
+]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.box-5[Add a new chunk]
+
+.box-5[Put `2 + 2` in the chunk and run it]
+
+---
+
+class: title title-5
+
+# Knitting
+
+.box-inv-5["Knit" an R Markdown document into a standalone sharable file]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-knit.png" alt="RStudio knit button" title="RStudio knit button" width="70%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+class: title title-5
+
+# R Markdown
+
+.box-inv-5.sp-after[The best way to combine R code and narrative]
+
+.box-5[We'll use it throughout the class:]
+
+.box-5[I'll provide starter code]
+
+.box-5[You'll complete "Your turns"]
+
+.box-5[In the end, you'll have an annotated record for yourself]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.box-5[Spot the difference:]
+
+
+```r
+filter(mtcars, cyl == 4)
+```
+
+
+```r
+four_cyls &lt;- filter(mtcars, cyl == 4)
+```
+
+.box-5[Find these chunks in the notebook and run them.&lt;br&gt;What's different about what happens?]
+
+---
+
+class: title title-5
+
+# Assignment
+
+.box-inv-5[`&lt;-` assigns the output from the righthand side to a variable with the name on the lefthand side]
+
+
+```r
+four_cyls &lt;- filter(mtcars, cyl == 4)
+```
+
+---
+
+class: title title-5
+
+# Environment pane
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-environment.png" alt="RStudio environment pane" title="RStudio environment pane" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-5[List of all the&lt;br&gt;variables you've created]
+]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.box-5[Find `four_cyls` in the environment pane.&lt;br&gt;Click on the name `four_cyls`]
+
+.box-5[What happens?]
+
+---
+
+class: title title-5
+
+# Viewer
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-data-viewer.png" alt="RStudio viewer" title="RStudio viewer" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-5[Clicking on an object in the environment panel opens it an interactive viewer tab]
+]
+
+---
+
+class: title title-5
+
+# Functions
+
+.center[
+
+&lt;code class ='r hljs remark-code'&gt;four_cyls &lt;- &lt;b&gt;&lt;span style="background-color:#FFDFD1"&gt;filter&lt;/span&gt;&lt;/b&gt;(mtcars, cyl == 4)&lt;/code&gt;
+]
+
+.box-inv-5[Functions do things]
+
+--
+
+.box-inv-5[Functions take arguments, output results]
+
+--
+
+.box-inv-5[If you want to keep the output, assign it to a variable]
+
+---
+
+class: title title-5
+
+# Help
+
+.box-inv-5[To look up the help page for an R function,&lt;br&gt;type this in the console:]
+
+.center[
+
+```r
+?function_name
+```
+]
+
+.box-5.small[(Or google it!)]
+
+---
+
+class: title title-5
+
+# Help pane
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-help.png" alt="RStudio help pane" title="RStudio help pane" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-5[These help pages prove details about the arguments you can supply a function]
+
+.box-5[Often full of examples&lt;br&gt;at the bottom]
+]
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.box-5[Look at the help page for `seq`]
+
+.box-5[Add a chunk that uses `seq()` to create a&lt;br&gt;list of numbers from 5 to 100, spaced by 5&lt;br&gt;.small[(so 5, 10, 15, 20, …)]]
+
+<div class="countdown" id="timer_6123f99a" style="right:0;bottom:0;font-size:1.5em;" data-audio="true" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+```r
+seq(from = 5, to = 100, by = 5)
+```
+
+```
+##  [1]   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85  90  95
+## [20] 100
+```
+
+
+---
+
+class: title title-5
+
+# Common syntax problem #1
+
+.box-inv-5[Missing closing parentheses or quotes]
+
+
+```r
+mean(mtcars
+```
+
+
+```r
+"Oops this is wrong
+```
+
+---
+
+class: title title-5
+
+# Common syntax problem #2
+
+.box-inv-5[Surrounding something in quotes when it should be (or vice versa)]
+
+
+```r
+mean("mtcars")
+```
+
+```
+## Warning in mean.default("mtcars"): argument is not numeric or logical: returning
+## NA
+```
+
+```
+## [1] NA
+```
+
+---
+
+class: title title-5 section-title-inv-5
+
+# Your turn
+
+.box-5[There are three chunks under "Syntax gone wrong"]
+
+.box-5[Run each, read the error message, and try to fix the syntax]
+
+---
+
+class: title title-5
+
+# Cheatsheets
+
+.box-inv-5[Go to Help &gt; Cheatsheets to find quick&lt;br&gt;reference guides to different packages]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/01/rstudio-cheatsheet.png" alt="RStudio cheatsheet" title="RStudio cheatsheet" width="40%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+class: title title-5
+
+# Next up
+
+.box-inv-5.medium[Data basics]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

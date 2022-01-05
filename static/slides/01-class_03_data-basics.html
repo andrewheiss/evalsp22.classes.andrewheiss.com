@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data basics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-08-23" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-6
+
+# Data basics
+
+---
+
+class: middle section-title-inv-6
+
+.box-6.large[Packages]
+
+---
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/02/packages-base.png" alt="R packages, base" title="R packages, base" width="100%"&gt;
+&lt;/figure&gt;
+
+---
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/02/packages-packages.png" alt="R packages, other" title="R packages, other" width="100%"&gt;
+&lt;/figure&gt;
+
+---
+
+class: title title-6
+
+# Using packages
+
+.pull-left[
+
+```r
+install.packages("name")
+```
+
+.box-inv-6[Downloads files&lt;br&gt;to your computer]
+
+.box-inv-6[Do this once per computer]
+]
+
+--
+
+.pull-right[
+
+```r
+library("name")
+```
+
+.box-inv-6[Loads the package]
+
+.box-inv-6[Do this once per R session]
+]
+---
+
+class: title title-6
+
+# The tidyverse
+
+.pull-left[
+.box-inv-6.small["The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures."]
+
+.box-inv-6[… the tidyverse makes data science faster, easier and more fun…]
+]
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="img/01-class/02/tidyverse.png" alt="The tidyverse" title="The tidyverse" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+class: title title-6
+
+# The tidyverse
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/02/tidyverse-language.png" alt="tidyverse and language" title="tidyverse and language" width="100%"&gt;
+&lt;/figure&gt;
+
+???
+
+From "Master the Tidyverse" by RStudio
+
+---
+
+class: title title-6
+
+# The tidyverse package
+
+.center[
+
+```r
+library(tidyverse)
+```
+]
+
+.box-inv-6[The tidyverse package is a shortcut for&lt;br&gt;installing and loading all the key tidyverse packages]
+
+---
+
+.pull-left[
+
+```r
+install.packages("tidyverse")
+```
+
+.tiny[
+
+```r
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("readr")
+install.packages("purrr")
+install.packages("tibble")
+install.packages("stringr")
+install.packages("forcats")
+install.packages("lubridate")
+install.packages("hms")
+install.packages("DBI")
+install.packages("haven")
+install.packages("httr")
+install.packages("jsonlite")
+install.packages("readxl")
+install.packages("rvest")
+install.packages("xml2")
+install.packages("modelr")
+install.packages("broom")
+```
+]
+]
+
+--
+
+.pull-right[
+
+```r
+library("tidyverse")
+```
+
+.tiny[
+
+```r
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("readr")
+library("purrr")
+library("tibble")
+library("stringr")
+library("forcats")
+```
+]
+]
+
+---
+
+class: middle section-title-inv-6
+
+.box-6.large[Rectangular data]
+
+---
+
+class: title title-6
+
+# Data frames and tibbles
+
+.box-inv-6.medium[Data frames are the most common kind of data objects; used for rectangular data (like spreadsheets)]
+
+--
+
+.box-6[Data frames: R's native data object]
+
+--
+
+.box-6[Tibbles (`tbl`): a fancier enhanced kind of data frame]
+
+--
+
+.box-6.small[(You really won't notice a difference today)]
+
+---
+
+class: middle section-title-inv-6
+
+.box-6.large[Vectors and lists]
+
+---
+
+class: title title-6
+
+# Vectors
+
+.box-inv-6[Vectors are a list of values of the same time&lt;br&gt;(all text, or all numbers, etc.)]
+
+.box-inv-6[Make them with `c()`:]
+
+
+```r
+c(1, 4, 2, 5, 7)
+```
+
+--
+
+.box-inv-6[You'll usually want to assign them to something:]
+
+
+```r
+neat_numbers &lt;- c(1, 4, 2, 5, 7)
+```
+
+---
+
+class: title title-6
+
+# Basic data types
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;b&gt;Integer&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;Whole numbers&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;c(1, 2, 3, 4)&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;b&gt;Double&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;Numbers&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;c(1, 2.4, 3.14, 4)&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;b&gt;Character&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;Text&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;c("1", "blue", "fun", "monster")&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;b&gt;Logical&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;True or false&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;c(TRUE, FALSE, TRUE, FALSE)&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;b&gt;Factor&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;Category&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;c("Strongly disagree", "Agree", "Neutral")&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+---
+
+class: middle section-title-inv-6
+
+.box-6.large[Importing data]
+
+---
+
+class: title title-6
+
+# Packages for importing data
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img src="img/01-class/02/readr.png" alt="readr" title="readr" width="150px"&gt;&lt;/td&gt;
+    &lt;td&gt;Work with plain text data&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;my_data &lt;- read_csv("file.csv")&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img src="img/01-class/02/readxl.png" alt="readxl" title="readxl" width="150px"&gt;&lt;/td&gt;
+    &lt;td&gt;Work with Excel files&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;my_data &lt;- read_excel("file.xlsx")&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img src="img/01-class/02/haven.png" alt="haven" title="haven" width="150px"&gt;&lt;/td&gt;
+    &lt;td&gt;Work with Stata, SPSS, and SAS data&lt;/td&gt;
+    &lt;td&gt;&lt;code class="remark-inline-code"&gt;my_data &lt;- read_stata("file.dta")&lt;/code&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+---
+
+class: title title-6
+
+# Other types of data
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Package&lt;/th&gt;
+    &lt;th&gt;Type of data&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;jsonlite&lt;/td&gt;
+    &lt;td&gt;JSON data&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;xml2&lt;/td&gt;
+    &lt;td&gt;XML data&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;httr&lt;/td&gt;
+    &lt;td&gt;Web APIs&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;rvest&lt;/td&gt;
+    &lt;td&gt;Web pages (web scraping)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;DBI&lt;/td&gt;
+    &lt;td&gt;Databases (SQL)&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+---
+
+class: title title-6
+
+# Next up
+
+.box-inv-6.medium[Data visualization]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

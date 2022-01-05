@@ -1,0 +1,27 @@
+# See full list at https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+default: true
+
+# Unordered list indentation
+MD007: false
+
+# Hard tabs (these appear in R output)
+MD010: false
+
+# Multiple consecutive blank lines
+MD012: false
+
+# Line length
+MD013: false
+
+# Duplicate headers
+MD024: false
+
+# Inline HTML
+MD033: false
+
+# Emphasis instead of heading
+MD036: false
+
+# Space in emphasis (R outputs *** and Markdown things they're italics)
+MD037: false

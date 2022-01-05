@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Classes 8-9: Diff-in-diff</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2022-01-05" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 8
+
+.class-info[
+
+**October 11, 2021**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-3.medium.sp-after-half[Econ Nobel!]
+
+--
+
+.box-6.medium.sp-after-half[Sensitivity analysis]
+
+--
+
+.box-5.medium.sp-after-half[Diff-in-diff FAQs]
+
+---
+
+layout: false
+name: econ-nobel
+class: center middle section-title section-title-3 animated fadeIn
+
+# Econ Nobel
+
+---
+
+layout: true
+class: middle
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/2021-nobel-winners.jpg" alt="2021 econ Nobel winners" title="2021 econ Nobel winners" width="55%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+- Card (and Krueger): NJ/PA minimum wage + the beginning of this whole credibility revolution thing
+- Angrist: MHE and MM and making causal inference accessible
+- Imbens: A ton of CI stuff + attempting to bridge DAG world with situation-based world
+
+- https://twitter.com/NobelPrize/status/1447502627114205187 - PA/NJ
+- https://twitter.com/MaxCRoser/status/1447505582450151431
+- https://twitter.com/Stanford/status/1447549033539637248
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/alan-krueger.jpg" alt="Alan Krueger" title="Alan Krueger" width="80%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/pa-nj-nobel.jpg" alt="Nobel PA/NJ" title="Nobel PA/NJ" width="57%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/blackwell-casual.png" alt="NPR casual inference" title="NPR casual inference" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://twitter.com/matt_blackwell/status/1447518447882096642
+
+---
+
+layout: false
+name: sensitivity
+class: center middle section-title section-title-6 animated fadeIn
+
+# Sensitivity analysis
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.medium.sp-after[How do we know when we've got&lt;br&gt;the right confounders in our DAG?]
+
+.box-6.medium[How do we solve the fact that&lt;br&gt;we have so many unknowns in our DAG?]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/2020-2021-meme-garnick-1.jpg" alt="OVB" title="OVB" width="40%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://owenozier.github.io/teaching/2020-2021-memes
+
+---
+
+layout: false
+name: faqs
+class: center middle section-title section-title-5 animated fadeIn
+
+# Diff-in-diff FAQs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.large[Design-based vs.&lt;br&gt;model-based inference]
+
+.box-inv-5[Special situations vs. controlling for stuff]
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# Identification strategies
+
+.box-inv-5.small.sp-after[The goal of *all* these methods is to isolate&lt;br&gt;(or **identify**) the arrow between treatment → outcome]
+
+--
+
+.box-inv-5.less-medium[Model-based identification]
+
+.float-left.center[.box-5[DAGs] .box-5[Matching] .box-5[Inverse probability weighting]]
+
+--
+
+.box-inv-5.less-medium.sp-before[Design-based identification]
+
+.float-left.center[.box-5[Randomized controlled trials] .box-5[Difference-in-differences]]
+
+.float-left.center[.box-5[Regression discontinuity] .box-5[Instrumental variables]]
+
+---
+
+# Model-based identification
+
+.box-inv-5[Use a DAG and *do*-calculus to isolate arrow]
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="04-slides_files/figure-html/edu-earn-adjust-1.png" alt="Education earnings DAG" title="Education earnings DAG" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-5[Core assumption:&lt;br&gt;selection on observables]
+
+.box-inv-5.small[Everything that needs to&lt;br&gt;be adjusted is measurable;&lt;br&gt;no unobserved confounding]
+
+.box-inv-5.small[**Big assumption!**]
+
+.box-inv-5.tiny[This is why lots of people don't like DAG-based adjustment]
+]
+
+---
+
+# Design-based identification
+
+.box-inv-5[Use a special situation to isolate arrow]
+
+.pull-left[
+.box-5[RCTs]
+
+.box-inv-5.small[Use randomization&lt;br&gt;to remove confounding]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="05-slides_files/figure-html/experimental-dag-1.png" alt="RCT DAG" title="RCT DAG" width="60%"&gt;
+&lt;/figure&gt;
+]
+]
+
+--
+
+.pull-right[
+.box-5[Difference-in-differences]
+
+.box-inv-5.small[Use before/after &amp; treatment/control&lt;br&gt;differences to remove confounding]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="08-slides_files/figure-html/min-wage-dag-1.png" alt="Diff-in-diff DAG" title="Diff-in-diff DAG" width="90%"&gt;
+&lt;/figure&gt;
+]
+]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.large[Which is better or more credible?&lt;br&gt;RCTs, quasi experiments,&lt;br&gt;or DAG-based models?]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/causality-continuum.png" alt="The (wrong!) causality continuum" title="The (wrong!) causality continuum" width="90%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-5.huge[There's no hierarchy!]
+
+---
+
+.box-5.large[Can we talk more about interaction terms and how to interpret them?]
+
+.box-5[Are interaction effects in regression always more accurate of a difference than running a "regular" regression without them?]
+
+---
+
+.box-5.large[Can causal effects be negative&lt;br&gt;or are they always positive?]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/lambeth-southwark-vauxhall.jpg" alt="Lambeth and Southwark-Vauxhall" title="Lambeth and Southwark-Vauxhall" width="70%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.pull-left[
+.box-5.medium[**1849**]
+
+.box-5[Cholera deaths per 100,000]
+
+.box-inv-5[Southwark &amp; Vauxhall: **1,349**]
+
+.box-inv-5[Lambeth: **847**]
+
+]
+
+.pull-right[
+.box-5.medium[**1854**]
+
+.box-5[Cholera deaths per 100,000]
+
+.box-inv-5[Southwark &amp; Vauxhall: **1,466**]
+
+.box-inv-5[Lambeth: **193**]
+]
+
+---
+
+.box-5.large[Multiple adjustment sets]
+
+???
+
+DAG from exam 1 and why there are multiple adjustment sets
+
+---
+
+.box-5.large[Where do we get all this data?]
+
+.box-inv-5[lolz]
+
+.box-inv-5[[Data resources](https://evalsp22.classes.andrewheiss.com/resource/data/)]
+
+.box-inv-5[[See this](https://skranz.github.io//r/2021/01/05/FindingEconomicArticles4.html)]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/file-not-found.png" alt="The Verge 'File Not Found'" title="The Verge 'File Not Found'" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://www.theverge.com/22684730/students-file-folder-directory-structure-education-gen-z
+
+- Absolute vs. relative paths
+- Best practices for project structures
+- File types - jpg/png/pdf, CSV vs. Excel, Word vs. txt vs. md vs. Rmd
+- Downloading files from the internet and using them in Rmd - dagitty specifically
+
+---
+
+.box-5.large[Project structures]
+
+.box-inv-5[[One approach](https://kdestasio.github.io/post/r_best_practices/)]
+
+.box-inv-5[[Another approach](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html#Organizing_your_working_directory)]
+
+.box-inv-5[[Yet another approach](https://github.com/andrewheiss/who-cares-about-crackdown)]
+
+.box-inv-5[[Another another approach](http://projecttemplate.net/)]
+
+---
+
+.box-5.large[File types]
+
+.box-inv-5[[Image types slides](https://datavizs21.classes.andrewheiss.com/slides/02-slides.html#57)]
+
+.box-inv-5[CSV vs. Excel]
+
+.box-inv-5[`.docx` vs. `.txt` vs. `.md` vs `.Rmd`]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/bedtime-math.png" alt="Bedtime math" title="Bedtime math" width="45%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/bedtime-math-diff-diff.png" alt="Bedtime math diff-in-diff" title="Bedtime math diff-in-diff" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-5.medium[If the control group changes in the same way, and the causal effect was zero, would we say that the treatment didn't work?]
+
+---
+
+.box-5.medium[When doing your subtracting to get&lt;br&gt;your differences in the matrix, is it better &lt;br&gt;to do the vertical or horizontal subtractions?]
+
+.box-5.medium[Are there situations where&lt;br&gt;one is preferable to the other?]
+
+---
+
+.box-5.medium[Why are we learning&lt;br&gt;two ways to do diff-in-diff?&lt;br&gt;(2x2 matrix vs. `lm()`)]
+
+---
+
+.box-5.less-medium[What group level is best for comparison? For example, if we are looking at policy change in NJ, is it best to compare with just one or two similar states? How similar do the populations need to be?]
+
+.box-5.medium.sp-after[Wouldn't matching be better?]
+
+.box-5.less-medium[Do we have to think about balance when dealing with observational data in diff in diff?]
+
+.box-inv-5[[Two-way fixed effects (TWFE)](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
+
+???
+
+- Multiple states/groups are possible - that's TWFE
+- Wouldn't matching be better? Sure, if you're doing state-level stuff. But their data was restaurant level
+
+- Balance: Maybe. With just two states/villages/countries/whatever, yes. With lots, the state/year fixed effects pick up those trends for you
+
+---
+
+.box-5.large[Minimum legal drinking age]
+
+---
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \beta_3\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+---
+
+`$$\text{Mortality}\ =\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+---
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State}\ + \\
+&amp;\ \beta_3\ \text{Year} + \beta_4\ (\text{State} \times \text{Year})
+\end{aligned}$$`
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-tbl-5-2.png" alt="Mastering Metrics Table 5.2" title="Mastering Metrics Table 5.2" width="55%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-fig-5-4.png" alt="Mastering Metrics Figure 5.4" title="Mastering Metrics Figure 5.4" width="65%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-fig-5-5.png" alt="Mastering Metrics Figure 5.5" title="Mastering Metrics Figure 5.5" width="65%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-fig-5-6.png" alt="Mastering Metrics Figure 5.6" title="Mastering Metrics Figure 5.6" width="65%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-5.large[What happened to confounding??]
+
+.box-5.large[Now we're only looking&lt;br&gt;at just two "confounders"?]
+
+???
+
+The parallel trends assumption takes care of that
+
+---
+
+.box-5.medium[Is it reasonable to conduct&lt;br&gt;sensitivity analysis when working&lt;br&gt;with diff in diff?]
+
+---
+
+.box-5.large[How do we play with time&lt;br&gt;to check for parallel trends?]
+
+---
+
+.box-5.large[What about this&lt;br&gt;staggered treatment stuff?]
+
+.box-inv-5[[See this](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
+
+???
+
+This is good for ethical reasons!
+
+Blog post
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

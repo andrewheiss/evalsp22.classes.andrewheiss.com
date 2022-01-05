@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 12: IV</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-11-08" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 12
+
+.class-info[
+
+**November 8, 2021**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-5.medium[Quick R stuff]
+
+--
+
+.box-3.medium[Exam and final project stuff]
+
+--
+
+.box-2.medium[IV questions]
+
+--
+
+.box-6.medium[Fuzzy RDD fun times]
+
+--
+
+.box-1.medium[IV fun times]
+
+---
+
+layout: false
+name: r-stuff
+class: center middle section-title section-title-5 animated fadeIn
+
+# Quick R stuff
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.large[Why does R care about capitalization?]
+
+---
+
+.box-5.large[Why can't we use `rdrobust()`&lt;br&gt;with `tidy()` or `modelsummary()`?]
+
+---
+
+layout: false
+name: exam-final
+class: center middle section-title section-title-3 animated fadeIn
+
+# Exam and&lt;br&gt;final project stuff
+
+---
+
+layout: true
+class: middle
+
+---
+
+layout: false
+name: iv
+class: center middle section-title section-title-2 animated fadeIn
+
+# IV questions
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.medium[Is there like a “bank” of good IVs?&lt;br&gt;Finding the right IV seems like&lt;br&gt;taking a bunny out of a magician’s hat.]
+
+---
+
+.box-2.medium[What's really the point of doing IV if&lt;br&gt;finding instruments is so difficult and&lt;br&gt;easy to mess up?]
+
+.box-2.large[Why even bother?]
+
+---
+
+.box-2.medium[Can we really ignore defiers?]
+
+.box-2[I definitely think there are people who would do things&lt;br&gt;like tear down all existing bed nets out of spite.]
+
+---
+
+.box-2.large[Why do we care about ITT?]
+
+???
+
+ITT - treatment group = people assigned to treatment, not people who necessarily did it
+Provides causal effect of the policy (or assignment to policy), not really the causal effect of a specific treatment
+
+Fixes attrition issues! If people drop out of the study (or die), the ATE will be wrong. Look at the ITT and you’ll see the effect of assignment. BUT you can’t use ITT as the actual causal effect of the treatment!
+
+If you use treatment status as an instrument in 2SLS, though, you can get the complier ATE of the *treatment* (not just the assignment
+
+---
+
+.box-2.medium[How ethical is randomized promotion&lt;br&gt;for universal programs?]
+
+---
+
+.box-2.medium[Do we only have to worry about compliance&lt;br&gt;issues if the treatment is given to individuals?&lt;br&gt;What about corporations?]
+
+---
+
+.box-2.medium[When we say "local", as in LATE,&lt;br&gt;does local just mean that we're only talking about the specific groups treated?&lt;br&gt;And that's why it's not very generalizable?]
+
+---
+
+layout: false
+name: fuzzy-rdd
+class: center middle section-title section-title-6 animated fadeIn
+
+# Fuzzy RDD fun times
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.large[The real world is not sharp!]
+
+---
+
+layout: false
+name: iv
+class: center middle section-title section-title-1 animated fadeIn
+
+# IV fun times
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

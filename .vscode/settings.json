@@ -1,0 +1,20 @@
+{
+    "cSpell.enabled": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/renv/library": true,
+        "**/renv/local": true,
+        "**/renv/staging": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "files.watcherExclude": {
+        "**/renv/library": true,
+        "**/renv/local": true,
+        "**/renv/staging": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true
+    }
+}

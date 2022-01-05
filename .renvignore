@@ -1,0 +1,5 @@
+# Ignore stuff in standalone projects
+static/projects
+
+# Ignore site output
+public/

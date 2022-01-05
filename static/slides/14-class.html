@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 14: Fake data, ethics, and curiosity</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2022-01-05" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 14
+
+.class-info[
+
+**November 29, 2021**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-5.medium[Control variables and confounding]
+
+--
+
+.box-3.medium[Ethics + pre-analysis plans]
+
+--
+
+.box-2.medium[Sharing your stuff]
+
+--
+
+.box-6.medium[Simulating data]
+
+---
+
+layout: false
+name: controls-confounding
+class: center middle section-title section-title-5 animated fadeIn
+
+# Control variables&lt;br&gt;and confounding
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.less-medium[Why do we teach stats with the idea of throwing&lt;br&gt;in a bunch of control variables if that's&lt;br&gt;really not the best way to evaluate impact?]
+
+.box-5.less-medium[What is the point of using control variables&lt;br&gt;if they aren't going to be interpreted?&lt;br&gt;&lt;br&gt;When do we or when do we not interpret our controls?]
+
+---
+
+.box-5.large[How can you NOT have unobserved confounders unless you're doing a laboratory study where you can control everything?]
+
+---
+
+.box-5.medium[Design-based inference seems easier since&lt;br&gt;there's no unobserved confounding?&lt;br&gt;&lt;br&gt;Why don't we just do that all the time?]
+
+???
+
+Yeah, but you have to discover weird situations. Like WWII submarine thing!
+
+- https://braddelong.substack.com/p/podcast-hexapodia-is-e-key-insight-331
+-  Matthew Suandi, "Promoting to Opportunity: Evidence and Implications from the U.S. Submarine Service" - https://are.berkeley.edu/sites/are.berkeley.edu/files/job-candidates/paper/MatthewSuandi_JMP_Nov_21_Berkeley.pdf
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/14-class/torpedo.png" alt="WWII torpedo" title="WWII torpedo" width="70%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+Via &lt;https://braddelong.substack.com/p/podcast-hexapodia-is-e-key-insight-331&gt;:
+
+- In the early stages of the Pacific War, whether a US submarine-launched torpedo exploded was a matter of luck.
+- If a submarine captain had an enlisted man marked out for promotion, those promotions happened much more often if the submarine returned from its cruise having succeeded in sinking ships.
+- Those promoted because they happened to be on lucky submarines with torpedoes that exploded lived 2.4 years longer than their counterparts who happened to be on unlucky submarines and were not promoted.
+- Those promoted because they happened to be on lucky submarines with torpedoes that exploded are recorded as having a last known address in a zip code with housing prices higher by 7 percentiles than their counterparts who happened to be on unlucky submarines and were not promoted.
+- Early promotion to a job with more responsibility and scope—at least in the WWII-era USN—shapes your life to a remarkable degree by giving you scope to develop and exercise your talents.
+- If the WWII-era USN is typical, we waste huge amounts of human potential by not giving people workplace opportunities to show what they can learn to do.
+- Equality isn’t just about money: it is about scope for action, about developing and exercising talents, and about receiving external validation.
+- A good society would give people much more opportunity to discover how big a deal they are and can become, and remind them of this at every opportunity.
+
+---
+
+layout: false
+name: ethics
+class: center middle section-title section-title-3 animated fadeIn
+
+# Ethics +&lt;br&gt;pre-analysis plans
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-3.medium[Do people really provide all their code&lt;br&gt;and analysis in advance?&lt;br&gt;What if you realize you made a mistake&lt;br&gt;or want to explore something later?]
+
+.box-3.medium[Does pre-registration kill&lt;br&gt;creativity and "ah-ha" moments?]
+
+---
+
+.box-3.medium[[Example of confirmatory vs.&lt;br&gt;exploratory preregistration](https://osf.io/hsbyd)]
+
+.box-3.medium[[Standard operating procedures](https://github.com/acoppock/Green-Lab-SOP)]
+
+---
+
+layout: false
+name: sharing
+class: center middle section-title section-title-2 animated fadeIn
+
+# Sharing your stuff
+
+---
+
+class: middle
+
+.box-2.large[What can we put&lt;br&gt;on our resumes now?]
+
+---
+
+class: middle
+
+.box-2.large[Can I really just post R stuff&lt;br&gt;on a website or on Twitter?]
+
+.box-2.large[It seems like that's what&lt;br&gt;the experts do, not me!]
+
+.center.small[[(Public work)](https://evalsp22.classes.andrewheiss.com/slides/14-slides.html#133)]
+
+---
+
+class: title title-2
+
+# Websites for sharing R stuff
+
+.box-inv-2[Super easiest (but least flexible): [RPubs](https://rpubs.com/)]
+
+--
+
+.box-inv-2[Easiest (but less flexible): [R Markdown websites](https://rmarkdown.rstudio.com/lesson-13.html)]
+
+.box-2.small[[Example](https://stats.andrewheiss.com/who-cares-about-crackdowns/); [example](https://talks.andrewheiss.com/2021-seacen/)]
+
+--
+
+.box-inv-2.sp-before[Medium-est: [Distill](https://rstudio.github.io/distill/)]
+
+.box-2.small[[Example](https://www.pipinghotdata.com/)]
+
+--
+
+.box-inv-2.sp-before[Hardest (but most flexible): [Blogdown](https://pkgs.rstudio.com/blogdown/)]
+
+.box-2.small[[Example](https://evalsp22.classes.andrewheiss.com/); [example](https://www.andrewheiss.com/)]
+
+---
+
+layout: false
+name: fake-data
+class: center middle section-title section-title-6 animated fadeIn
+
+# Simulating data
+
+---
+
+class: title title-6
+
+# Basic process
+
+.box-inv-6.medium[1: Create individual columns]
+
+.box-inv-6.medium[2: Connect columns]
+
+.box-inv-6.medium[3: Polish columns]
+
+--
+
+.box-6.large.sp-before[Iterate. Iterate so so much.]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

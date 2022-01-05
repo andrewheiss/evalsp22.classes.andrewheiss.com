@@ -1,0 +1,217 @@
+---
+title: "Class 7: RCTs, adjustment, and sensitivity"
+author: "Andrew Heiss"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: "libs"
+    chakra: "libs/remark-latest.min.js"
+    css: ["default", "css/ath-slides.css", "css/ath-inferno-fonts.css", "css/animate.css"]
+    seal: false
+    anchor_sections: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = "center")
+```
+
+```{r packages-data, include=FALSE}
+library(tidyverse)
+library(ggdag)
+library(palmerpenguins)
+library(modelsummary)
+```
+
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+```
+
+class: center middle main-title section-title-3
+
+# In-person<br>session 7
+
+.class-info[
+
+**October 4, 2021**
+
+.light[PMAP 8521: Program evaluation<br>
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-3.medium.sp-after-half[FAQs]
+
+--
+
+.box-2.medium.sp-after-half[RCTs]
+
+--
+
+.box-4.medium.sp-after-half[Matching and IPW]
+
+--
+
+.box-6.medium.sp-after-half[Sensitivity analysis]
+
+---
+
+layout: false
+name: faqs
+class: center middle section-title section-title-3 animated fadeIn
+
+# FAQs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-3.large[Are there really studies linking PhD students and mozzarella cheese consumption?]
+
+.box-3.large[[No, but there's this website](https://www.tylervigen.com/spurious-correlations)]
+
+---
+
+.box-3.large[Randomness]
+
+.box-3.medium[How do we use random.org for things in R?]
+
+---
+
+layout: false
+name: rcts
+class: center middle section-title section-title-2 animated fadeIn
+
+# RCTs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.large[RCTs and ethics]
+
+???
+
+Why are RCTs sometimes unethical?
+
+How exactly do drug trials work? Like in TV shows, when they tell someone that there's an experimental drug that could save their life, is there a 50% chance that it will be a placebo since there would need to be a control group and otherwise there would be self selection?
+
+---
+
+.box-2.large[Do we really not control<br>for things in an RCT?]
+
+---
+
+.box-2.large[Randomness and arrow deletion]
+
+???
+
+> Since every arrow should reflect a causal relationship, it’s not possible for there to be an arrow pointing from a covariate to the allocation, since it is done at random. With no arrow pointing to the exposure, there can be no unblocked backdoor path, and thus no confounding. Voilà. <https://statsepi.substack.com/p/out-of-balance>
+
+---
+
+.box-2.large[Balance tests]
+
+---
+
+???
+
+Stratified randomization is okay
+
+<https://twitter.com/ChelseaParlett/status/1370798053691514882>
+
+---
+
+.center[
+<figure>
+  <img src="img/07-class/chelsea-first.png" alt="Balance tests and The Good Place" title="Balance tests and The Good Place" width="55%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/07-class/chelsea-second.png" alt="Balance tests and The Good Place" title="Balance tests and The Good Place" width="85%">
+</figure>
+]
+
+
+---
+
+layout: false
+name: matching-ipw
+class: center middle section-title section-title-4 animated fadeIn
+
+# Matching and IPW
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-4.large[Can you walk through an example of<br>IPW and matching in class?]
+
+---
+
+.box-4.large[Why not just control for confounders<br>instead of doing the whole matching/IPW dance?]
+
+---
+
+.box-4.large[Which should we use?<br>Matching or IPW?]
+
+---
+
+.box-4.large[Are weights ever problematic?]
+
+???
+
+Since there's no uniform scale for inverse probability weight scales, how do you decide what's "weird?" Just by comparing to other points in the data set? Or does it not really matter since it's just a step in the overall calculations?
+
+By weighing things when there's not enough in the sample, doesn't that heavily distort the information? In the last class you had mentioned that there was a study where there was only one black man and his weigh in the survey was significantly weighted, but that is just the opinion of one person?  
+
+---
+
+layout: false
+name: sensitivity
+class: center middle section-title section-title-6 animated fadeIn
+
+# Sensitivity analysis
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.medium.sp-after[How do we know when we've got<br>the right confounders in our DAG?]
+
+.box-6.medium[How do we solve the fact that<br>we have so many unknowns in our DAG?]

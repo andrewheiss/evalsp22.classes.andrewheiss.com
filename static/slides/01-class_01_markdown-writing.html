@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Markdown and universal writing</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-08-23" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-4
+
+# Markdown and&lt;br&gt;universal writing
+
+---
+
+class: middle
+
+.box-4.huge[Writing up research is a&lt;br&gt;complicated, messy process!]
+
+---
+
+layout: true
+class: title title-4
+
+---
+
+# Itty bitty pieces
+
+--
+
+.center.float-left[.box-inv-4[Data] .box-inv-4[Statistical results]]
+
+--
+
+.center.float-left[.box-inv-4[Fieldwork] .box-inv-4[Interviews] .box-inv-4[Analysis]]
+
+--
+
+.center.float-left[.box-inv-4[Figures] .box-inv-4[Images] .box-inv-4[Tables]]
+
+--
+
+.box-inv-4[Citations]
+
+--
+
+.box-4.sp-after[Your actual words]
+
+--
+
+.box-inv-4.medium[Each of these comes from a different place!]
+
+???
+
+Spending a full day of writing in the mountains or the beach with a notebook sounds cool, but it's really infeasible with any sort of academic writing - too much going on!
+
+---
+
+# Two general approaches for this mess
+
+--
+
+.box-inv-4.medium[The **Office** model]
+
+.box-4.sp-after[Put everything in one document]
+
+--
+
+.box-inv-4.medium.sp-before[The **Engineering** model]
+
+.box-4[Embrace the bittiness and compile it all at the end]
+
+???
+
+https://plain-text.co/index.html#introduction
+
+---
+
+# The Office model
+
+.pull-left[
+.box-4[Everything lives in&lt;br&gt;one `.docx` file]
+
+.box-inv-4.small[Drag images in]
+
+.box-inv-4.small[Copy/paste stats from R or Stata]
+
+.box-inv-4.small[Connect Word to Zotero or Endnote]
+
+.box-inv-4.small[Track versions with filenames: `ms.docx`, `ms2_final.docx`, `ms2_final_final.docx`]
+
+]
+
+.pull-right[
+
+.box-4[Final output = `.docx` file]
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/office-model.png" alt="The Office model" title="The Office model" width="100%"&gt;
+&lt;/figure&gt;
+
+]
+
+---
+
+# The Engineering model
+
+.pull-left[
+.box-4[Everything lives separately and is combined in the end]
+
+.box-inv-4.small[Type text in a plain text document]
+
+.box-inv-4.small[Import images automatically]
+
+.box-inv-4.small[Import stats automatically from&lt;br&gt;R scripts (`.R` or `.Rmd`) or `.do` files]
+
+.box-inv-4.small[Store citations in reference manager]
+
+.box-inv-4.small[Track versions with git]
+]
+
+.pull-right[
+
+.box-4[Final output = whatever you want (Word, PDF, HTML)]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/engineering-model.png" alt="The Engineering model" title="The Engineering model" width="50%"&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/md-outputs.png" alt="Markdown outputs" title="Markdown outputs" width="100%"&gt;
+&lt;/figure&gt;
+]
+]
+
+---
+
+# No one right way!
+
+--
+
+.box-inv-4[The Office model can be clunky and you'll&lt;br&gt; inevitably forget to update figures, tables, results, etc.]
+
+--
+
+.box-inv-4.small[**BUT**]
+
+--
+
+.box-4.medium[The whole world runs on Word]
+
+--
+
+.box-inv-4.small[Even if you're a strict Engineering person,&lt;br&gt;you'll still collaborate with Office people!]
+
+--
+
+.box-inv-4.small[Coauthors will work in Word, advisers will give comments&lt;br&gt;and track changes in Word, journals will demand final Word files]
+
+---
+
+# Reproducibility
+
+--
+
+.box-inv-4[The Engineering model is definitely more fiddly]
+
+--
+
+.box-inv-4.small[**BUT**]
+
+--
+
+.box-4.medium[There's less cognitive load!]
+
+--
+
+.box-inv-4[No need to copy/paste new results,&lt;br&gt;add updated figures, reformat citation, etc.]
+
+--
+
+.box-inv-4[There's a record of everything you do!]
+
+--
+
+.box-inv-4[Your findings are reproducible by anyone (and yourself!)]
+
+---
+
+# Austerity and Excel
+
+.pull-left[
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/rr-abstract.png" alt="Reinhart and Rogoff abstract" title="Reinhart and Rogoff abstract" width="100%"&gt;
+&lt;/figure&gt;
+
+.box-inv-4[Debt:GDP ratio&lt;br&gt;90%+ → −0.1% growth]
+
+]
+
+--
+
+.pull-right.center[
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/path-to-prosperity.jpg" alt="The Path to Prosperity 2013 house budget" title="The Path to Prosperity 2013 house budget" width="65%"&gt;
+  &lt;figcaption&gt;Paul Ryan's 2013 House budget resolution&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+]
+
+???
+
+[2013 House Budget Resolution](https://republicans-budget.house.gov/uploadedfiles/pathtoprosperity2013.pdf)
+
+---
+
+# Austerity and Excel
+
+.pull-left.center[
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/thomas-herndon.jpg" alt="Thomas Herndon" title="Thomas Herndon" width="55%"&gt;
+  &lt;figcaption&gt;Thomas Herndon&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+]
+
+--
+
+.pull-right.center[
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/krugman-allowed.png" alt="Paul Krugman on Excel and reproducibility" title="Paul Krugman on Excel and reproducibility" width="100%"&gt;
+  &lt;figcaption&gt;From &lt;a href="https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html" target="_blank"&gt;Paul Krugman, "The Excel Depression"&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+]
+
+???
+
+[Paul Krugman on the reproducibility crisis](https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html)
+
+---
+
+# Austerity and Excel
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/rr-table1.png" alt="Reinhart Rogoff Table 1" title="Reinhart Rogoff Table 1" width="47%"&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.box-inv-4[Debt:GDP ratio = 90%+ → 2.2% growth (!!)]
+
+---
+
+# Genes and Excel
+
+.pull-left-3[
+.box-inv-4[Septin 2]
+]
+
+.pull-middle-3[
+.box-inv-4[Membrane-Associated Ring Finger (C3HC4) 1]
+]
+
+.pull-right-3[
+.box-inv-4[2310009E13]
+]
+
+--
+
+.center.sp-after[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/excel-numbers.png" alt="Numbers in Excel" title="Numbers in Excel" width="40%"&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.center[
+.box-4[20% of genetics papers between 2005–2015 (!!!)]
+]
+
+---
+
+# General guidelines
+
+.box-inv-4.medium[Don't touch the raw data]
+
+.box-4[If you do, explain what you did!]
+
+--
+
+.box-inv-4.medium[Use self-documenting, reproducible code]
+
+.box-4[The whole point of this Engineering model! (R Markdown!)]
+
+--
+
+.box-inv-4.medium[Use open formats]
+
+.box-4[Use .csv, not .xlsx]
+
+---
+
+# Engineering model in real life
+
+.pull-left.center[
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/airbnb.png" alt="Airbnb's data science tools" title="Airbnb's data science tools" width="100%"&gt;
+  &lt;figcaption&gt;&lt;a href="https://peerj.com/preprints/3182.pdf" target="_blank"&gt;Airbnb, ggplot, and rmarkdown&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+]
+
+--
+
+.pull-right.center[
+
+&amp;nbsp;
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/uk-long.png" alt="UK Statistics pipeline" title="UK Statistics pipeline" width="100%"&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/uk-short.png" alt="UK Statistics pipeline, short" title="UK Statistics pipeline, short" width="55%"&gt;
+  &lt;figcaption&gt;&lt;a href="https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"&gt;The UK's reproducible analysis pipeline&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+]
+
+???
+
+https://peerj.com/preprints/3182.pdf + https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/ 
+
+---
+
+# Overview of the process
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/process-simple.png" alt="Simplified process" title="Simplified process" width="90%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://plain-text.co/pull-it-together.html#pull-it-together
+
+---
+
+# Can get more complicated!
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/process-rmd.png" alt="Rmd process" title="Rmd process" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://plain-text.co/pull-it-together.html#pull-it-together
+
+---
+
+# Universal writing
+
+$$
+\LaTeX
+$$
+
+--
+
+.box-inv-4[You might know LaTeX—it's a scientific typesetting language]
+
+--
+
+.box-inv-4[Great! It's a way to do the Engineering model]
+
+--
+
+.box-inv-4.small[Run `latexmk` from the terminal or click the "compile" button in your TeX editor and you'll stitch together all your separate writing, tables, images, and citations]
+
+--
+
+.box-4.sp-before[HOWEVER, the world runs on `.docx`]
+
+--
+
+.box-4.small[There are ways to convert from `.tex` to `.docx`, but they're a pain]
+
+---
+
+# Three syntaxes
+
+.box-inv-4[If you want to be able to write in LaTeX, but also have HTML for a blog post later, and also have a Word file for a journal later, you have to learn (and write with!) all these!]
+
+--
+
+.small[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Format &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; LaTeX &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; HTML &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Word &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 13%; "&gt; Bold &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30%; "&gt; \textbf{Something} &lt;/td&gt;
+   &lt;td style="text-align:left;width: 37%; "&gt; &amp;lt;b&amp;gt;Something&amp;lt;/b&amp;gt; &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20%; "&gt; Click on stuff &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 13%; "&gt; Heading 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30%; "&gt; \subsection{Something} &lt;/td&gt;
+   &lt;td style="text-align:left;width: 37%; "&gt; &amp;lt;h2&amp;gt;Something&amp;lt;/h2&amp;gt; &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20%; "&gt; Click on stuff &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 13%; "&gt; Link &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30%; "&gt; \href{google.com}{Link} &lt;/td&gt;
+   &lt;td style="text-align:left;width: 37%; "&gt; &amp;lt;a href="google.com"&amp;gt;Link&amp;lt;/a&amp;gt; &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20%; "&gt; Click on stuff &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 13%; "&gt; Citation &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30%; "&gt; \cite{Heiss2020} &lt;/td&gt;
+   &lt;td style="text-align:left;width: 37%; "&gt; lolz &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20%; "&gt; lolz &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 13%; "&gt; Math &lt;/td&gt;
+   &lt;td style="text-align:left;width: 30%; "&gt; y = \beta_0 + \beta_1 x_1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 37%; "&gt; lolz &lt;/td&gt;
+   &lt;td style="text-align:left;width: 20%; "&gt; Equation editor &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+???
+
+
+---
+
+# Markdown + pandoc
+
+.box-inv-4.medium[Solution: Use a universal syntax]
+
+--
+
+.box-4[Write with one simplified syntax and&lt;br&gt;convert from that to whatever output you want.]
+
+--
+
+.pull-left[
+.smaller[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Format &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Markdown &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bold &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; **Something** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Heading 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ## Something &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Link text &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; [Link](google.com) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Citation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; @Heiss2020 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Math &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; y = \beta_0 + \beta_1 x_1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+]
+
+--
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/md-to-everything.png" alt="Markdown to everything" title="Markdown to everything" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+# pandoc
+
+.box-inv-4[The magic glue that makes this all work]
+
+--
+
+```sh
+# To HTML
+pandoc manuscript.md -o manuscript.html
+
+# To Word
+pandoc manuscript.md -o manuscript.docx
+
+# To PDF (through LaTeX)
+pandoc manuscript.md -o manuscript.pdf
+```
+
+---
+
+# Overview again
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01-class/00/process-simple.png" alt="Simplified process" title="Simplified process" width="90%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+# The Universal Markdown-based model
+
+--
+
+.box-inv-4.medium[Text editor]
+
+--
+
+.box-inv-4.medium[(R) Markdown]
+
+--
+
+.box-inv-4.medium[`pandoc`]
+
+--
+
+.box-inv-4[(Not in this class: Automation with Makefiles)]
+
+--
+
+.box-inv-4[(Not in this class: Version control with git/GitHub)]
+
+---
+
+layout: false
+class: middle
+
+.box-4.huge[Let's play with&lt;br&gt;Markdown and pandoc!]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

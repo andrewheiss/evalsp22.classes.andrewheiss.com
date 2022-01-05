@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 6: Validity + confidence intervals</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-09-29" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 6
+
+.class-info[
+
+**September 27, 2021**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-1.medium.sp-after-half[Exam 1]
+
+--
+
+.box-3.medium.sp-after-half[FAQs]
+
+--
+
+.box-5.medium.sp-after-half[Confidence intervals, credible intervals,&lt;br&gt;and a crash course on Bayesian statistics]
+
+---
+
+layout: false
+name: exam-1
+class: center middle section-title section-title-1 animated fadeIn
+
+# Exam 1
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-1.large[Tell us about Exam 1!]
+
+---
+
+layout: false
+name: faqs
+class: center middle section-title section-title-3 animated fadeIn
+
+# FAQs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-3.large[Are *p*-values really misinterpreted&lt;br&gt;in published research?]
+
+---
+
+.box-3.large[Power calculations and sample size]
+
+---
+
+.box-3.large[Won't we always be able to find&lt;br&gt;a significant effect if the&lt;br&gt;sample size is big enough?]
+
+---
+
+.box-3.large[Yes!]
+
+---
+
+.box-3.large[Do people actually post&lt;br&gt;their preregistrations?]
+
+---
+
+.box-3.large[Yes!]
+
+.box-3.medium[[OSF](https://osf.io/prereg/)]
+
+.box-inv-3[See [this](https://stats.andrewheiss.com/ngo-crackdowns-philanthropy/preregistration.html) and [this](https://stats.andrewheiss.com/why-donors-donate/preregistration.html) for examples]
+
+.box-3.medium[[As Predicted](https://aspredicted.org/)]
+
+.box-inv-3[See [this](https://aspredicted.org/blind.php?x=jr2hr3)]
+
+---
+
+.box-3.medium[Do you (yourself) always check the&lt;br&gt;statistical assumptions for each test?] 
+
+.box-inv-3.small[[Sometimes](https://stats.andrewheiss.com/donors-crackdowns-aid/03_h1-total-aid.html)]
+
+---
+
+.box-3.medium[Do you have any tips for identifying the&lt;br&gt;threats to validity in articles since&lt;br&gt;they're often not super clear?]
+
+---
+
+.box-3.medium[Using a control group of some kind&lt;br&gt;seems to be the common fix&lt;br&gt;for all of these issues.]
+
+.box-3.medium[What happens if you can't do that?&lt;br&gt;Is the study just a lost cause?]
+
+???
+
+That's the point of DAGs and quasi experiments; simulate having treatment and control groups
+
+---
+
+layout: false
+name: bayes
+class: center middle section-title section-title-5 animated fadeIn
+
+# Confidence intervals,&lt;br&gt;credible intervals,&lt;br&gt;and a crash course on Bayesian statistics
+
+---
+
+layout: true
+class: middle
+
+---
+
+&gt; So we've read how p-values aren't necessarily the most reliable. So... what now? I hear about this jazzy bayesian statistics, but who's teaching it, lol? I'm not sure if I met any students in my ddepartment that have been introduced to that type of stats. Maybe the Ph.D. nerds.
+
+---
+
+.box-5.large[It's nerd time.]
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# Imbens and p-values
+
+.box-inv-5[Nobody really cares about p-values]
+
+--
+
+.box-inv-5[Decision makers want to know&lt;br&gt;a number or a range of numbers—&lt;br&gt;some sort of effect and uncertainty]
+
+--
+
+.box-inv-5[Nobody cares how likely a number would be&lt;br&gt;in an imaginary null world!]
+
+---
+
+# Imbens's solution
+
+.box-inv-5[Report point estimates and some sort of range]
+
+&gt; It would be preferable if reporting standards emphasized confidence intervals or standard errors, and, even better, Bayesian posterior intervals.
+
+--
+
+.pull-left[
+.box-inv-5[Point estimate]
+
+.box-5.small[The single number you calculate&lt;br&gt;(mean, coefficient, etc.)]
+]
+
+.pull-right[
+.box-inv-5[Uncertainty]
+
+.box-5.small[A range of possible values]
+]
+
+---
+
+# Samples, populations, and truth
+
+.box-inv-5[Population parameter]
+
+---
+
+# Greek, Latin, and extra markings
+
+.box-inv-5[Statistics: use a sample to make inferences about a population]
+
+--
+
+.pull-left[
+.box-5[Greek]
+
+Letters like `\(\beta_1\)` are the ***truth***
+
+Letters with extra markings like `\(\hat{\beta_1}\)` are our ***estimate*** of the truth based on our sample
+]
+
+--
+
+.pull-right[
+.box-5[Latin]
+
+Letters like `\(X\)` are ***actual data*** from our sample
+
+Letters with extra markings like `\(\bar{X}\)` are ***calculations*** from our sample
+]
+
+---
+
+# Estimating truth
+
+.box-inv-5.sp-after[Data → Calculation → Estimate → Truth]
+
+--
+
+.pull-left[
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td class="cell-left"&gt;Data&lt;/td&gt;
+    &lt;td class="cell-center"&gt;\(X\)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="cell-left"&gt;Calculation&amp;ensp;&lt;/td&gt;
+    &lt;td class="cell-center"&gt;\(\bar{X} = \frac{\sum{X}}{N}\)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="cell-left"&gt;Estimate&lt;/td&gt;
+    &lt;td class="cell-center"&gt;\(\hat{\mu}\)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="cell-left"&gt;Truth&lt;/td&gt;
+    &lt;td class="cell-center"&gt;\(\mu\)&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+]
+
+--
+
+.pull-right[
+$$
+\bar{X} = \hat{\mu}
+$$
+
+$$
+X \rightarrow \bar{X} \rightarrow \hat{\mu} \xrightarrow{\text{🤞 hopefully 🤞}} \mu
+$$
+]
+
+---
+
+# Population parameter
+
+.box-inv-5.large[Truth = Greek letter]
+
+.box-5[An single unknown number that is true for the entire population]
+
+--
+
+.box-inv-5.small[Proportion of left-handed students at GSU]
+
+.box-inv-5.small[Median rent of apartments in NYC]
+
+.box-inv-5.small[Proportion of red M&amp;Ms produced in a factory]
+
+.box-inv-5.small[ATE of your program]
+
+---
+
+# Samples and estimates
+
+.box-inv-5.medium[We take a sample and make a guess] 
+
+--
+
+.box-5[This single value is a *point estimate*]
+
+.box-5.small[(This is the Greek letter with a hat)]
+
+---
+
+# Variability
+
+.box-inv-5.medium[You have an estimate, but how different might that&lt;br&gt;estimate be if you take another sample?]
+
+---
+
+# Left-handedness
+
+.box-inv-5.medium[You take a random sample of&lt;br&gt;50 GSU students and 5 are left-handed.]
+
+--
+
+.box-5.less-medium[If you take a different random sample of 50 GSU students, how many would you expect to be left-handed?]
+
+--
+
+.box-5[3 are left-handed. Is that surprising?]
+
+--
+
+.box-5[40 are left-handed. Is that surprising?]
+
+---
+
+# Nets and confidence intervals
+
+.box-inv-5.medium[How confident are we that the sample&lt;br&gt;picked up the population parameter?]
+
+--
+
+.box-inv-5.medium[Confidence interval is a net]
+
+--
+
+.box-5[We can be X% confident that our net is&lt;br&gt;picking up that population parameter]
+
+.box-inv-5.small[If we took 100 samples, at least 95 of them would have the&lt;br&gt;true population parameter in their 95% confidence intervals]
+
+---
+
+layout: false
+
+&gt; A city manager wants to know the true average property value of single-value homes in her city. She takes a random sample of 200 houses and builds a 95% confidence interval. The interval is ($180,000, $300,000).
+
+--
+
+.box-5[We're 95% confident that the&lt;br&gt;interval ($180,000, $300,000)&lt;br&gt;captured the true mean value]
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# WARNING
+
+.box-inv-5.medium[It is way too tempting to say &lt;br&gt;“We’re 95% sure that the&lt;br&gt;population parameter is X”]
+
+--
+
+.box-5[People do this all the time! People with PhDs!]
+
+--
+
+.box-5[YOU will try to do this too]
+
+???
+
+OpenIntro Stats p. 186
+
+First, notice that the statements are always about the population parameter, which considers all American adults for the energy polls or all New York adults for the quarantine poll.
+
+We also avoided another common mistake: incorrect language might try to describe the confidence interval as capturing the population parameter with a certain probability. Making a probability interpretation is a common error: while it might be useful to think of it as a probability, the confidence level only quantifies how plausible it is that the parameter is in the given interval.
+
+Another important consideration of confidence intervals is that they are only about the population parameter. A confidence interval says nothing about individual observations or point estimates. Confidence intervals only provide a plausible range for population parameters.
+
+---
+
+# Nets
+
+.box-inv-5.medium[If you took lots of samples,&lt;br&gt;95% of their confidence intervals&lt;br&gt;would have the single true value in them]
+
+---
+
+layout: false
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/reliable-se-1.png" alt="Lots of confidence intervals" title="Lots of confidence intervals" width="80%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# Frequentism
+
+.box-inv-5.medium[This kind of statistics is called "frequentism"]
+
+.box-5[The population parameter is fixed and singular&lt;br&gt;while the data can vary]
+
+.box-5[You can do an experiment over and over again;&lt;br&gt;take more and more samples and polls]
+
+---
+
+# Frequentist confidence intervals
+
+.box-inv-5.medium.sp-before["We are 95% confident that this net&lt;br&gt;captures the true population parameter"]
+
+--
+
+.box-5.medium.sp-before[~~"There's a 95% chance that the&lt;br&gt;true value falls in this range"~~]
+
+---
+
+layout: false
+class: middle
+
+.box-5.huge[Weekends and&lt;br&gt;restaurant scores]
+
+---
+
+layout: false
+class: middle
+
+.box-5.huge[Math with computers]
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# Bayesian statistics
+
+.pull-left[
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/bayes.jpg" alt="Thomas Bayes" title="Thomas Bayes" width="80%"&gt;
+  &lt;figcaption&gt;Rev. Thomas Bayes&lt;/figcaption&gt;
+&lt;/figure&gt;
+]
+]
+
+.pull-right.small[
+
+&amp;nbsp;
+
+`$$\color{orange}{P(\text{H} \mid \text{E})} = \frac{\color{red}{P(\text{H})} \times\color{blue}{P(\text{E} \mid \text{H})}}{\color{black}{P(\text{E})}}$$`
+
+]
+
+
+---
+
+# Bayesianism in WWII
+
+.pull-left[
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/turing.jpg" alt="Alan Turing" title="Alan Turing" width="65%"&gt;
+  &lt;figcaption&gt;Alan Turing&lt;/figcaption&gt;
+&lt;/figure&gt;
+]
+]
+
+.pull-right[
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/enigma.jpg" alt="Enigma machine" title="Enigma machine" width="85%"&gt;
+  &lt;figcaption&gt;An enigma machine&lt;/figcaption&gt;
+&lt;/figure&gt;
+]
+]
+
+---
+
+layout: false
+
+&lt;iframe width="100%" height="600" src="https://www.youtube.com/embed/HZGCoVF3YvM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# Bayesian Covid testing
+
+.box-inv-5.medium[You just got a negative Covid test.&lt;br&gt;What's the probability it's right?]
+
+--
+
+.pull-left-3[
+.box-5.medium[Specificity]
+
+.box-inv-5.small[True negative rate]
+]
+
+.pull-middle-3[
+.box-5.medium[Sensitivity]
+
+.box-inv-5.small[True positive rate]
+]
+
+.pull-right-3[
+.box-5.medium[Prevalence]
+
+.box-inv-5.small[How common it is]
+]
+
+???
+
+- Antigen and PCR tests are highly specific: &lt;https://medical.mit.edu/faqs/faq-testing-covid-19&gt; - almost never gives a false positive - &lt;https://www.fda.gov/medical-devices/letters-health-care-providers/potential-false-positive-results-antigen-tests-rapid-detection-sars-cov-2-letter-clinical-laboratory&gt;
+- They are not equally sensitive
+
+&gt; The RT-PCR test is highly specific. That is, if someone truly doesn’t have the infection, there is a high probability the test will come out negative. The test is also highly sensitive. So, if someone truly is infected with the virus, there is a high probability the test will come back positive. (&lt;https://theconversation.com/why-are-some-covid-test-results-false-positives-and-how-common-are-they-162163&gt;)
+
+- Rice and false positives (&lt;https://www.houstonchronicle.com/news/houston-texas/education/article/Rice-officials-say-COVID-19-testing-provider-16408580.php&gt;) 
+
+---
+
+layout: true
+class: middle
+
+---
+
+`$$\color{orange}{P(\text{H} \mid \text{E})} = \frac{\color{red}{P(\text{H})} \times\color{blue}{P(\text{E} \mid \text{H})}}{\color{black}{P(\text{E})}}$$`
+
+&amp;nbsp;
+
+$$
+\color{orange}{P(\text{Hypothesis} \mid \text{Evidence})} = 
+$$
+
+$$
+\frac{
+\color{red}{P(\text{Hypothesis})} \times
+\color{blue}{P(\text{Evidence} \mid \text{Hypothesis})}
+}{
+\color{black}{P(\text{Evidence})}
+}
+$$
+
+---
+
+`$$\color{orange}{P(\text{H} \mid \text{E})} = \frac{\color{red}{P(\text{H})} \times\color{blue}{P(\text{E} \mid \text{H})}}{\color{black}{P(\text{E})}}$$`
+
+&amp;nbsp;
+
+$$
+\color{orange}{P(\text{Disease} \mid \text{Negative})} = 
+$$
+
+$$
+\frac{
+\color{red}{P(\text{Disease})} \times
+\color{blue}{P(\text{Negative} \mid \text{Disease})}
+}{
+\color{black}{P(\text{Negative})}
+}
+$$
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/step1.png" alt="Bayesian formulas" title="Bayesian formulas" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/step2.png" alt="Bayesian formulas" title="Bayesian formulas" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-5.huge[Bayesian statistics and&lt;br&gt;more complex questions]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/06-class/step3.png" alt="Bayesian formulas" title="Bayesian formulas" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-5.huge[But the math is too hard!]
+
+.box-inv-5[So we simulate!]
+
+.box-inv-5.small[(Monte Carlo Markov Chains, or MCMC)]
+
+---
+
+.box-5.huge[Weekends and&lt;br&gt;restaurant scores again]
+
+---
+
+layout: true
+class: title title-5
+
+---
+
+# Bayesianism and parameters
+
+.box-inv-5.medium.sp-after[In the world of frequentism,&lt;br&gt;there's a fixed population parameter&lt;br&gt;and the data can hypothetically vary]
+
+--
+
+.box-inv-5.medium[In the world of Bayesianism,&lt;br&gt;the data is fixed (you collected it just once!)&lt;br&gt;and the population parameter can vary]
+
+???
+
+In frequentism land, the parameter is fixed and singular and the data can vary - you can do an experiment over and over again, take more and more samples and polls
+
+In Bayes land, the data is fixed (you collected it, that's it), and the parameter can vary
+
+---
+
+# Bayesian credible intervals
+
+.box-5.small[(AKA posterior intervals)]
+
+.box-inv-5.medium.sp-before["Given the data, there is a 95% probability&lt;br&gt;that the true population parameter&lt;br&gt;falls in the credible interval"]
+
+???
+
+&gt; a Bayesian statistician would say “given our observed data, there is a 95% probability that the true value of θ falls within the credible region” while a Frequentist statistician would say “there is a 95% probability that when I compute a confidence interval from data of this sort, the true value of θ will fall within it”.
+(https://freakonometrics.hypotheses.org/18117)
+
+&gt; Note how this drastically improve the interpretability of the Bayesian interval compared to the frequentist one. Indeed, the Bayesian framework allows us to say “given the observed data, the effect has 95% probability of falling within this range”, compared to the less straightforward, frequentist alternative (the 95% Confidence* Interval) would be “there is a 95% probability that when computing a confidence interval from data of this sort, the effect falls within this range”.
+(https://easystats.github.io/bayestestR/articles/credible_interval.html)
+
+---
+
+# Intervals
+
+.pull-left[
+.box-inv-5.medium[Frequentism]
+
+.box-5[There's a 95% probability&lt;br&gt;that the range contains the true value]
+
+.box-5[Probability of the range]
+
+.box-inv-5[Few people naturally&lt;br&gt;think like this]
+]
+
+.pull-right[
+.box-inv-5.medium[Bayesianism]
+
+.box-5[There's a 95% probability&lt;br&gt;that the true value falls in this range]
+
+.box-5[Probability of the actual value]
+
+.box-inv-5[People *do* naturally&lt;br&gt;think like this!]
+]
+
+???
+
+There's a 95% probability that the range contains the true value (freq) - We are 95% confident that this net captures the true population parameter
+vs.
+There's a 95% probability that the the true value falls in this range (bayes)
+
+This is a minor linguistic difference but it actually matters a lot! With frequentism, you have a range of possible values - you don't really know the true parameter, but it's in that range somewhere. Could be at the very edge, could be in the middle. With Bayesianism, you focus on the parameter itself, which has a distribution around it. It could be on the edge, but is most likely in the middle
+
+Probability of range boundaries vs probability of parameter values
+
+Bayesian p-value = probability that it's greater than 0 - you can say that there's a 100% chance that the coefficient is not zero, no more null worlds!
+
+---
+
+# Thinking Bayesianly
+
+.box-inv-5.less-medium[We all think Bayesianly,&lt;br&gt;even if you've never heard of Bayesian stats]
+
+.box-5[Every time you look at a confidence interval, you inherently think that the parameter is around that value, but that's wrong!]
+
+--
+
+.box-inv-5.less-medium.sp-before[BUT Imbens cites research that&lt;br&gt;that's actually generally okay] 
+
+.box-5[Often credible intervals are super similar to confidence intervals]
+
+---
+
+layout: false
+class: middle
+
+.box-5.huge[Weekends and&lt;br&gt;restaurant scores&lt;br&gt;once more]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

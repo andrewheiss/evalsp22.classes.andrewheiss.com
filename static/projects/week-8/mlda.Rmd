@@ -1,0 +1,19 @@
+---
+title: "Effect of lowering the minimum legal drinking age on mortality"
+output: html_document
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(broom)
+library(fixest)
+library(tigris)
+
+# Mastering 'Metrics R code
+# - https://jrnold.github.io/masteringmetrics/
+# Original Stata file:
+# - http://masteringmetrics.com/wp-content/uploads/2015/01/deaths.dta
+# Original Stata .do file:
+# - http://masteringmetrics.com/wp-content/uploads/2015/01/analysis.do
+deaths_raw <- read_csv("data/deaths.csv")
+```

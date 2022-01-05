@@ -1,0 +1,190 @@
+---
+title: "Class 12: IV"
+author: "Andrew Heiss"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: "libs"
+    chakra: "libs/remark-latest.min.js"
+    css: ["default", "css/ath-slides.css", "css/ath-inferno-fonts.css", "css/animate.css"]
+    seal: false
+    anchor_sections: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = "center")
+```
+
+```{r packages-data, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(scales)
+```
+
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+```
+
+class: center middle main-title section-title-3
+
+# In-person<br>session 12
+
+.class-info[
+
+**November 8, 2021**
+
+.light[PMAP 8521: Program evaluation<br>
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-5.medium[Quick R stuff]
+
+--
+
+.box-3.medium[Exam and final project stuff]
+
+--
+
+.box-2.medium[IV questions]
+
+--
+
+.box-6.medium[Fuzzy RDD fun times]
+
+--
+
+.box-1.medium[IV fun times]
+
+---
+
+layout: false
+name: r-stuff
+class: center middle section-title section-title-5 animated fadeIn
+
+# Quick R stuff
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.large[Why does R care about capitalization?]
+
+---
+
+.box-5.large[Why can't we use `rdrobust()`<br>with `tidy()` or `modelsummary()`?]
+
+---
+
+layout: false
+name: exam-final
+class: center middle section-title section-title-3 animated fadeIn
+
+# Exam and<br>final project stuff
+
+---
+
+layout: true
+class: middle
+
+---
+
+layout: false
+name: iv
+class: center middle section-title section-title-2 animated fadeIn
+
+# IV questions
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.medium[Is there like a “bank” of good IVs?<br>Finding the right IV seems like<br>taking a bunny out of a magician’s hat.]
+
+---
+
+.box-2.medium[What's really the point of doing IV if<br>finding instruments is so difficult and<br>easy to mess up?]
+
+.box-2.large[Why even bother?]
+
+---
+
+.box-2.medium[Can we really ignore defiers?]
+
+.box-2[I definitely think there are people who would do things<br>like tear down all existing bed nets out of spite.]
+
+---
+
+.box-2.large[Why do we care about ITT?]
+
+???
+
+ITT - treatment group = people assigned to treatment, not people who necessarily did it
+Provides causal effect of the policy (or assignment to policy), not really the causal effect of a specific treatment
+
+Fixes attrition issues! If people drop out of the study (or die), the ATE will be wrong. Look at the ITT and you’ll see the effect of assignment. BUT you can’t use ITT as the actual causal effect of the treatment!
+
+If you use treatment status as an instrument in 2SLS, though, you can get the complier ATE of the *treatment* (not just the assignment
+
+---
+
+.box-2.medium[How ethical is randomized promotion<br>for universal programs?]
+
+---
+
+.box-2.medium[Do we only have to worry about compliance<br>issues if the treatment is given to individuals?<br>What about corporations?]
+
+---
+
+.box-2.medium[When we say "local", as in LATE,<br>does local just mean that we're only talking about the specific groups treated?<br>And that's why it's not very generalizable?]
+
+---
+
+layout: false
+name: fuzzy-rdd
+class: center middle section-title section-title-6 animated fadeIn
+
+# Fuzzy RDD fun times
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.large[The real world is not sharp!]
+
+---
+
+layout: false
+name: iv
+class: center middle section-title section-title-1 animated fadeIn
+
+# IV fun times

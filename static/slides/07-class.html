@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 7: RCTs, adjustment, and sensitivity</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-10-18" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 7
+
+.class-info[
+
+**October 4, 2021**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-3.medium.sp-after-half[FAQs]
+
+--
+
+.box-2.medium.sp-after-half[RCTs]
+
+--
+
+.box-4.medium.sp-after-half[Matching and IPW]
+
+--
+
+.box-6.medium.sp-after-half[Sensitivity analysis]
+
+---
+
+layout: false
+name: faqs
+class: center middle section-title section-title-3 animated fadeIn
+
+# FAQs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-3.large[Are there really studies linking PhD students and mozzarella cheese consumption?]
+
+.box-3.large[[No, but there's this website](https://www.tylervigen.com/spurious-correlations)]
+
+---
+
+.box-3.large[Randomness]
+
+.box-3.medium[How do we use random.org for things in R?]
+
+---
+
+layout: false
+name: rcts
+class: center middle section-title section-title-2 animated fadeIn
+
+# RCTs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.large[RCTs and ethics]
+
+???
+
+Why are RCTs sometimes unethical?
+
+How exactly do drug trials work? Like in TV shows, when they tell someone that there's an experimental drug that could save their life, is there a 50% chance that it will be a placebo since there would need to be a control group and otherwise there would be self selection?
+
+---
+
+.box-2.large[Do we really not control&lt;br&gt;for things in an RCT?]
+
+---
+
+.box-2.large[Randomness and arrow deletion]
+
+???
+
+&gt; Since every arrow should reflect a causal relationship, it’s not possible for there to be an arrow pointing from a covariate to the allocation, since it is done at random. With no arrow pointing to the exposure, there can be no unblocked backdoor path, and thus no confounding. Voilà. &lt;https://statsepi.substack.com/p/out-of-balance&gt;
+
+---
+
+.box-2.large[Balance tests]
+
+---
+
+???
+
+Stratified randomization is okay
+
+&lt;https://twitter.com/ChelseaParlett/status/1370798053691514882&gt;
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/07-class/chelsea-first.png" alt="Balance tests and The Good Place" title="Balance tests and The Good Place" width="55%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/07-class/chelsea-second.png" alt="Balance tests and The Good Place" title="Balance tests and The Good Place" width="85%"&gt;
+&lt;/figure&gt;
+]
+
+
+---
+
+layout: false
+name: matching-ipw
+class: center middle section-title section-title-4 animated fadeIn
+
+# Matching and IPW
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-4.large[Can you walk through an example of&lt;br&gt;IPW and matching in class?]
+
+---
+
+.box-4.large[Why not just control for confounders&lt;br&gt;instead of doing the whole matching/IPW dance?]
+
+---
+
+.box-4.large[Which should we use?&lt;br&gt;Matching or IPW?]
+
+---
+
+.box-4.large[Are weights ever problematic?]
+
+???
+
+Since there's no uniform scale for inverse probability weight scales, how do you decide what's "weird?" Just by comparing to other points in the data set? Or does it not really matter since it's just a step in the overall calculations?
+
+By weighing things when there's not enough in the sample, doesn't that heavily distort the information? In the last class you had mentioned that there was a study where there was only one black man and his weigh in the survey was significantly weighted, but that is just the opinion of one person?  
+
+---
+
+layout: false
+name: sensitivity
+class: center middle section-title section-title-6 animated fadeIn
+
+# Sensitivity analysis
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.medium.sp-after[How do we know when we've got&lt;br&gt;the right confounders in our DAG?]
+
+.box-6.medium[How do we solve the fact that&lt;br&gt;we have so many unknowns in our DAG?]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

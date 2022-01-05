@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 5: DAGs, do()ing stuff, and measuring stuff</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2021-09-20" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 5
+
+.class-info[
+
+**September 20, 2021**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-5.medium.sp-after-half[Colliders]
+
+--
+
+.box-2.medium.sp-after-half[Potential outcomes vs. do() notation]
+
+--
+
+.box-4.medium.sp-after-half[do-calculus, adjustment, and CATEs]
+
+--
+
+.box-6.medium.sp-after-half[Logic models, DAGs, and measurement]
+
+---
+
+layout: false
+name: colliders
+class: center middle section-title section-title-5 animated fadeIn
+
+# Colliders
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.less-medium.sp-after[How do I know which of these is which?]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/dag-associations.png" alt="DAG associations" title="DAG associations" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+class: middle
+
+.box-5.medium[But what does that mean,&lt;br&gt;"opening a backdoor path"?]
+
+.box-5.medium[How does statistical association&lt;br&gt;get passed through paths?]
+
+---
+
+class: middle
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;img src="05-class_files/figure-html/confounding-dag-alone-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+class: middle
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;img src="05-class_files/figure-html/mediating-dag-alone-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+class: middle
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;img src="05-class_files/figure-html/colliding-dag-alone-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+layout: true
+class: middle
+
+---
+
+d-separation
+
+---
+
+.box-5.medium[How can you be sure&lt;br&gt;you include everything in a DAG?]
+
+.box-5.medium[Is there a rule of thumb&lt;br&gt;for the number of nodes?]
+
+---
+
+.box-5.large[How exactly do colliders&lt;br&gt;mess up your results?]
+
+.box-5.medium[It looks like you can&lt;br&gt;still get the effect of X on Y]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/04-class/facebook.png" alt="Facebook collider" title="Facebook collider" width="55%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+&lt;https://www.businessinsider.com/facebook-sent-incomplete-misinformation-data-flawed-researchers-2021-9&gt;
+
+&lt;https://www.nytimes.com/live/2020/2020-election-misinformation-distortions#facebook-sent-flawed-data-to-misinformation-researchers&gt;
+
+---
+
+layout: false
+class: title title-5
+
+# Does niceness improve appearance?
+
+
+
+.pull-left[
+
+&lt;img src="05-class_files/figure-html/unnamed-chunk-1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="05-class_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: title title-5
+
+# Collider distorts the true effect!
+
+.pull-left[
+
+&lt;img src="05-class_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="05-class_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.box-5.large[Effect of race on police use of force&lt;br&gt;using administrative data]
+
+---
+
+.box-5.medium[Effect of race on police use of force&lt;br&gt;using administrative data]
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/05-class/klm-dag.png" alt="Use of force" title="Use of force" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="img/05-class/klm.png" alt="Use of force" title="Use of force" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+layout: false
+name: po-do
+class: center middle section-title section-title-2 animated fadeIn
+
+# Potential outcomes&lt;br&gt;vs. do() notation
+
+---
+
+layout: true
+class: title title-2
+
+---
+
+`$$\operatorname{E}(\cdot), \mathbf{E}(\cdot), \mathbb{E}(\cdot) \quad \text{vs.}\quad \operatorname{P}(\cdot)$$`
+
+---
+
+# Causal effects with potential outcomes
+
+$$
+`\begin{aligned}
+&amp; \textbf{Potential outcomes notation:} \\
+\delta\ =&amp; {\textstyle \frac{1}{n} \sum_{i=1}^n} Y_i (1) - Y_i (0) \\
+&amp; \\
+&amp; \text{or alternatively with } \textbf{E} \\
+\delta\ =&amp; \textbf{E} [Y_i (1) - Y_i (0)] \\
+\end{aligned}`
+$$
+
+---
+
+# Causal effects with do()
+
+$$
+`\begin{aligned}
+&amp; \textbf{Pearl notation:} \\
+\delta\ =&amp; \textbf{E}[Y_i \mid \operatorname{do}(X = 1) - Y_i \mid \operatorname{do}(X = 0)] \\
+&amp; \\
+&amp; \text{or more simply} \\
+\delta\ =&amp; \textbf{E} [Y_i \mid \operatorname{do}(X)] \\
+\end{aligned}`
+$$
+
+---
+
+layout: false
+class: middle
+
+---
+
+$$
+\delta \quad = \quad \textbf{E} [Y_i \mid \operatorname{do}(X)] \quad = \quad \textbf{E} [Y_i (1) - Y_i (0)]
+$$
+
+---
+
+.box-2.medium[We can't see this]
+
+`$$\textbf{E} [Y_i \mid \operatorname{do}(X)] \quad \text{or} \quad \textbf{E} [Y_i (1) - Y_i (0)]$$`
+
+.box-2.medium[So we find the average causal effect (ACE)]
+
+$$
+\hat{\delta} = \textbf{E} [Y_i \mid X = 1] - \textbf{E} [Y_i \mid X = 0]
+$$
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/cor-not-cause.png" alt="Correlation is not causation" title="Correlation is not causation" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+layout: false
+name: po-do
+class: center middle section-title section-title-4 animated fadeIn
+
+# do-calculus,&lt;br&gt;adjustment, and CATEs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-4.medium[
+How can you create a DAG/transform the expression and do all the backdoor adjustments to determine causality if you can't possibly think of all variables that may impact your outcome variable?
+]
+
+---
+
+.box-4.medium[Where can we learn more about *do*-calculus?]
+
+.box-inv-4[[Here!](https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/)]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/do-calculus-math.png" alt="Do-calculus" title="Do-calculus" width="70%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-4.medium[Adjusting for backdoor confounding]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/backdoor.png" alt="Backdoor adjustment" title="Backdoor adjustment" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+
+---
+
+.box-4.medium[Adjusting for frontdoor confounding]
+
+---
+
+.box-4.medium[When you're making groups for CATE, how do you decide what groups to put people in?]
+
+---
+
+layout: false
+name: logic-dag
+class: center middle section-title section-title-6 animated fadeIn
+
+# Logic models, DAGs,&lt;br&gt;and measurement
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.large[What's the difference between&lt;br&gt;logic models and DAGs?]
+
+.box-inv-6[Can't I just remake my logic model in Dagitty and be done?]
+
+---
+
+layout: false
+class: title title-6
+
+# DAGs vs. Logic models
+
+.box-6.large[DAGs are a *statistical* tool]
+
+.box-inv-6[Describe a data-generating process&lt;br&gt;and isolate/identify relationships]
+
+--
+
+.box-6.large.sp-before[Logic models are a *managerial* tool]
+
+.box-inv-6[Oversee the inner workings of a program and its theory]
+
+---
+
+class: middle
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/04-class/greenspace-eater.png" alt="Green space in Berkeley" title="Green space in Berkeley" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="img/04-class/greenspace-conversation.png" alt="Covid green spaces" title="Covid green spaces" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+&lt;https://theconversation.com/how-cities-can-add-accessible-green-space-in-a-post-coronavirus-world-139194&gt;
+
+&lt;https://sf.eater.com/2020/5/14/21258980/berkeley-coronavirus-covid-19-jesse-arreguin-street-closures&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
