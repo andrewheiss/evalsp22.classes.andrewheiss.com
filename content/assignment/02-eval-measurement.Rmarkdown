@@ -21,7 +21,9 @@ If you decide to use a different program for your final project, that's okay! Th
 
 ## Instructions
 
-You need to complete the two sections listed below. Ideally you should type this in R Markdown and knit your document to HTML or Word or PDF, but you can also write in Word if you want (though your final project will need to be in R Markdown, and this would give you practice).^[And if you want to be super brave, try using [R Markdown's citation system](/resource/markdown/#citations)!]
+You need to complete the two sections listed below. Ideally you should type this in R Markdown and knit your document to HTML or Word or PDF, but you can also write in Word if you want (though your final project will need to be in R Markdown, and this would give you practice).[^citations]
+
+[^citations]: And if you want to be super brave, try using [R Markdown's citation system](/resource/markdown/#citations)!
 
 **I've created an R Markdown template you can use here:** [<i class="fas fa-file-archive"></i> `measurement.zip`](/projects/measurement.zip). It's also [available on RStudio.cloud](https://rstudio.cloud/spaces/160211/project/2762039).
 

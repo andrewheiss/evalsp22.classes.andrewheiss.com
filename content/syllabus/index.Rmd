@@ -199,7 +199,9 @@ Please watch this video:
 
 <iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="display: block; margin: 0 auto 1rem;"></iframe>
 
-Student hours are set times dedicated to all of you (most professors call these "office hours"; I don't^[There's fairly widespread misunderstanding about what office hours actually are! [Many students often think that they are the times I *shouldn't* be disturbed](https://www.chronicle.com/article/Can-This-Man-Change-How-Elite/245714/), which is the exact opposite of what they're for!]). This means that I will be ~~in my office~~ at home (wistfully) waiting for you to ~~come by~~ talk to me remotely with whatever questions you have. This is the best and easiest way to find me and the best chance for discussing class material and concerns.
+Student hours are set times dedicated to all of you (most professors call these "office hours"; I don't).[^studenthours] This means that I will be ~~in my office~~ at home (wistfully) waiting for you to ~~come by~~ talk to me remotely with whatever questions you have. This is the best and easiest way to find me and the best chance for discussing class material and concerns.
+
+[^studenthours]: There's fairly widespread misunderstanding about what office hours actually are! [Many students often think that they are the times I *shouldn't* be disturbed](https://www.chronicle.com/article/Can-This-Man-Change-How-Elite/245714/), which is the exact opposite of what they're for!
 
 Because of the pandemic and [my family situation](#masks-and-vaccines), it is easiest to meet with me online via Webex for student hours. [Make an appointment with me here](https://calendly.com/andrewheiss/)—the confirmation e-mail will contain a link for a Webex meeting. You can also find me through e-mail and Slack.
 
@@ -229,7 +231,9 @@ Any form of sexual harassment or violence will not be excused or tolerated at Ge
 
 ### Academic honesty
 
-Violation of [GSU's Policy on Academic Honesty](https://deanofstudents.gsu.edu/faculty-staff-resources/academic-honesty/) will result in an F in the course and possible disciplinary action.^[So seriously, just don't cheat or plagiarize!] All violations will be formally reported to the Dean of Students.
+Violation of [GSU's Policy on Academic Honesty](https://deanofstudents.gsu.edu/faculty-staff-resources/academic-honesty/) will result in an F in the course and possible disciplinary action.[^cheat] All violations will be formally reported to the Dean of Students.
+
+[^cheat]: So seriously, just don't cheat or plagiarize!
 
 ### Special needs
 
@@ -292,6 +296,8 @@ grading %>%
 
 ## Star Wars
 
-Once you have read this entire syllabus and [the assignments page](/assignment/), please [click here](mailto:aheiss@gsu.edu) and e-mail me a picture of a *cute* Star Wars character.^[Baby Yoda, Babu Frik, porgs, etc. are all super fair game.] Brownie points if it's animated.
+Once you have read this entire syllabus and [the assignments page](/assignment/), please [click here](mailto:aheiss@gsu.edu) and e-mail me a picture of a *cute* Star Wars character.[^starwars] Brownie points if it's animated.
+
+[^starwars]: Baby Yoda, Babu Frik, porgs, etc. are all super fair game.
 
 `r blogdown::shortcode("figure", src = "https://media.giphy.com/media/j4q4h9uWKWwnYT1k3Z/giphy.gif", alt = "Baby Yoda with IG-11", lightbox = "false")`

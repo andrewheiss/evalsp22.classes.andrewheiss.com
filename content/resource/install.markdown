@@ -31,7 +31,7 @@ Here's how you install all these things
 
 First you need to install R itself (the engine).
 
-1. Go to the CRAN (Collective R Archive Network)^[It's a goofy name, but CRAN is where most R packages—and R itself—lives.] website: <https://cran.r-project.org/>
+1. Go to the CRAN (Collective R Archive Network)[^cran] website: <https://cran.r-project.org/>
 2. Click on "Download R for `XXX`", where `XXX` is either Mac or Windows:
 
     <img src="/img/install/install-r-links.png" width="60%" />
@@ -48,6 +48,7 @@ First you need to install R itself (the engine).
 
 4. If you use macOS, [download and install XQuartz](https://www.xquartz.org/). You do not need to do this on Windows.
 
+[^cran]: It's a goofy name, but CRAN is where most R packages—and R itself—lives.
 
 ### Install RStudio
 
