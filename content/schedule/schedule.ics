@@ -4,304 +4,311 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:ical-33e3987e-2f24-4079-805e-c21eece52908
+UID:ical-5de0e02d-f2ea-4f86-a72a-53537711a807
 DTSTART;VALUE=DATE:20220113
 DTEND;VALUE=DATE:20220114
 SUMMARY:PMAP 8521: (Session 1) Evaluation and the causal revolution
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/01-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-e65e7c1b-c349-43fe-a6aa-2e1610fc11e6
+UID:ical-bf5e4e1a-4b2f-4bea-ae06-a64d4b353727
 DTSTART;VALUE=DATE:20220120
 DTEND;VALUE=DATE:20220121
-SUMMARY:PMAP 8521: Problem set 1  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Weekly check-in 1 (submit by noon)
+DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
+END:VEVENT
+BEGIN:VEVENT
+UID:ical-096adbc7-aece-4643-a85b-14adf0af8cc0
+DTSTART;VALUE=DATE:20220120
+DTEND;VALUE=DATE:20220121
+SUMMARY:PMAP 8521: Problem set 1 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/01-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-f5c16376-2542-432a-8f4a-fe9539d548b0
+UID:ical-f62dcf50-8122-4684-a13f-6ff6e3065bec
 DTSTART;VALUE=DATE:20220120
 DTEND;VALUE=DATE:20220121
 SUMMARY:PMAP 8521: (Session 2) Regression and inference
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/02-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-31e2ca36-ef85-4a53-9cbd-4d4234834724
+UID:ical-b07f0244-6c6d-4289-b5c6-a5aa9e1ed5aa
 DTSTART;VALUE=DATE:20220120
 DTEND;VALUE=DATE:20220121
-SUMMARY:PMAP 8521: Weekly check-in 2  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 2 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-8c11b18b-2713-442b-b25d-825377258ec3
+UID:ical-2a4f9241-1038-4f36-9e79-23da81bdc7db
 DTSTART;VALUE=DATE:20220127
 DTEND;VALUE=DATE:20220128
-SUMMARY:PMAP 8521: Problem set 2  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 2 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/02-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-9a33c605-7bed-4eb5-8bae-0ae1da571f0e
+UID:ical-8ef9a5b2-8d49-424b-a284-7b6754758532
 DTSTART;VALUE=DATE:20220127
 DTEND;VALUE=DATE:20220128
 SUMMARY:PMAP 8521: (Session 3) Theories of change and logic models
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/03-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-ac79764e-85ed-41d1-9730-1852bf9f7dbe
+UID:ical-ccd7c334-e26f-44ce-8376-5c57283c739a
 DTSTART;VALUE=DATE:20220127
 DTEND;VALUE=DATE:20220128
-SUMMARY:PMAP 8521: Weekly check-in 3  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 3 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-640072de-89b7-417d-a447-ad79a8247ab8
+UID:ical-a09cf19f-92dd-40a5-a8a6-7e2b249a2c4a
 DTSTART;VALUE=DATE:20220203
 DTEND;VALUE=DATE:20220204
-SUMMARY:PMAP 8521: Evaluation: Background and theory  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Evaluation: Background and theory (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/01-eval-background-theory/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-a800b7ce-f9f7-45aa-b6e1-9e0d409604b6
+UID:ical-8ea582f0-3feb-4cd2-b08d-d4cc40be1b8f
 DTSTART;VALUE=DATE:20220203
 DTEND;VALUE=DATE:20220204
 SUMMARY:PMAP 8521: (Session 4) Measurement and DAGs
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/04-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-4438adc6-21e7-405c-b280-d4e12ed0d2c3
+UID:ical-19c959e3-93a2-4a21-bd21-750ccae4c0cf
 DTSTART;VALUE=DATE:20220203
 DTEND;VALUE=DATE:20220204
-SUMMARY:PMAP 8521: Weekly check-in 4  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 4 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-a19d076f-bd89-4a3d-be5b-d4af7887c0b3
+UID:ical-ba0206f6-33ad-4fd1-ac7f-d7d6a059e0d1
 DTSTART;VALUE=DATE:20220210
 DTEND;VALUE=DATE:20220211
-SUMMARY:PMAP 8521: Evaluation: Measurement  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Evaluation: Measurement (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/02-eval-measurement/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-d52313ec-1ca3-45b5-b045-f1ec692cca74
+UID:ical-58729755-a83c-4b61-822d-5a34747c6165
 DTSTART;VALUE=DATE:20220210
 DTEND;VALUE=DATE:20220211
 SUMMARY:PMAP 8521: (Session 5) DAGs and potential outcomes
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/05-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-837254f7-25d6-42d0-9f97-259a001e346e
+UID:ical-7ad640b3-4dd3-4997-8f4b-7a36985b986a
 DTSTART;VALUE=DATE:20220210
 DTEND;VALUE=DATE:20220211
-SUMMARY:PMAP 8521: Weekly check-in 5  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 5 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-08bd32bd-d86d-43df-8a7a-75d121dfb738
+UID:ical-474dd1bb-97e9-4019-9eef-8a04229fb908
 DTSTART;VALUE=DATE:20220217
 DTEND;VALUE=DATE:20220218
-SUMMARY:PMAP 8521: Evaluation: Causal model  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Evaluation: Causal model (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/03-eval-dag/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-ef6f8022-8031-40d5-ba83-8cf120fcabba
+UID:ical-11706b47-ad98-4571-bb0d-1cb03978472e
 DTSTART;VALUE=DATE:20220217
 DTEND;VALUE=DATE:20220218
 SUMMARY:PMAP 8521: (Session 6) Threats to validity
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/06-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-d674cd88-986b-486f-aabf-cee8d15b4578
+UID:ical-e47b7c36-5bc8-4694-b656-9d127ae88809
 DTSTART;VALUE=DATE:20220217
 DTEND;VALUE=DATE:20220218
-SUMMARY:PMAP 8521: Weekly check-in 6  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 6 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-e0f7f6c1-7ea0-4b75-956e-1c8fc2433f89
+UID:ical-eea235e6-087e-4155-95df-b46622f8433b
 DTSTART;VALUE=DATE:20220224
 DTEND;VALUE=DATE:20220225
-SUMMARY:PMAP 8521: Evaluation: Threats to validity  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Evaluation: Threats to validity (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/04-eval-threats/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-b9272a9e-b229-450e-9cf4-c11045efde5f
+UID:ical-3e449c4e-566c-4351-bbf2-9ed00f5ab14b
 DTSTART;VALUE=DATE:20220224
 DTEND;VALUE=DATE:20220304
-SUMMARY:PMAP 8521:  **Exam 1**  (complete by 11:59 PM on March 3)
+SUMMARY:PMAP 8521: **Exam 1** (complete by 11:59 PM on March 3)
 DESCRIPTION:
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-7ecd8880-1dbf-4728-aec4-3ab126ccc24d
+UID:ical-b62d97d9-b67f-4d9b-8d90-7340e93e4ec9
 DTSTART;VALUE=DATE:20220224
 DTEND;VALUE=DATE:20220225
 SUMMARY:PMAP 8521: (Session 7) Randomization and matching
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/07-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-3a08d90b-566d-49fb-bcd6-fc74d81b09ed
+UID:ical-ed0f9340-3371-41fd-8013-54dacbe4569a
 DTSTART;VALUE=DATE:20220224
 DTEND;VALUE=DATE:20220225
-SUMMARY:PMAP 8521: Weekly check-in 7  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 7 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-f127253f-216a-4ef1-9b7c-95c3bfb7dd52
+UID:ical-734f17ac-d2d9-41a0-88a6-af454b767504
 DTSTART;VALUE=DATE:20220303
 DTEND;VALUE=DATE:20220304
-SUMMARY:PMAP 8521: Problem set 3  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 3 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/03-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-4f1b2eba-9d70-4052-bc2d-e9a412eb602f
+UID:ical-e7a56b8e-64eb-4c0b-96e8-8642d088550d
 DTSTART;VALUE=DATE:20220303
 DTEND;VALUE=DATE:20220304
 SUMMARY:PMAP 8521: (Session 8) Difference-in-differences I
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/08-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-4dd34e3f-5eb5-4601-9889-7494b8ff1ffe
+UID:ical-f3b19bd9-fbfb-4953-b06c-6bd77fbaa39f
 DTSTART;VALUE=DATE:20220303
 DTEND;VALUE=DATE:20220304
-SUMMARY:PMAP 8521: Weekly check-in 8  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 8 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-b31c50f4-bf5e-42a5-b78b-40a4487476a2
+UID:ical-36be9568-43ca-4fc6-a8f2-3ec1082c9fb9
 DTSTART;VALUE=DATE:20220310
 DTEND;VALUE=DATE:20220311
-SUMMARY:PMAP 8521: Problem set 4  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 4 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/04-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-61621118-0401-4f34-95cc-e1fd6687c00a
+UID:ical-77150c3a-0299-489b-9d5a-3eb0ca58b4ff
 DTSTART;VALUE=DATE:20220310
 DTEND;VALUE=DATE:20220311
 SUMMARY:PMAP 8521: (Session 9) Difference-in-differences II
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/09-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-aa443f0d-ae5a-4772-8980-487fee679758
+UID:ical-c8d8dc71-f966-46e2-b23d-590f0e5ae63a
 DTSTART;VALUE=DATE:20220310
 DTEND;VALUE=DATE:20220311
-SUMMARY:PMAP 8521: Weekly check-in 9  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 9 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-da873538-a55d-4276-a1dc-eb1f37a62ff7
+UID:ical-683a5863-3df4-41d3-9b7e-069cf6bd43bc
 DTSTART;VALUE=DATE:20220324
 DTEND;VALUE=DATE:20220325
-SUMMARY:PMAP 8521: Problem set 5  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 5 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/05-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-3524884b-33e2-49e1-98ab-b696aa34dae9
+UID:ical-72eeb9b8-3672-44f0-ab29-7e182516704a
 DTSTART;VALUE=DATE:20220324
 DTEND;VALUE=DATE:20220325
 SUMMARY:PMAP 8521: (Session 10) Regression discontinuity I
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/10-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-b41b84ac-5eae-4ccb-b5e1-62d9c1beea98
+UID:ical-ee56651d-c150-4df9-8353-fd6719dfc7e2
 DTSTART;VALUE=DATE:20220324
 DTEND;VALUE=DATE:20220325
-SUMMARY:PMAP 8521: Weekly check-in 10  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 10 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-b5532ebb-d053-4ca8-a4f5-d8a97afaa547
+UID:ical-9226eaa1-718f-4bea-bea1-cc495d7913bd
 DTSTART;VALUE=DATE:20220331
 DTEND;VALUE=DATE:20220401
-SUMMARY:PMAP 8521: Problem set 6  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 6 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/06-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-78655ca4-0c30-468f-9c8f-f0d4133d8ded
+UID:ical-ffdbb735-877d-4308-a573-3437ac2c7973
 DTSTART;VALUE=DATE:20220331
 DTEND;VALUE=DATE:20220401
 SUMMARY:PMAP 8521: (Session 11) Instrumental variables I
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/11-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-6e767293-eb31-427f-a531-d906a0dd6cd4
+UID:ical-235dd7aa-13c8-472a-8b3f-02ebcff2e9f4
 DTSTART;VALUE=DATE:20220331
 DTEND;VALUE=DATE:20220401
-SUMMARY:PMAP 8521: Weekly check-in 11  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 11 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-30a28504-df52-4150-bcb9-ba613206e710
+UID:ical-95ff40cf-f90d-4f2f-aaa2-49b5ae249f7d
 DTSTART;VALUE=DATE:20220407
 DTEND;VALUE=DATE:20220408
-SUMMARY:PMAP 8521: Problem set 7  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 7 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/07-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-e6765f7a-c96d-402b-aa22-6ed3ad5acc90
+UID:ical-f27698c3-945d-421f-82dc-5ced3471569e
 DTSTART;VALUE=DATE:20220407
 DTEND;VALUE=DATE:20220408
 SUMMARY:PMAP 8521: (Session 12) Instrumental variables II + Regression discontinuity II
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/12-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-1bec11c1-0495-4360-8447-fa1aa2b2a46a
+UID:ical-3c8e08bc-bab3-45fd-ab6f-c080bd70230c
 DTSTART;VALUE=DATE:20220407
 DTEND;VALUE=DATE:20220408
-SUMMARY:PMAP 8521: Weekly check-in 12  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 12 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-861c9393-cb71-4c00-8da3-fbb5e30fe117
+UID:ical-cc5cdb7e-6874-4823-8407-5b9c11fe18ac
 DTSTART;VALUE=DATE:20220414
 DTEND;VALUE=DATE:20220415
-SUMMARY:PMAP 8521: Problem set 8  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 8 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/08-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-7aacebcd-3e39-45a6-b350-6e9553b7da93
+UID:ical-b0efb6c1-d292-4d37-978c-167d2e7322eb
 DTSTART;VALUE=DATE:20220414
 DTEND;VALUE=DATE:20220421
-SUMMARY:PMAP 8521:  **Exam 2**  (complete by 11:59 PM on November 21)
+SUMMARY:PMAP 8521: **Exam 2** (complete by 11:59 PM on November 21)
 DESCRIPTION:
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-88098716-0e5d-43a2-85f9-7db9800f1d65
+UID:ical-18f163d8-8b93-4d58-9731-5ef10abff313
 DTSTART;VALUE=DATE:20220414
 DTEND;VALUE=DATE:20220415
 SUMMARY:PMAP 8521: (Session 13) Choosing and planning ethical evaluations
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/13-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-c322538e-4415-49ed-ad91-3af2dec9feb2
+UID:ical-124f1467-6825-4dd7-bc3f-485c608b2894
 DTSTART;VALUE=DATE:20220414
 DTEND;VALUE=DATE:20220415
-SUMMARY:PMAP 8521: Weekly check-in 13  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 13 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-bb069d1d-7d4e-468c-af6e-9bf50b199fab
+UID:ical-6f47f927-f5c5-4502-8edf-42a6244069e6
 DTSTART;VALUE=DATE:20220421
 DTEND;VALUE=DATE:20220422
-SUMMARY:PMAP 8521: Problem set 9  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: Problem set 9 (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/09-problem-set/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-9fe369c8-89df-418c-9a93-396857cdbd16
+UID:ical-e19419b0-e324-461c-a923-66f3cc48b9f8
 DTSTART;VALUE=DATE:20220421
 DTEND;VALUE=DATE:20220422
 SUMMARY:PMAP 8521: (Session 14) Ethics, stories, and curiosity
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/content/14-content/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-735d30a8-c975-44d9-89d8-80efff91db14
+UID:ical-81037d77-5a81-4d71-b3af-799afecdb0a3
 DTSTART;VALUE=DATE:20220421
 DTEND;VALUE=DATE:20220422
-SUMMARY:PMAP 8521: Weekly check-in 14  (submit by noon)
+SUMMARY:PMAP 8521: Weekly check-in 14 (submit by noon)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/weekly-check-in/
 END:VEVENT
 BEGIN:VEVENT
-UID:ical-0ce3fae6-c1b6-4c0e-8e38-3f965c4c5973
+UID:ical-907b688c-e72f-4e82-8c85-30683dc521c8
 DTSTART;VALUE=DATE:20220502
 DTEND;VALUE=DATE:20220503
-SUMMARY:PMAP 8521:  **Final project due**  (submit by 11:59 PM)
+SUMMARY:PMAP 8521: **Final project due** (submit by 11:59 PM)
 DESCRIPTION:https://evalsp22.classes.andrewheiss.com/assignment/final-project/
 END:VEVENT
 END:VCALENDAR

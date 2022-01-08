@@ -11,7 +11,7 @@ library(glue)
 library(rvest)
 
 strip_html <- function(s) {
-  html_text(read_html(charToRaw(s)))
+  str_squish(html_text(read_html(charToRaw(s))))
 }
 
 schedule_raw <- yaml::read_yaml(here::here("data", "schedule.yaml"))$lessons
