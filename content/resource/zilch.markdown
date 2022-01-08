@@ -204,10 +204,10 @@ for (i in 1:100000) {
 
 # Find the proportion of TRUEs
 sum(has_1_or_5) / 100000
-## [1] 0.9124
+## [1] 0.9122
 ```
 
-Out of the 100,000 rolls, 91,243 of them had a 1 or a 5 in them, meaning that there's a 91.24% chance of scoring *something* on an initial roll in Zilch.
+Out of the 100,000 rolls, 91,220 of them had a 1 or a 5 in them, meaning that there's a 91.22% chance of scoring *something* on an initial roll in Zilch.
 
 How does that compare to the official math?
 
@@ -248,7 +248,7 @@ simulate_zilch <- function(n_dice, n_sims) {
 }
 
 simulate_zilch(n_dice = 4, n_sims = 50000)
-## [1] 0.8003
+## [1] 0.8027
 ```
 
 
@@ -288,7 +288,7 @@ simulate_zilch_full <- function(n_dice, n_sims) {
 six_dice <- simulate_zilch_full(6, 50000)
 ```
 
-Phew! Now that we account for every possible scoring combination, there's a 97.64% chance of scoring *something* when rolling 6 dice. That's really high!
+Phew! Now that we account for every possible scoring combination, there's a 97.69% chance of scoring *something* when rolling 6 dice. That's really high!
 
 For fun, let's look at how that probability changes as the number of dice you roll decreases:
 

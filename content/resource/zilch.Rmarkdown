@@ -16,6 +16,8 @@ library(kableExtra)
 library(scales)
 
 options("digits" = 4, "width" = 150)
+
+set.seed(1234)
 ```
 
 ```{css, echo=FALSE}
