@@ -16,6 +16,7 @@ resources/_gen/*
 temp_figs/*
 static/slides/*.pdf
 static/slides/**/*_cache/*
+static/slides/14-slides.html
 blogdown/md5sum.txt
 themes/*
 **/*_cache
