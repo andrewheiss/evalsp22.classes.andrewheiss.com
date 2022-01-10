@@ -67,6 +67,8 @@ youtube_list(slide_details, playlist_id)
 
 ## In-class stuff
 
+```{comment}
+
 Here are all the materials we'll use in class:
 
 - [**Session 7 FAQ slides**](/slides/07-class.html) ([PDF](/slides/07-class.pdf))
@@ -76,6 +78,7 @@ Here are all the materials we'll use in class:
 - [Bayesian stats and decison making](/resource/bayes/)
 - [Standard errors](/example/standard-errors/)
 - [Unobserved confounding and sensitivity analysis](/example/confounding-sensitivity/)
+```
 
 ```{cat include=FALSE, eval=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sGJURMOwN9tf9MNDN4t0JMz

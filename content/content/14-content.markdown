@@ -231,10 +231,6 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
-Here are all the materials we’ll use in class:
-
--   [**Week 14 FAQ slides**](/slides/14-class.html) ([PDF](/slides/14-class.pdf))
-
 [^1]: Miguel A. Hernán, “The c-Word: Scientific Euphemisms Do Not Improve Causal Inference from Observational Data,” *American Journal of Public Health* 108, no. 5 (May 2018): 616–19, doi:[10.2105/AJPH.2018.304337](https://doi.org/10.2105/AJPH.2018.304337).
 
 [^2]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.

@@ -60,11 +60,14 @@ youtube_list(slide_details, playlist_id)
 
 ## In-class stuff
 
+```{comment}
 Here are all the materials we'll use in class:
 
 - [**Session 8-9 FAQ slides**](/slides/08-class.html) ([PDF](/slides/08-class.pdf))
 - [Unobserved confounding and sensitivity analysis](/example/confounding-sensitivity/)
 - [Session 8-9 R code](/projects/week-8.zip) (on [RStudio.cloud](https://rstudio.cloud/spaces/160211/project/3023994))
+```
+
 
 
 ```{cat include=FALSE, eval=FALSE}

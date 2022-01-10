@@ -64,6 +64,8 @@ youtube_list(slide_details, playlist_id)
 
 ## In-class stuff
 
+```{comment}
+
 Here are all the materials we'll use in class:
 
 - [**Session 6 FAQ slides**](/slides/06-class.html) ([PDF](/slides/06-class.pdf))
@@ -71,7 +73,7 @@ Here are all the materials we'll use in class:
 - [Bayes theorem, the geometry of changing beliefs](https://www.youtube.com/watch?v=HZGCoVF3YvM)
 - [Bayes and Covid](/files/bayes-covid.xlsx)
 - [Restaurant ratings](https://gist.github.com/andrewheiss/0edd0e64ba9c0be22b33c0ffddb791a2)
-
+```
 
 ```{cat include=FALSE, eval=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFJtz7egfUASfhhz6zuj7GZ

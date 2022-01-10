@@ -138,12 +138,6 @@ Here are all the materials we’ll use in class:
 
 Hands-on R materials:
 
--   [RStudio.cloud project](https://rstudio.cloud/spaces/160211/project/2789473)
--   [Project `.zip` file](/projects/01-class.zip)
--   [Lab slides 3: Data basics](/slides/01-class_03_data-basics.html) ([PDF](/slides/01-class_03_data-basics.pdf))
--   [Lab slides 4: Visualize data with ggplot2](/slides/01-class_04_visualize-data.html) ([PDF](/slides/01-class_04_visualize-data.pdf))
--   [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
-
 ## Bayesian statistics resources
 
 In class I briefly mentioned the difference between frequentist and Bayesian statistics. You can see a bunch of [additional resources and examples of these two approaches to statistics here](/resource/bayes/).

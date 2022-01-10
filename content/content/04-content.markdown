@@ -125,10 +125,6 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
-Here are all the materials we’ll use in class:
-
--   [**Session 4 FAQ slides**](/slides/04-class.html) ([PDF](/slides/04-class.pdf))
-
 [^1]: Peter H. Rossi, Mark W. Lipsey, and Gary T. Henry, *Evaluation: A Systematic Approach*, 8th ed. (Los Angeles: Sage, 2019).
 
 [^2]: Nick Huntington-Klein, *The Effect: An Introduction to Research Design and Causality* (Boca Raton, Florida: Chapman and Hall / CRC, 2021), <https://theeffectbook.net/>.

@@ -131,14 +131,6 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
-Here are all the materials we’ll use in class:
-
--   [**Session 6 FAQ slides**](/slides/06-class.html) ([PDF](/slides/06-class.pdf))
--   [Zilch!](/resource/zilch/)
--   [Bayes theorem, the geometry of changing beliefs](https://www.youtube.com/watch?v=HZGCoVF3YvM)
--   [Bayes and Covid](/files/bayes-covid.xlsx)
--   [Restaurant ratings](https://gist.github.com/andrewheiss/0edd0e64ba9c0be22b33c0ffddb791a2)
-
 [^1]: Guido W. Imbens, “Statistical Significance, *p*-Values, and the Reporting of Uncertainty,” *Journal of Economic Perspectives* 35, no. 3, Summer (2021): 157–74, doi:[10.1257/jep.35.3.157](https://doi.org/10.1257/jep.35.3.157).
 
 [^2]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.
