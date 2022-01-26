@@ -129,18 +129,25 @@ Here are all the materials we’ll use in class:
 -   R Markdown examples:
     -   Example R Markdown file used as a code-through or step-by-step teaching document:
         -   Lots of [blog posts here](https://www.andrewheiss.com/blog/)
-        -   Julia Silge, [“Modeling human/computer interactions on Star Trek from #TidyTuesday with workflowsets”](https://juliasilge.com/blog/star-trek/)
+        -   Julia Silge, [“Modeling human/computer interactions on Star Trek from \#TidyTuesday with workflowsets”](https://juliasilge.com/blog/star-trek/)
         -   Bob Rudis, [“Some Covid Donuts To End The Week”](https://rud.is/b/2021/08/13/some-covid-donuts-to-end-the-week/)
         -   Holger K. von Jouanne-Diedrich, [“The “Youth Bulge” of Afghanistan: The Hidden Force behind Political Instability”](https://blog.ephorie.de/the-youth-bulge-of-afghanistan-the-hidden-force-behind-political-instability)
     -   Example R Markdown file used as a publicly-consumable document:
-        -   Click on the “Manuscript” menu item [at this site](https://stats.andrewheiss.com/canary-ngos/)
-        -   See [the Rmd file here](https://github.com/andrewheiss/canary-ngos/blob/master/manuscript/manuscript.Rmd)
+        -   Click on the “Manuscript” menu item [at this site](https://stats.andrewheiss.com/cautioning-canary/)
+        -   See [the Rmd file here](https://github.com/andrewheiss/cautioning-canary/blob/master/manuscript/manuscript.Rmd)
 
 Hands-on R materials:
 
+-   [<i class="fas fa-file-csv"></i> `restaurant_inspections.csv`](https://vincentarelbundock.github.io/Rdatasets/csv/causaldata/restaurant_inspections.csv)
+-   [RStudio.cloud project](https://rstudio.cloud/spaces/205054/project/3437782)
+-   [Project `.zip` file](/projects/01-class.zip)
+-   [Lab slides 3: Data basics](/slides/01-class_03_data-basics.html) ([PDF](/slides/01-class_03_data-basics.pdf))
+-   [Lab slides 4: Visualize data with ggplot2](/slides/01-class_04_visualize-data.html) ([PDF](/slides/01-class_04_visualize-data.pdf))
+-   [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
+
 ## Bayesian statistics resources
 
-In class I briefly mentioned the difference between frequentist and Bayesian statistics. You can see a bunch of [additional resources and examples of these two approaches to statistics here](/resource/bayes/).
+In class I briefly mentioned the difference between frequentist and Bayesian statistics. You can see a bunch of [additional resources and examples of these two approaches to statistics here](/resource/bayes/). [This huge blog post](https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/) also shows how to do multilevel models with Bayesian models.
 
 [^1]: Nick Huntington-Klein, *The Effect: An Introduction to Research Design and Causality* (Boca Raton, Florida: Chapman and Hall / CRC, 2021), <https://theeffectbook.net/>.
 

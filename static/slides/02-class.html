@@ -4,8 +4,8 @@
     <title>Class 2: Regression and inference</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2021-08-30" />
-    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <meta name="date" content="2022-01-20" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
@@ -29,7 +29,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**August 30, 2021**
+**January 20, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -75,7 +75,21 @@ class: middle
 
 ---
 
-.box-5.large[Why use `tidy()`&lt;br&gt;from the broom package?]
+.box-5.large.sp-after[Histogram bin widths]
+
+.box-5.large[Density plots]
+
+---
+
+.box-5.medium.sp-after[Why use two steps to create a regression in R?&lt;br&gt;(i.e. assigning it to an object with `&lt;-`?)]
+
+.box-5.medium[Why use `tidy()`&lt;br&gt;from the broom package?]
+
+???
+
+Show model with `lm()`; show t-test with `t.test()`; show both through `tidy()`
+
+Use **marginaleffects**
 
 ---
 
@@ -123,9 +137,13 @@ class: middle
 
 .box-5.medium[Do we care about the actual coefficients&lt;br&gt;or just whether or not they're significant?]
 
+.box-5.medium[How does significance relate to causation?]
+
+.box-5.medium[If we can't use statistics to assert causation&lt;br&gt;how are we going to use this information&lt;br&gt;in program evaluation?]
+
 ---
 
-.box-5.large[How is R² related to&lt;br&gt;multiple regression?]
+.box-5.large[What counts as a "good" R²?]
 
 ---
 
@@ -137,21 +155,11 @@ class: middle
 
 ---
 
-.box-5[Is there a point at which multiple regression&lt;br&gt;becomes inaccurate if you add more variables?&lt;br&gt;Or does it become more accurate if you add more variables?]
-
-.box-5[How many variables does a typical multiple regression&lt;br&gt;usually contain? In published papers, for example.]
-
----
-
 .center[
 &lt;figure&gt;
   &lt;img src="img/02-class/plot-diagram-prediction-1.png" alt="R2 prediction" title="R2 prediction" width="75%"&gt;
 &lt;/figure&gt;
 ]
-
----
-
-.box-5.large[What counts as a "good" R²?]
 
 ---
 
@@ -171,17 +179,7 @@ class: middle
 
 ---
 
-.box-5.medium[If we can't use statistics to assert causation&lt;br&gt;how are we going to use this information&lt;br&gt;in program evaluation?]
-
----
-
-.box-5.large.sp-after[What does logging do?]
-
 .box-5.large[Why do we log things?]
-
----
-
-.box-5.medium[What's the difference between&lt;br&gt;qualitative columns and categorical columns?&lt;br&gt;Both are text?]
 
 ---
 
@@ -190,6 +188,24 @@ name: r-questions
 class: center middle section-title section-title-6 animated fadeIn
 
 # Miscellaneous R stuff
+
+---
+
+class: title title-6
+
+# Miscellaneous R stuff
+
+.box-inv-6.medium[File paths, working directories,&lt;br&gt;and RStudio projects]
+
+--
+
+.box-inv-6.medium[Markdown things]
+
+???
+
+- Working directories and RStudio projects
+- Markdown metadata and outputs, figure sizes
+- Show final Rmd products. Explanatory, like blog post code through or a problem set vs. stand-alone research paper
 
 ---
 

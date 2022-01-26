@@ -41,7 +41,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**August 30, 2021**
+**January 20, 2022**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -87,7 +87,21 @@ class: middle
 
 ---
 
-.box-5.large[Why use `tidy()`<br>from the broom package?]
+.box-5.large.sp-after[Histogram bin widths]
+
+.box-5.large[Density plots]
+
+---
+
+.box-5.medium.sp-after[Why use two steps to create a regression in R?<br>(i.e. assigning it to an object with `<-`?)]
+
+.box-5.medium[Why use `tidy()`<br>from the broom package?]
+
+???
+
+Show model with `lm()`; show t-test with `t.test()`; show both through `tidy()`
+
+Use **marginaleffects**
 
 ---
 
@@ -135,9 +149,13 @@ class: middle
 
 .box-5.medium[Do we care about the actual coefficients<br>or just whether or not they're significant?]
 
+.box-5.medium[How does significance relate to causation?]
+
+.box-5.medium[If we can't use statistics to assert causation<br>how are we going to use this information<br>in program evaluation?]
+
 ---
 
-.box-5.large[How is R² related to<br>multiple regression?]
+.box-5.large[What counts as a "good" R²?]
 
 ---
 
@@ -149,21 +167,11 @@ class: middle
 
 ---
 
-.box-5[Is there a point at which multiple regression<br>becomes inaccurate if you add more variables?<br>Or does it become more accurate if you add more variables?]
-
-.box-5[How many variables does a typical multiple regression<br>usually contain? In published papers, for example.]
-
----
-
 .center[
 <figure>
   <img src="img/02-class/plot-diagram-prediction-1.png" alt="R2 prediction" title="R2 prediction" width="75%">
 </figure>
 ]
-
----
-
-.box-5.large[What counts as a "good" R²?]
 
 ---
 
@@ -183,17 +191,7 @@ class: middle
 
 ---
 
-.box-5.medium[If we can't use statistics to assert causation<br>how are we going to use this information<br>in program evaluation?]
-
----
-
-.box-5.large.sp-after[What does logging do?]
-
 .box-5.large[Why do we log things?]
-
----
-
-.box-5.medium[What's the difference between<br>qualitative columns and categorical columns?<br>Both are text?]
 
 ---
 
@@ -202,6 +200,24 @@ name: r-questions
 class: center middle section-title section-title-6 animated fadeIn
 
 # Miscellaneous R stuff
+
+---
+
+class: title title-6
+
+# Miscellaneous R stuff
+
+.box-inv-6.medium[File paths, working directories,<br>and RStudio projects]
+
+--
+
+.box-inv-6.medium[Markdown things]
+
+???
+
+- Working directories and RStudio projects
+- Markdown metadata and outputs, figure sizes
+- Show final Rmd products. Explanatory, like blog post code through or a problem set vs. stand-alone research paper
 
 ---
 
