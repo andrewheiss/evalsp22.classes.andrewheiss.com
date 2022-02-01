@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 3: Regression and logic models</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2022-01-27" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 3
+
+.class-info[
+
+**January 27, 2022**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-4.medium.sp-after-half[Regression and R stuff]
+
+--
+
+.box-1.medium.sp-after-half[Logic models]
+
+---
+
+layout: false
+name: regression
+class: center middle section-title section-title-4 animated fadeIn
+
+# Regression and R stuff
+
+---
+
+class: middle
+
+.box-4.large[Big ol' example of running,&lt;br&gt;interpreting, and exploring&lt;br&gt;some regression models]
+
+---
+
+class: middle
+
+.box-4.huge[andhs.co/live]
+
+---
+
+class: middle
+
+.box-4.large[Side-by-side regression tables]
+
+---
+
+&lt;table style="font-size:0.5em;border-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 1 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 2 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 3 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 4 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 362.307 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5780.831*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5736.897*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5433.534*** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (283.345) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (305.815) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (307.959) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (286.558) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; bill_length_mm &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 87.415*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6.047 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5.201 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (6.402) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (5.180) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (4.860) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; flipper_length_mm &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 49.686*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 48.145*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 48.209*** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (1.518) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (2.011) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (1.841) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sexmale &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 358.631*** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt; (41.572) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Num.Obs. &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 333 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.354 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.760 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.807 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2 Adj. &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.352 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.758 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.805 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; AIC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5400.0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5062.9 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5063.5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4863.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; BIC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5411.5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5074.4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5078.8 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4882.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Log.Lik. &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2696.987 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2528.427 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2527.741 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2426.664 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 186.443 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1070.745 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 536.626 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 457.118 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; + p &amp;lt; 0.1, * p &amp;lt; 0.05, ** p &amp;lt; 0.01, *** p &amp;lt; 0.001&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+&lt;/table&gt;
+
+---
+
+&lt;table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 1 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 2 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 3 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Model 4 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 362.307 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5780.831*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5736.897*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5433.534*** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (283.345) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (305.815) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (307.959) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (286.558) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; bill_length_mm &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 87.415*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6.047 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −5.201 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (6.402) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (5.180) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (4.860) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; flipper_length_mm &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 49.686*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 48.145*** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 48.209*** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (1.518) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (2.011) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; (1.841) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sexmale &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 358.631*** &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt; (41.572) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Num.Obs. &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 333 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.354 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.760 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.807 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2 Adj. &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.352 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.758 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.805 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; AIC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5400.0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5062.9 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5063.5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4863.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; BIC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5411.5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5074.4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5078.8 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4882.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Log.Lik. &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2696.987 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2528.427 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2527.741 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; −2426.664 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 186.443 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1070.745 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 536.626 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 457.118 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; + p &amp;lt; 0.1, * p &amp;lt; 0.05, ** p &amp;lt; 0.01, *** p &amp;lt; 0.001&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+&lt;/table&gt;
+
+---
+
+class: middle
+
+.box-4.large[See full documentation and&lt;br&gt;examples for `modelsummary()` [here](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-4.large[Make nicer tables when&lt;br&gt;knitting with `kable()`]
+
+.box-inv-4[(Or even fancier tables with [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)!)]
+
+---
+
+.box-4.large[Style suggestions]
+
+---
+
+.box-4.large[Typing math]
+
+---
+
+.box-4.large[Cleaner chunk output]
+
+---
+
+.box-4.large[Figure resizing]
+
+---
+
+.box-4.large[Non-English characters in PDFs]
+
+---
+
+layout: false
+name: logic-models
+class: center middle section-title section-title-1 animated fadeIn
+
+# Logic models
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-1.large[Logic models as managerial tools]
+
+---
+
+.box-1.large[Inputs vs. Activities vs.&lt;br&gt;Outputs vs. Outcomes]
+
+---
+
+.box-1.large[Impact theory vs. logic model]
+
+---
+
+layout: false
+class: title title-1
+
+# Impact theory
+
+.box-inv-1[Ensure that the theory linking activities to the outcomes is sound!]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/03/psd-impact-theory-arrow.png" alt="PSD impact theory" title="PSD impact theory" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/01/psd-logic-model.png" alt="PSD logic model" title="PSD logic model" width="70%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+layout: false
+class: title title-1
+
+# MPA/MPP at GSU
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/03/mpp-mission@4x.png" alt="MPP mission" title="MPP mission" width="130%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="img/03/mpa-mission@4x.png" alt="MPA mission" title="MPA mission" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+Inputs:
+
+- Students
+- Curriculum
+- Money (grants, tuition)
+- AYSPS itself
+- Faculty, staff
+- Technology (iCollege, PAWS)
+- Infrastructure
+- Transportation
+- State regulations
+- National accreditation standards
+- Faculty research
+
+Activities:
+
+- Classes
+- Group work
+- Exams
+- Internships
+- Job fairs
+- Commencement
+- Studying
+- Tutoring
+- Office hours
+- Advising
+- Attendance
+
+Outputs:
+
+- Assignments and projects
+- Grades
+- Degree
+- Jobs
+- Awards
+- Network
+- Debt
+
+Outcomes:
+
+- Leadership
+- AYS national ranking
+- Public service motivation
+- Critical thinking
+- Efficient workforce
+- Income
+- Better society
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-1.medium[Isn't it best to always&lt;br&gt;have an articulated theory?] 
+
+.box-1.medium[Should implicit theory and articulated theory&lt;br&gt;be the same thing in most cases?]
+
+---
+
+.box-1.medium[How much does this evaluation stuff cost?] 
+
+.box-1.medium[Can you do scaled-down versions&lt;br&gt;of these evaluations?]
+
+---
+
+.box-1.medium[What if a program exists already&lt;br&gt;and doesn't have a logic model?] 
+
+.box-1.medium[What if a program exists already and doesn't have baseline data (or any data!)?]
+
+---
+
+.box-1.medium[How can programs evaluate their final&lt;br&gt;outcomes if they are not measurable?&lt;br&gt;Do they find a different outcome&lt;br&gt;that is easier to measure?]
+
+.box-1.medium[Why would they pick final outcomes&lt;br&gt;that can't be measured?]
+
+---
+
+.box-1.medium[What should you do if you find that your theory of change (or logic model in general) is wrong in the middle of the program? Is it ethical to stop or readjust?]
+
+---
+
+layout: true
+class: title title-1
+
+---
+
+# Outcomes and programs
+
+.box-1.medium[Outcome variable]
+
+.box-inv-1.sp-after-half.SMALL[Thing you're measuring]
+
+--
+
+.box-1.medium[Outcome change]
+
+.box-inv-1.sp-after-half.SMALL[∆ in thing you're measuring over time]
+
+--
+
+.box-1.medium[Program effect]
+
+.box-inv-1.SMALL[∆ in thing you're measuring over time *because of* the program]
+
+---
+
+# Outcomes and programs
+
+&lt;figure&gt;
+  &lt;img src="img/04/program-effect.png" alt="Outcomes and program effect" title="Outcomes and program effect" width="100%"&gt;
+&lt;/figure&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

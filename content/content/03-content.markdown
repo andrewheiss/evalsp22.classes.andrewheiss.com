@@ -111,6 +111,15 @@ You can also watch the playlist (and skip around to different sections) here:
 
 </div>
 
+## In-class stuff
+
+Here are all the materials we’ll use in class:
+
+-   [**Session 3 FAQ slides**](/slides/03-class.html) ([PDF](/slides/03-class.pdf))
+-   [<i class="fab fa-r-project"></i> Live R script](https://www.dropbox.com/s/2fpzcybu3nvmwzl/live.R)
+-   [<i class="fas fa-file-csv"></i> `atl-weather-2019.csv`](https://datavizs21.classes.andrewheiss.com/data/atl-weather-2019.csv)
+-   [<i class="fas fa-file-csv"></i> `restaurant_inspections.csv`](https://vincentarelbundock.github.io/Rdatasets/csv/causaldata/restaurant_inspections.csv)
+
 [^1]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.
 
 [^2]: Peter H. Rossi, Mark W. Lipsey, and Gary T. Henry, *Evaluation: A Systematic Approach*, 8th ed. (Los Angeles: Sage, 2019).
