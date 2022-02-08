@@ -91,6 +91,23 @@ output:
     number_sections: no
 ```
 
+```{comment}
+dag {
+bb="0,0,1,1"
+"Cardiac arrest" [outcome,pos="0.599,0.432"]
+Cholesterol [pos="0.415,0.440"]
+Lifestyle [pos="0.156,0.317"]
+Smoking [exposure,pos="0.243,0.428"]
+Weight [adjusted,pos="0.297,0.255"]
+Cholesterol -> "Cardiac arrest"
+Lifestyle -> Smoking
+Lifestyle -> Weight
+Smoking -> Cholesterol
+Weight -> Cholesterol
+}
+```
+
+
 ```{cat include=FALSE, eval=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFVrHdTifzlyS9dsJjhEhsF
 
