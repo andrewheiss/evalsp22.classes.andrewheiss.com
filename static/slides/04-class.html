@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Class 4: Logic models and DAGs</title>
+    <title>Class 4: Measuring stuff and DAGs</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2021-09-13" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <meta name="date" content="2022-02-03" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
-    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
     <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
@@ -31,7 +29,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**September 13, 2021**
+**February 3, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -48,15 +46,11 @@ class: title title-inv-8
 
 --
 
-.box-2.medium.sp-after-half[How to read a regression table]
+.box-4.medium.sp-after-half[Quick useful R tips]
 
 --
 
-.box-4.medium.sp-after-half[Miscellaneous R things]
-
---
-
-.box-1.medium.sp-after-half[Logic models]
+.box-2.medium.sp-after-half[Measuring outcomes]
 
 --
 
@@ -65,270 +59,10 @@ class: title title-inv-8
 ---
 
 layout: false
-name: regression-table
-class: center middle section-title section-title-5 animated fadeIn
-
-# How to read&lt;br&gt;a regression table
-
----
-
-&lt;table style="font-size:0.5em;border-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table"&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 1 &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 2 &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 3 &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 4 &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 362.307 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5780.831*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5736.897*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5433.534*** &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (283.345) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (305.815) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (307.959) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (286.558) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; bill_length_mm &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 87.415*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 6.047 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5.201 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (6.402) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (5.180) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (4.860) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; flipper_length_mm &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 49.686*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 48.145*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 48.209*** &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (1.518) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (2.011) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (1.841) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sexmale &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 358.631*** &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt; (41.572) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Num.Obs. &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 333 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.354 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.760 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.807 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2 Adj. &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.352 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.758 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.805 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; AIC &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5400.0 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5062.9 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5063.5 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 4863.3 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; BIC &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5411.5 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5074.4 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5078.8 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 4882.4 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Log.Lik. &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2696.987 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2528.427 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2527.741 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2426.664 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 186.443 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 1070.745 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 536.626 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 457.118 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;tfoot&gt;&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
-&lt;sup&gt;&lt;/sup&gt; + p &amp;lt; 0.1, * p &amp;lt; 0.05, ** p &amp;lt; 0.01, *** p &amp;lt; 0.001&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
-&lt;/table&gt;
-
----
-
-&lt;table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table"&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 1 &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 2 &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 3 &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Model 4 &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 362.307 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5780.831*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5736.897*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5433.534*** &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (283.345) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (305.815) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (307.959) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (286.558) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; bill_length_mm &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 87.415*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 6.047 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -5.201 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (6.402) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (5.180) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (4.860) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; flipper_length_mm &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 49.686*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 48.145*** &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 48.209*** &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (1.518) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (2.011) &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; (1.841) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; sexmale &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 358.631*** &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:center;box-shadow: 0px 1px"&gt; (41.572) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Num.Obs. &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 342 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 333 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.354 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.760 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.807 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2 Adj. &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.352 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.758 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.759 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 0.805 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; AIC &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5400.0 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5062.9 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5063.5 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 4863.3 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; BIC &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5411.5 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5074.4 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 5078.8 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 4882.4 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Log.Lik. &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2696.987 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2528.427 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2527.741 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; -2426.664 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 186.443 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 1070.745 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 536.626 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 457.118 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;tfoot&gt;&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
-&lt;sup&gt;&lt;/sup&gt; + p &amp;lt; 0.1, * p &amp;lt; 0.05, ** p &amp;lt; 0.01, *** p &amp;lt; 0.001&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
-&lt;/table&gt;
-
----
-
-class: middle
-
-.box-5.large[See full documentation and&lt;br&gt;examples for `modelsummary()` [here](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
-
----
-
-layout: false
 name: r-stuff
 class: center middle section-title section-title-4 animated fadeIn
 
-# R stuff
+# Quick useful&lt;br&gt;R tips
 
 ---
 
@@ -337,198 +71,74 @@ class: middle
 
 ---
 
-.box-4.large[Make nicer tables when&lt;br&gt;knitting with `kable()`]
-
-.box-inv-4[(Or even fancier tables with [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)!)]
+.box-4.large[Visual markdown editor]
 
 ---
 
-.box-4.large[Navigating larger R Markdown files]
-
----
-
-.box-4.large[Figure resizing]
-
----
-
-.box-4.large[It's okay to remove placeholder text!]
-
----
-
-.box-4.large[R vs. Python]
-
----
-
-layout: false
-name: logic-models
-class: center middle section-title section-title-1 animated fadeIn
-
-# Logic models
-
----
-
-layout: true
-class: middle
-
----
-
-.box-1.large[Logic models as managerial tools]
-
----
-
-.box-1.large[Inputs vs. Activities vs.&lt;br&gt;Outputs vs. Outcomes]
-
----
-
-.box-1.large[Impact theory vs. logic model]
-
----
-
-layout: false
-class: title title-1
-
-# Impact theory
-
-.box-inv-1[Ensure that the theory linking activities to the outcomes is sound!]
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/03/psd-impact-theory-arrow.png" alt="PSD impact theory" title="PSD impact theory" width="100%"&gt;
-&lt;/figure&gt;
-]
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/01/psd-logic-model.png" alt="PSD logic model" title="PSD logic model" width="70%"&gt;
-&lt;/figure&gt;
-]
-
----
-
-layout: false
-class: title title-1
-
-# MPA/MPP at GSU
-
-.pull-left[
-&lt;figure&gt;
-  &lt;img src="img/03/mpp-mission@4x.png" alt="MPP mission" title="MPP mission" width="130%"&gt;
-&lt;/figure&gt;
-]
-
-.pull-right[
-&lt;figure&gt;
-  &lt;img src="img/03/mpa-mission@4x.png" alt="MPA mission" title="MPA mission" width="100%"&gt;
-&lt;/figure&gt;
-]
+.box-4.large[Weird figure/table&lt;br&gt;placement in PDFs]
 
 ???
 
-Inputs:
+https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html
 
-- Students
-- Curriculum
-- Money (grants, tuition)
-- AYSPS itself
-- Faculty, staff
-- Technology (iCollege, PAWS)
-- Infrastructure
-- Transportation
-- State regulations
-- National accreditation standards
-- Faculty research
+---
 
-Activities:
+.box-4.large[Word count]
 
-- Classes
-- Group work
-- Exams
-- Internships
-- Job fairs
-- Commencement
-- Studying
-- Tutoring
-- Office hours
-- Advising
-- Attendance
+???
 
-Outputs:
+&lt;https://github.com/benmarwick/wordcountaddin&gt;
 
-- Assignments and projects
-- Grades
-- Degree
-- Jobs
-- Awards
-- Network
-- Debt
+---
 
-Outcomes:
+.box-4.large[Figure and table&lt;br&gt;captions and numbers]
 
-- Leadership
-- AYS national ranking
-- Public service motivation
-- Critical thinking
-- Efficient workforce
-- Income
-- Better society
+???
+
+- &lt;https://bookdown.org/yihui/rmarkdown-cookbook/figure-number.html&gt;
+- &lt;https://rmd4sci.njtierney.com/figures-tables-captions-.html&gt;
+- &lt;https://rmd4sci.njtierney.com/start.html&gt;
+
+---
+
+.box-4.large[DAGs in R vs. Dagitty]
+
+???
+
+&lt;https://evalsp22.classes.andrewheiss.com/example/dags/&gt;
+
+---
+
+layout: false
+name: outcomes
+class: center middle section-title section-title-2 animated fadeIn
+
+# Measuring&lt;br&gt;outcomes
 
 ---
 
 layout: true
-class: middle
-
----
-
-.box-1.medium[Isn't it best to always&lt;br&gt;have an articulated theory?] 
-
-.box-1.medium[Should implicit theory and articulated theory&lt;br&gt;be the same thing in most cases?]
-
----
-
-.box-1.medium[How much does this evaluation stuff cost?] 
-
-.box-1.medium[Can you do scaled-down versions&lt;br&gt;of these evaluations?]
-
----
-
-.box-1.medium[What if a program exists already&lt;br&gt;and doesn't have a logic model?] 
-
-.box-1.medium[What if a program exists already and doesn't have baseline data (or any data!)?]
-
----
-
-.box-1.large[What about stakeholders, politicians,&lt;br&gt;and other decision makers?]
-
----
-
-.box-1.medium[What should you do if you find that your theory of change (or logic model in general) is wrong in the middle of the program? Is it ethical to stop or readjust?]
-
----
-
-layout: true
-class: title title-1
+class: title title-2
 
 ---
 
 # Outcomes and programs
 
-.box-1.medium[Outcome variable]
+.box-2.medium[Outcome variable]
 
-.box-inv-1.sp-after-half.SMALL[Thing you're measuring]
-
---
-
-.box-1.medium[Outcome change]
-
-.box-inv-1.sp-after-half.SMALL[∆ in thing you're measuring over time]
+.box-inv-2.sp-after-half.SMALL[Thing you're measuring]
 
 --
 
-.box-1.medium[Program effect]
+.box-2.medium[Outcome change]
 
-.box-inv-1.SMALL[∆ in thing you're measuring over time *because of* the program]
+.box-inv-2.sp-after-half.SMALL[∆ in thing you're measuring over time]
+
+--
+
+.box-2.medium[Program effect]
+
+.box-inv-2.SMALL[∆ in thing you're measuring over time *because of* the program]
 
 ---
 
@@ -537,6 +147,13 @@ class: title title-1
 &lt;figure&gt;
   &lt;img src="img/04/program-effect.png" alt="Outcomes and program effect" title="Outcomes and program effect" width="100%"&gt;
 &lt;/figure&gt;
+
+---
+
+layout: false
+class: middle
+
+.box-2.large[Abstraction]
 
 ---
 
@@ -591,7 +208,7 @@ layout: false
 
 .box-5.less-medium["Every time I get a haircut, I become more mature!"]
 
-&lt;img src="04-class_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="04-class_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 .center[$$E[\text{Maturity} \mid \operatorname{do} (\text{Get haircut})]$$]
 
@@ -599,35 +216,7 @@ layout: false
 
 .box-5.less-medium[Getting older opens a backdoor path]
 
-&lt;img src="04-class_files/figure-html/unnamed-chunk-4-1.png" width="70%" style="display: block; margin: auto;" /&gt;
-
----
-
-.box-5.less-medium[How do I know which of these is which?]
-
-.pull-left-3[
-.box-5.medium[Confounding]
-
-&lt;img src="04-class_files/figure-html/confounding-dag-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-.box-inv-5.small[Common cause]
-]
-
-.pull-middle-3.center[
-.box-5.medium[Causation]
-
-&lt;img src="04-class_files/figure-html/mediation-dag-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-.box-inv-5.small[Mediation]
-]
-
-.pull-right-3[
-.box-5.medium[Collision]
-
-&lt;img src="04-class_files/figure-html/collision-dag-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-.box-inv-5.small[Selection /&lt;br&gt;endogeneity]
-]
+&lt;img src="04-class_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -636,6 +225,16 @@ class: middle
 .box-5.medium[But what does that mean,&lt;br&gt;"opening a backdoor path"?]
 
 .box-5.medium[How does statistical association&lt;br&gt;get passed through paths?]
+
+---
+
+.box-5.less-medium.sp-after[How do I know which of these is which?]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/dag-associations.png" alt="DAG associations" title="DAG associations" width="100%"&gt;
+&lt;/figure&gt;
+]
 
 ---
 
@@ -686,13 +285,11 @@ class: middle
 
 ---
 
-.box-5.large[How do we actually&lt;br&gt;adjust for these things?]
+.box-5.medium[d-separation]
 
----
+.box-inv-5[Except for the one arrow between X and Y,&lt;br&gt;no statistical association can flow between X and Y]
 
-.box-5.medium[How can you be sure&lt;br&gt;you include everything in a DAG?]
-
-.box-5.medium[Is there a rule of thumb&lt;br&gt;for the number of nodes?]
+.box-inv-5[This is **identification**—&lt;br&gt;all alternative stories are ruled out&lt;br&gt;and the relationship is isolated]
 
 ---
 
@@ -720,14 +317,91 @@ class: middle
 
 ---
 
+layout: false
+class: title title-5
+
+# Does niceness improve appearance?
+
+
+
+.pull-left[
+
+&lt;img src="04-class_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="04-class_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: title title-5
+
+# Collider distorts the true effect!
+
+.pull-left[
+
+&lt;img src="04-class_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="04-class_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.box-5.large[Effect of race on police use of force&lt;br&gt;using administrative data]
+
+---
+
+.box-5.medium[Effect of race on police use of force&lt;br&gt;using administrative data]
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/05-class/klm-dag.png" alt="Use of force" title="Use of force" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="img/05-class/klm.png" alt="Use of force" title="Use of force" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
 layout: true
 class: middle
+
+---
+
+.box-5.large[Smoking → Cardiac arrest example]
+
+---
+
+.box-5.medium[How can you be sure&lt;br&gt;you include everything in a DAG?]
+
+.box-5.medium[Is there a rule of thumb&lt;br&gt;for the number of nodes?]
 
 ---
 
 .box-5.medium[Why do DAGs have to be acyclic?]
 
 .box-5.medium[What if there really is reverse causation?]
+
+---
+
+.box-5.large[How do we actually&lt;br&gt;adjust for these things?]
 
 ---
 
@@ -751,6 +425,15 @@ class: title title-5
 .box-5.large.sp-before[Logic models are a *managerial* tool]
 
 .box-inv-5[Oversee the inner workings of a program and its theory]
+
+---
+
+class: bg-full
+background-image: url("img/01/nyt-dag2.png")
+
+???
+
+https://twitter.com/andrewheiss/status/1208836534285340673
 
 ---
 

@@ -125,6 +125,25 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
+Here are all the materials we’ll use in class:
+
+-   [**Session 4 FAQ slides**](/slides/04-class.html) ([PDF](/slides/04-class.pdf))
+
+You can use **bookdown** to create automatic figure, table, and equation numbers. See here for more details:
+
+-   <https://bookdown.org/yihui/rmarkdown-cookbook/figure-number.html>
+-   <https://rmd4sci.njtierney.com/figures-tables-captions-.html>
+-   <https://rmd4sci.njtierney.com/start.html>
+
+Make sure you modify the metadata of your document to use **bookdown** when knitting:
+
+``` yaml
+title: whatever
+output: 
+  bookdown::html_document2:
+    number_sections: no
+```
+
 [^1]: Peter H. Rossi, Mark W. Lipsey, and Gary T. Henry, *Evaluation: A Systematic Approach*, 8th ed. (Los Angeles: Sage, 2019).
 
 [^2]: Nick Huntington-Klein, *The Effect: An Introduction to Research Design and Causality* (Boca Raton, Florida: Chapman and Hall / CRC, 2021), <https://theeffectbook.net/>.
