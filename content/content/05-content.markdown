@@ -16,7 +16,7 @@ slides: "05-slides"
 
 ## Readings
 
--   <i class="fas fa-podcast"></i> Prologue and at least one of the four acts from [This American Life, “Gardens of Branching Paths,” episode #691, January 10, 2020](https://www.thisamericanlife.org/691/gardens-of-branching-paths)
+-   <i class="fas fa-podcast"></i> Prologue and at least one of the four acts from [This American Life, “Gardens of Branching Paths,” episode \#691, January 10, 2020](https://www.thisamericanlife.org/691/gardens-of-branching-paths)
 -   <i class="fas fa-book"></i> Chapter 3 in *Impact Evaluation in Practice*[^1]
 -   <i class="fas fa-book"></i> Chapters 8, 9, and 10 in *The Effect*[^2]
 
@@ -101,6 +101,10 @@ You can also watch the playlist (and skip around to different sections) here:
 </div>
 
 ## In-class stuff
+
+Here are all the materials we’ll use in class:
+
+-   [**Session 5 FAQ slides**](/slides/05-class.html) ([PDF](/slides/05-class.pdf))
 
 [^1]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.
 

@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**September 20, 2021**
+**February 10, 2022**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -59,10 +59,6 @@ class: title title-inv-8
 
 --
 
-.box-5.medium.sp-after-half[Colliders]
-
---
-
 .box-2.medium.sp-after-half[Potential outcomes vs. do() notation]
 
 --
@@ -72,290 +68,6 @@ class: title title-inv-8
 --
 
 .box-6.medium.sp-after-half[Logic models, DAGs, and measurement]
-
----
-
-layout: false
-name: colliders
-class: center middle section-title section-title-5 animated fadeIn
-
-# Colliders
-
----
-
-layout: true
-class: middle
-
----
-
-.box-5.less-medium.sp-after[How do I know which of these is which?]
-
-.center[
-<figure>
-  <img src="img/05-class/dag-associations.png" alt="DAG associations" title="DAG associations" width="100%">
-</figure>
-]
-
----
-
-class: middle
-
-.box-5.medium[But what does that mean,<br>"opening a backdoor path"?]
-
-.box-5.medium[How does statistical association<br>get passed through paths?]
-
----
-
-class: middle
-
-.pull-left[
-<figure>
-  <img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%">
-</figure>
-]
-
-.pull-right[
-```{r confounding-dag-alone, echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-dagify(
-  Y ~ X + Z,
-  X ~ Z,
-  coords = list(x = c(X = 1, Y = 3, Z = 2),
-                y = c(X = 1, Y = 1, Z = 2))
-) %>% 
-  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_dag_edges() +
-  geom_dag_point(color = "grey80", size = 17) +
-  geom_dag_text(color = "black", size = 5) +
-  theme_dag()
-```
-]
-
----
-
-class: middle
-
-.pull-left[
-<figure>
-  <img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%">
-</figure>
-]
-
-.pull-right[
-```{r mediating-dag-alone, echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-dagify(
-  Y ~ X + Z,
-  Z ~ X,
-  coords = list(x = c(X = 1, Y = 3, Z = 2),
-                y = c(X = 1, Y = 1, Z = 2))
-) %>% 
-  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_dag_edges() +
-  geom_dag_point(color = "grey80", size = 17) +
-  geom_dag_text(color = "black", size = 5) +
-  theme_dag()
-```
-]
-
----
-
-class: middle
-
-.pull-left[
-<figure>
-  <img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%">
-</figure>
-]
-
-.pull-right[
-```{r colliding-dag-alone, echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-dagify(
-  Y ~ X,
-  Z ~ Y,
-  Z ~ X,
-  coords = list(x = c(X = 1, Y = 3, Z = 2),
-                y = c(X = 1, Y = 1, Z = 2))
-) %>% 
-  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_dag_edges() +
-  geom_dag_point(color = "grey80", size = 17) +
-  geom_dag_text(color = "black", size = 5) +
-  theme_dag()
-```
-]
-
----
-
-layout: true
-class: middle
-
----
-
-d-separation
-
----
-
-.box-5.medium[How can you be sure<br>you include everything in a DAG?]
-
-.box-5.medium[Is there a rule of thumb<br>for the number of nodes?]
-
----
-
-.box-5.large[How exactly do colliders<br>mess up your results?]
-
-.box-5.medium[It looks like you can<br>still get the effect of X on Y]
-
----
-
-.center[
-<figure>
-  <img src="img/04-class/facebook.png" alt="Facebook collider" title="Facebook collider" width="55%">
-</figure>
-]
-
-???
-
-<https://www.businessinsider.com/facebook-sent-incomplete-misinformation-data-flawed-researchers-2021-9>
-
-<https://www.nytimes.com/live/2020/2020-election-misinformation-distortions#facebook-sent-flawed-data-to-misinformation-researchers>
-
----
-
-layout: false
-class: title title-5
-
-# Does niceness improve appearance?
-
-```{r niceness-appearance-data, include=FALSE}
-set.seed(1234)
-nice_appearance_data <- tibble(niceness = rnorm(10000, mean = 0, sd = 1),
-                               appearance = rnorm(10000, mean = 0, sd = 1))
-
-plot_labels <- tribble(
-  ~x, ~y, ~label, 
-  -2, 2, "Mean and attractive",
-  2, 2, "Nice and attractive",
-  2, -2, "Nice and ugly",
-  -2, -2, "Mean and ugly",
-)
-
-full_sample <- ggplot(nice_appearance_data, aes(x = niceness, y = appearance)) +
-  geom_point(color = "grey40", size = 0.5, alpha = 0.8) +
-  geom_smooth(size = 2, method = "lm") +
-  labs(x = "Niceness", y = "Appearance") +
-  theme_bw(base_family = "Fira Sans Condensed")
-
-full_sample_annotated <- full_sample +
-  geom_vline(xintercept = 0) +
-  geom_hline(yintercept = 0) +
-  geom_label(data = plot_labels, aes(label = label, x = x, y = y),
-             fill = "#CF4446", color = "white",
-             family = "Fira Sans Condensed", fontface = "bold")
-
-collider_bias <- ggplot(filter(nice_appearance_data, 
-                               !(niceness <= 0 & appearance <= 0)), 
-       aes(x = niceness, y = appearance)) +
-  geom_point(color = "grey40", size = 0.5, alpha = 0.8) +
-  geom_vline(xintercept = 0) +
-  geom_hline(yintercept = 0) +
-  geom_smooth(size = 2, method = "lm") +
-  geom_label(data = plot_labels, aes(label = label, x = x, y = y),
-             fill = "#CF4446", color = "white",
-             family = "Fira Sans Condensed", fontface = "bold") +
-  labs(x = "Niceness", y = "Appearance") +
-  theme_bw(base_family = "Fira Sans Condensed")
-collider_bias
-
-collider_dag <- dagify(
-  Y ~ X,
-  Z ~ X + Y,
-  coords = list(x = c(X = 1, Y = 3, Z = 2),
-                y = c(X = 1, Y = 1, Z = 2)),
-  exposure = "X",
-  outcome = "Y"
-) %>% 
-  tidy_dagitty() %>% 
-  node_status() %>% 
-  mutate(across(c(name, to), 
-                ~recode(., X = "Niceness", Y = "Appearance", 
-                        Z = "People you've dated"))) %>% 
-  mutate(arrow_color = ifelse(to == "People you've dated", "#F012BE", "black"))
-
-plot_dag <- ggplot(collider_dag, aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_dag_edges(aes(edge_color = arrow_color)) +
-  geom_dag_point(aes(color = status), size = 17) +
-  geom_dag_text(data = filter(collider_dag, name != "People you've dated"),
-                color = "black", size = 5, nudge_y = -0.2,
-                family = "Fira Sans Condensed", fontface = "bold") +
-  geom_dag_text(data = filter(collider_dag, name == "People you've dated"),
-                color = "black", size = 5, nudge_y = 0.2,
-                family = "Fira Sans Condensed", fontface = "bold") +
-  scale_color_manual(values = c("#2ECC40", "#0074D9"), 
-                     na.value = "grey80", guide = "none") +
-  coord_cartesian(xlim = c(0.8, 3.2), ylim = c(0.8, 2.2)) +
-  theme_dag()
-```
-
-.pull-left[
-
-```{r echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-full_sample
-```
-
-]
-
---
-
-.pull-right[
-
-```{r echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-full_sample_annotated
-```
-
-]
-
----
-
-class: title title-5
-
-# Collider distorts the true effect!
-
-.pull-left[
-
-```{r echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-plot_dag
-```
-
-]
-
---
-
-.pull-right[
-
-```{r echo=FALSE, fig.width=4.5, fig.height=3.35, out.width="100%"}
-collider_bias
-```
-
-]
-
----
-
-.box-5.large[Effect of race on police use of force<br>using administrative data]
-
----
-
-.box-5.medium[Effect of race on police use of force<br>using administrative data]
-
-.pull-left[
-<figure>
-  <img src="img/05-class/klm-dag.png" alt="Use of force" title="Use of force" width="100%">
-</figure>
-]
-
-.pull-right[
-<figure>
-  <img src="img/05-class/klm.png" alt="Use of force" title="Use of force" width="100%">
-</figure>
-]
 
 ---
 
@@ -372,7 +84,15 @@ class: title title-2
 
 ---
 
+# Expectations
+
+<br>
+
+.large[
 $$\operatorname{E}(\cdot), \mathbf{E}(\cdot), \mathbb{E}(\cdot) \quad \text{vs.}\quad \operatorname{P}(\cdot)$$
+]
+
+.box-inv-2.small[Basically a fancy way of saying "average"]
 
 ---
 
@@ -381,10 +101,10 @@ $$\operatorname{E}(\cdot), \mathbf{E}(\cdot), \mathbb{E}(\cdot) \quad \text{vs.}
 $$
 \begin{aligned}
 & \textbf{Potential outcomes notation:} \\
-\delta\ =& {\textstyle \frac{1}{n} \sum_{i=1}^n} Y_i (1) - Y_i (0) \\
+\delta\ =&\ {\textstyle \frac{1}{n} \sum_{i=1}^n} Y_i (1) - Y_i (0) \\
 & \\
 & \text{or alternatively with } \textbf{E} \\
-\delta\ =& \textbf{E} [Y_i (1) - Y_i (0)] \\
+\delta\ =&\ \textbf{E} [Y_i (1) - Y_i (0)] \\
 \end{aligned}
 $$
 
@@ -395,10 +115,10 @@ $$
 $$
 \begin{aligned}
 & \textbf{Pearl notation:} \\
-\delta\ =& \textbf{E}[Y_i \mid \operatorname{do}(X = 1) - Y_i \mid \operatorname{do}(X = 0)] \\
+\delta\ =&\ \textbf{E}[Y_i \mid \operatorname{do}(X = 1) - Y_i \mid \operatorname{do}(X = 0)] \\
 & \\
 & \text{or more simply} \\
-\delta\ =& \textbf{E} [Y_i \mid \operatorname{do}(X)] \\
+\delta\ =&\ \textbf{E} [Y_i \mid \operatorname{do}(X)] \\
 \end{aligned}
 $$
 
@@ -407,11 +127,17 @@ $$
 layout: false
 class: middle
 
----
+<br>
 
+.large[
 $$
-\delta \quad = \quad \textbf{E} [Y_i \mid \operatorname{do}(X)] \quad = \quad \textbf{E} [Y_i (1) - Y_i (0)]
+\begin{aligned}
+\textbf{E} [Y_i\ \mid\ &\operatorname{do}(X)] \quad  \\
+&= \\
+\quad \textbf{E} [Y_i (1&) - Y_i (0)]
+\end{aligned}
 $$
+]
 
 ---
 
@@ -444,25 +170,106 @@ class: center middle section-title section-title-4 animated fadeIn
 ---
 
 layout: true
+class: title title-4
+
+---
+
+# DAGs and identification
+
+--
+
+.box-inv-4.medium[DAGs are a statistical tool, but they don't<br>tell you what statistical method to use]
+
+--
+
+.box-inv-4.medium[DAGs help you with the **identification strategy**]
+
+---
+
+layout: false
 class: middle
 
+<figure>
+  <img src="img/05-class/massie-tweet.png" alt="Thomas Massie tweet" title="Thomas Massie tweet" width="100%">
+</figure>
+
+???
+
+<https://twitter.com/RepThomasMassie/status/1491441851748204546>
+
 ---
 
-.box-4.medium[
-How can you create a DAG/transform the expression and do all the backdoor adjustments to determine causality if you can't possibly think of all variables that may impact your outcome variable?
-]
+class: middle
+
+.box-4[.medium[What are the data requirements to use<br>do-calculus to answer a research question]<br>.small[(e.g., variables, sample size, distribution of values, etc.)?]]
 
 ---
+
+class: title title-4
+
+# Easist identification
+
+.box-inv-4.medium[Identification through research design]
+
+.box-inv-4.sp-after[RCTs]
+
+.box-4[When treatment is randomized, delete all arrows going into it]
+
+.box-4.medium[No need for any do-calculus!]
+
+---
+
+class: title title-4
+
+# Most other identification
+
+.box-inv-4.medium[Identification through do-calculus]
+
+.box-inv-4.sp-after[Rules for graph surgery]
+
+.box-4[Backdoor adjustment and frontdoor adjustment<br>are special common patterns of do-calculus]
+
+---
+
+class: middle
 
 .box-4.medium[Where can we learn more about *do*-calculus?]
 
-.box-inv-4[[Here!](https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/)]
+.center[[Here!](https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/)]
 
 .center[
 <figure>
   <img src="img/05-class/do-calculus-math.png" alt="Do-calculus" title="Do-calculus" width="70%">
 </figure>
 ]
+
+---
+
+**Rule 1**: Decide if we can ignore an observation
+
+.small[
+$$P(y \mid z, \operatorname{do}(x), w) = P(y \mid \operatorname{do}(x), w) \qquad \text{ if } (Y \perp Z \mid W, X)_{G_{\overline{X}}}$$
+]
+
+<br>**Rule 2**: Decide if we can treat an intervention as an observation
+
+.small[
+$$P(y \mid \operatorname{do}(z), \operatorname{do}(x), w) = P(y \mid z, \operatorname{do}(x), w) \qquad \text{ if } (Y \perp Z \mid W, X)_{G_{\overline{X}, \underline{Z}}}$$
+]
+
+<br>**Rule 3**: Decide if we can ignore an intervention
+
+.small[
+$$P(y \mid \operatorname{do}(z), \operatorname{do}(x), w) = P(y \mid \operatorname{do}(x), w) \qquad \text{ if } (Y \perp Z \mid W, X)_{G_{\overline{X}, \overline{Z(W)}}}$$
+]
+
+---
+
+class: middle
+
+<figure>
+  <img src="img/05-class/backdoor-derivation.png" alt="Backdoor adjustment derivation" title="Backdoor adjustment derivation" width="100%">
+</figure>
 
 ---
 
@@ -477,11 +284,119 @@ How can you create a DAG/transform the expression and do all the backdoor adjust
 
 ---
 
-.box-4.medium[Adjusting for frontdoor confounding]
+layout: true
+class: middle
 
 ---
 
-.box-4.medium[When you're making groups for CATE, how do you decide what groups to put people in?]
+.box-4.medium[Adjusting for frontdoor confounding]
+
+???
+
+Smoking/tar + Uber
+
+---
+
+.box-4.medium[More complex DAGs without<br>obvious backdoor or frontdoor solutions]
+
+.box-4.sp-after[Chug through the rules of do-calculus<br>to see if the relationship is identifiable]
+
+.center[[Causal Fusion](https://causalfusion.net/)]
+
+---
+
+.center[
+<figure>
+  <img src="img/05-class/fusion1.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/05-class/fusion2.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/05-class/fusion3.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/05-class/fusion4.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%">
+</figure>
+]
+
+---
+
+.box-4.less-medium.sp-after[When things are identified, there are<br>still arrows leading into Y.<br>What do we do with those?<br>How do you explain those relationships?]
+
+--
+
+.box-4.less-medium[Outcomes have multiple causes.<br>How do you justify that your proposed<br>cause is the most causal factor?]
+
+???
+
+100% depends on your research question
+
+---
+
+.box-4.medium[Why can't we just subtract the averages<br>between treated and untreated groups?]
+
+---
+
+.box-4.medium[When you're making groups for CATE, how do<br>you decide what groups to put people in?]
+
+---
+
+layout: false
+class: title title-4
+
+# Unconfoundedness assumption
+
+.box-inv-4[How can we assume/pretend that treatment was<br>randomly assigned within each age?]
+
+.box-inv-4[It seems unlikely. Wouldn't there be other factors within the older/younger group that make a person more/less likely to engage in treatment (e.g., health status)?]
+
+<br>
+
+.center[[Slides from lecture](https://evalsp22.classes.andrewheiss.com/slides/05-slides.html#58)]
+
+---
+
+class: middle
+
+.box-4.medium[Does every research question<br>need an identification strategy?]
+
+--
+
+.box-inv-4.huge.sp-after[No!]
+
+.box-4[Correlation alone is okay!<br>Can lead to more focused causal questions later!]
+
+---
+
+class: middle
+
+.center[
+<figure>
+  <img src="img/05-class/moderna-ebv.png" alt="Moderna EBV trials" title="Moderna EBV trials" width="65%">
+</figure>
+]
+
+???
+
+A correlational study found that MS was strongly associated with Epstein-Barr virus (EBV) - they don't know the exact mechanism yet, but because of mRNA vaccine technology, they can develop vaccines against EBV and help stop MS. They'll figure out exact mechanisms later. For now, they've started clinical trials.
+
+<https://www.forbes.com/sites/roberthart/2022/01/14/moderna-starts-human-trials-of-mrna-vaccine-for-virus-that-likely-causes-multiple-sclerosis/?sh=74f52ca51a04>
 
 ---
 

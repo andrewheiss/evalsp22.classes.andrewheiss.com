@@ -63,12 +63,10 @@ youtube_list(slide_details, playlist_id)
 
 ## In-class stuff
 
-```{comment}
-
 Here are all the materials we'll use in class:
 
 - [**Session 5 FAQ slides**](/slides/05-class.html) ([PDF](/slides/05-class.pdf))
-```
+
 
 ```{cat include=FALSE, eval=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHwqEeiG5xb3zAHcQCGWZUC

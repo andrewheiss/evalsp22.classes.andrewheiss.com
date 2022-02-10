@@ -4,8 +4,8 @@
     <title>Class 5: DAGs, do()ing stuff, and measuring stuff</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2021-09-20" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <meta name="date" content="2022-02-10" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
@@ -29,7 +29,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**September 20, 2021**
+**February 10, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -46,10 +46,6 @@ class: title title-inv-8
 
 --
 
-.box-5.medium.sp-after-half[Colliders]
-
---
-
 .box-2.medium.sp-after-half[Potential outcomes vs. do() notation]
 
 --
@@ -59,177 +55,6 @@ class: title title-inv-8
 --
 
 .box-6.medium.sp-after-half[Logic models, DAGs, and measurement]
-
----
-
-layout: false
-name: colliders
-class: center middle section-title section-title-5 animated fadeIn
-
-# Colliders
-
----
-
-layout: true
-class: middle
-
----
-
-.box-5.less-medium.sp-after[How do I know which of these is which?]
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/05-class/dag-associations.png" alt="DAG associations" title="DAG associations" width="100%"&gt;
-&lt;/figure&gt;
-]
-
----
-
-class: middle
-
-.box-5.medium[But what does that mean,&lt;br&gt;"opening a backdoor path"?]
-
-.box-5.medium[How does statistical association&lt;br&gt;get passed through paths?]
-
----
-
-class: middle
-
-.pull-left[
-&lt;figure&gt;
-  &lt;img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%"&gt;
-&lt;/figure&gt;
-]
-
-.pull-right[
-&lt;img src="05-class_files/figure-html/confounding-dag-alone-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-class: middle
-
-.pull-left[
-&lt;figure&gt;
-  &lt;img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%"&gt;
-&lt;/figure&gt;
-]
-
-.pull-right[
-&lt;img src="05-class_files/figure-html/mediating-dag-alone-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-class: middle
-
-.pull-left[
-&lt;figure&gt;
-  &lt;img src="img/04-class/slider-switch-plain-80.jpg" alt="Switch and slider" title="Switch and slider" width="100%"&gt;
-&lt;/figure&gt;
-]
-
-.pull-right[
-&lt;img src="05-class_files/figure-html/colliding-dag-alone-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-layout: true
-class: middle
-
----
-
-d-separation
-
----
-
-.box-5.medium[How can you be sure&lt;br&gt;you include everything in a DAG?]
-
-.box-5.medium[Is there a rule of thumb&lt;br&gt;for the number of nodes?]
-
----
-
-.box-5.large[How exactly do colliders&lt;br&gt;mess up your results?]
-
-.box-5.medium[It looks like you can&lt;br&gt;still get the effect of X on Y]
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/04-class/facebook.png" alt="Facebook collider" title="Facebook collider" width="55%"&gt;
-&lt;/figure&gt;
-]
-
-???
-
-&lt;https://www.businessinsider.com/facebook-sent-incomplete-misinformation-data-flawed-researchers-2021-9&gt;
-
-&lt;https://www.nytimes.com/live/2020/2020-election-misinformation-distortions#facebook-sent-flawed-data-to-misinformation-researchers&gt;
-
----
-
-layout: false
-class: title title-5
-
-# Does niceness improve appearance?
-
-
-
-.pull-left[
-
-&lt;img src="05-class_files/figure-html/unnamed-chunk-1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-]
-
---
-
-.pull-right[
-
-&lt;img src="05-class_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-class: title title-5
-
-# Collider distorts the true effect!
-
-.pull-left[
-
-&lt;img src="05-class_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-]
-
---
-
-.pull-right[
-
-&lt;img src="05-class_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-.box-5.large[Effect of race on police use of force&lt;br&gt;using administrative data]
-
----
-
-.box-5.medium[Effect of race on police use of force&lt;br&gt;using administrative data]
-
-.pull-left[
-&lt;figure&gt;
-  &lt;img src="img/05-class/klm-dag.png" alt="Use of force" title="Use of force" width="100%"&gt;
-&lt;/figure&gt;
-]
-
-.pull-right[
-&lt;figure&gt;
-  &lt;img src="img/05-class/klm.png" alt="Use of force" title="Use of force" width="100%"&gt;
-&lt;/figure&gt;
-]
 
 ---
 
@@ -246,7 +71,15 @@ class: title title-2
 
 ---
 
+# Expectations
+
+&lt;br&gt;
+
+.large[
 `$$\operatorname{E}(\cdot), \mathbf{E}(\cdot), \mathbb{E}(\cdot) \quad \text{vs.}\quad \operatorname{P}(\cdot)$$`
+]
+
+.box-inv-2.small[Basically a fancy way of saying "average"]
 
 ---
 
@@ -255,10 +88,10 @@ class: title title-2
 $$
 `\begin{aligned}
 &amp; \textbf{Potential outcomes notation:} \\
-\delta\ =&amp; {\textstyle \frac{1}{n} \sum_{i=1}^n} Y_i (1) - Y_i (0) \\
+\delta\ =&amp;\ {\textstyle \frac{1}{n} \sum_{i=1}^n} Y_i (1) - Y_i (0) \\
 &amp; \\
 &amp; \text{or alternatively with } \textbf{E} \\
-\delta\ =&amp; \textbf{E} [Y_i (1) - Y_i (0)] \\
+\delta\ =&amp;\ \textbf{E} [Y_i (1) - Y_i (0)] \\
 \end{aligned}`
 $$
 
@@ -269,10 +102,10 @@ $$
 $$
 `\begin{aligned}
 &amp; \textbf{Pearl notation:} \\
-\delta\ =&amp; \textbf{E}[Y_i \mid \operatorname{do}(X = 1) - Y_i \mid \operatorname{do}(X = 0)] \\
+\delta\ =&amp;\ \textbf{E}[Y_i \mid \operatorname{do}(X = 1) - Y_i \mid \operatorname{do}(X = 0)] \\
 &amp; \\
 &amp; \text{or more simply} \\
-\delta\ =&amp; \textbf{E} [Y_i \mid \operatorname{do}(X)] \\
+\delta\ =&amp;\ \textbf{E} [Y_i \mid \operatorname{do}(X)] \\
 \end{aligned}`
 $$
 
@@ -281,11 +114,17 @@ $$
 layout: false
 class: middle
 
----
+&lt;br&gt;
 
+.large[
 $$
-\delta \quad = \quad \textbf{E} [Y_i \mid \operatorname{do}(X)] \quad = \quad \textbf{E} [Y_i (1) - Y_i (0)]
+`\begin{aligned}
+\textbf{E} [Y_i\ \mid\ &amp;\operatorname{do}(X)] \quad  \\
+&amp;= \\
+\quad \textbf{E} [Y_i (1&amp;) - Y_i (0)]
+\end{aligned}`
 $$
+]
 
 ---
 
@@ -318,25 +157,106 @@ class: center middle section-title section-title-4 animated fadeIn
 ---
 
 layout: true
+class: title title-4
+
+---
+
+# DAGs and identification
+
+--
+
+.box-inv-4.medium[DAGs are a statistical tool, but they don't&lt;br&gt;tell you what statistical method to use]
+
+--
+
+.box-inv-4.medium[DAGs help you with the **identification strategy**]
+
+---
+
+layout: false
 class: middle
 
+&lt;figure&gt;
+  &lt;img src="img/05-class/massie-tweet.png" alt="Thomas Massie tweet" title="Thomas Massie tweet" width="100%"&gt;
+&lt;/figure&gt;
+
+???
+
+&lt;https://twitter.com/RepThomasMassie/status/1491441851748204546&gt;
+
 ---
 
-.box-4.medium[
-How can you create a DAG/transform the expression and do all the backdoor adjustments to determine causality if you can't possibly think of all variables that may impact your outcome variable?
-]
+class: middle
+
+.box-4[.medium[What are the data requirements to use&lt;br&gt;do-calculus to answer a research question]&lt;br&gt;.small[(e.g., variables, sample size, distribution of values, etc.)?]]
 
 ---
+
+class: title title-4
+
+# Easist identification
+
+.box-inv-4.medium[Identification through research design]
+
+.box-inv-4.sp-after[RCTs]
+
+.box-4[When treatment is randomized, delete all arrows going into it]
+
+.box-4.medium[No need for any do-calculus!]
+
+---
+
+class: title title-4
+
+# Most other identification
+
+.box-inv-4.medium[Identification through do-calculus]
+
+.box-inv-4.sp-after[Rules for graph surgery]
+
+.box-4[Backdoor adjustment and frontdoor adjustment&lt;br&gt;are special common patterns of do-calculus]
+
+---
+
+class: middle
 
 .box-4.medium[Where can we learn more about *do*-calculus?]
 
-.box-inv-4[[Here!](https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/)]
+.center[[Here!](https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/)]
 
 .center[
 &lt;figure&gt;
   &lt;img src="img/05-class/do-calculus-math.png" alt="Do-calculus" title="Do-calculus" width="70%"&gt;
 &lt;/figure&gt;
 ]
+
+---
+
+**Rule 1**: Decide if we can ignore an observation
+
+.small[
+`$$P(y \mid z, \operatorname{do}(x), w) = P(y \mid \operatorname{do}(x), w) \qquad \text{ if } (Y \perp Z \mid W, X)_{G_{\overline{X}}}$$`
+]
+
+&lt;br&gt;**Rule 2**: Decide if we can treat an intervention as an observation
+
+.small[
+`$$P(y \mid \operatorname{do}(z), \operatorname{do}(x), w) = P(y \mid z, \operatorname{do}(x), w) \qquad \text{ if } (Y \perp Z \mid W, X)_{G_{\overline{X}, \underline{Z}}}$$`
+]
+
+&lt;br&gt;**Rule 3**: Decide if we can ignore an intervention
+
+.small[
+`$$P(y \mid \operatorname{do}(z), \operatorname{do}(x), w) = P(y \mid \operatorname{do}(x), w) \qquad \text{ if } (Y \perp Z \mid W, X)_{G_{\overline{X}, \overline{Z(W)}}}$$`
+]
+
+---
+
+class: middle
+
+&lt;figure&gt;
+  &lt;img src="img/05-class/backdoor-derivation.png" alt="Backdoor adjustment derivation" title="Backdoor adjustment derivation" width="100%"&gt;
+&lt;/figure&gt;
 
 ---
 
@@ -351,11 +271,119 @@ How can you create a DAG/transform the expression and do all the backdoor adjust
 
 ---
 
-.box-4.medium[Adjusting for frontdoor confounding]
+layout: true
+class: middle
 
 ---
 
-.box-4.medium[When you're making groups for CATE, how do you decide what groups to put people in?]
+.box-4.medium[Adjusting for frontdoor confounding]
+
+???
+
+Smoking/tar + Uber
+
+---
+
+.box-4.medium[More complex DAGs without&lt;br&gt;obvious backdoor or frontdoor solutions]
+
+.box-4.sp-after[Chug through the rules of do-calculus&lt;br&gt;to see if the relationship is identifiable]
+
+.center[[Causal Fusion](https://causalfusion.net/)]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/fusion1.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/fusion2.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/fusion3.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/fusion4.png" alt="Causal Fusion example" title="Causal Fusion example" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-4.less-medium.sp-after[When things are identified, there are&lt;br&gt;still arrows leading into Y.&lt;br&gt;What do we do with those?&lt;br&gt;How do you explain those relationships?]
+
+--
+
+.box-4.less-medium[Outcomes have multiple causes.&lt;br&gt;How do you justify that your proposed&lt;br&gt;cause is the most causal factor?]
+
+???
+
+100% depends on your research question
+
+---
+
+.box-4.medium[Why can't we just subtract the averages&lt;br&gt;between treated and untreated groups?]
+
+---
+
+.box-4.medium[When you're making groups for CATE, how do&lt;br&gt;you decide what groups to put people in?]
+
+---
+
+layout: false
+class: title title-4
+
+# Unconfoundedness assumption
+
+.box-inv-4[How can we assume/pretend that treatment was&lt;br&gt;randomly assigned within each age?]
+
+.box-inv-4[It seems unlikely. Wouldn't there be other factors within the older/younger group that make a person more/less likely to engage in treatment (e.g., health status)?]
+
+&lt;br&gt;
+
+.center[[Slides from lecture](https://evalsp22.classes.andrewheiss.com/slides/05-slides.html#58)]
+
+---
+
+class: middle
+
+.box-4.medium[Does every research question&lt;br&gt;need an identification strategy?]
+
+--
+
+.box-inv-4.huge.sp-after[No!]
+
+.box-4[Correlation alone is okay!&lt;br&gt;Can lead to more focused causal questions later!]
+
+---
+
+class: middle
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/05-class/moderna-ebv.png" alt="Moderna EBV trials" title="Moderna EBV trials" width="65%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+A correlational study found that MS was strongly associated with Epstein-Barr virus (EBV) - they don't know the exact mechanism yet, but because of mRNA vaccine technology, they can develop vaccines against EBV and help stop MS. They'll figure out exact mechanisms later. For now, they've started clinical trials.
+
+&lt;https://www.forbes.com/sites/roberthart/2022/01/14/moderna-starts-human-trials-of-mrna-vaccine-for-virus-that-likely-causes-multiple-sclerosis/?sh=74f52ca51a04&gt;
 
 ---
 
