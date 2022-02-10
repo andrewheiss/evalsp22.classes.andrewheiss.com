@@ -282,6 +282,29 @@ class: middle
 
 Smoking/tar + Uber
 
+Effect of shared rides on tips; use frontdoor magic
+
+Like IV but in reverse:
+
+- IV: instrument → treatment → outcome
+- Frontdoor: treatment → instrumenty-mediator → outcome
+
+```text
+dag {
+bb="0,0,1,1"
+"Actually take shared ride" [pos="0.528,0.508"]
+"Authorize shared ride" [exposure,pos="0.288,0.504"]
+"Lots of unobserved stuff" [pos="0.521,0.342"]
+"Tip driver" [outcome,pos="0.743,0.518"]
+"Actually take shared ride" -&gt; "Tip driver"
+"Authorize shared ride" -&gt; "Actually take shared ride"
+"Lots of unobserved stuff" -&gt; "Authorize shared ride"
+"Lots of unobserved stuff" -&gt; "Tip driver"
+}
+```
+
+&lt;https://twitter.com/andrewheiss/status/1361686426820222977&gt;
+
 ---
 
 .box-4.medium[More complex DAGs without&lt;br&gt;obvious backdoor or frontdoor solutions]
@@ -333,6 +356,10 @@ Smoking/tar + Uber
 ???
 
 100% depends on your research question
+
+---
+
+.box-4.medium[How do we know if the&lt;br&gt;DAG is correct or complete?]
 
 ---
 
