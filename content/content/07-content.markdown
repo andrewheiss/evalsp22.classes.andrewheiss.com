@@ -135,6 +135,22 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
+Here are all the materials we’ll use in class:
+
+-   [**Session 7 FAQ slides**](/slides/07-class.html) ([PDF](/slides/07-class.pdf))
+-   [In-class `.zip` file](/projects/rcts-ipw.zip)
+-   [RStudio.cloud project](https://rstudio.cloud/spaces/205054/project/3646106)
+-   [Finished code from in-class example](/files/rct_vaccine-payments.R) (see also `rct_vaccine-payments_finished.Rmd` in the `.zip` file)
+
+Other helpful resources:
+
+-   [“The Impact of Mask Distribution and Promotion on Mask Uptake and COVID-19 in Bangladesh”](https://www.poverty-action.org/study/impact-mask-distribution-and-promotion-mask-uptake-and-covid-19-bangladesh)
+-   Macartan Humphreys, [“I saw your RCT and I have some worries! FAQs”](https://macartan.github.io/i/notes/rct_faqs.html)
+-   Darren Dahly, [“Out of balance: A perspective on covariate adjustment in randomized experiments”](https://statsepi.substack.com/p/out-of-balance)
+-   [Bayesian stats and decison making](/resource/bayes/)
+-   [Standard errors](/example/standard-errors/)
+-   [Unobserved confounding and sensitivity analysis](/example/confounding-sensitivity/)
+
 [^1]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.
 
 [^2]: Nick Huntington-Klein, *The Effect: An Introduction to Research Design and Causality* (Boca Raton, Florida: Chapman and Hall / CRC, 2021), <https://theeffectbook.net/>.

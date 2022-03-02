@@ -131,6 +131,13 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
+Here are all the materials we’ll use in class:
+
+-   [**Session 6 FAQ slides**](/slides/06-class.html) ([PDF](/slides/06-class.pdf))
+-   [Zilch!](/resource/zilch/)
+-   [<i class="fab fa-r-project"></i> Live R script](https://www.dropbox.com/s/akez7ssaiyt6um3/bayes-fun.R)
+-   [<i class="fas fa-file-csv"></i> `restaurant_inspections.csv`](https://vincentarelbundock.github.io/Rdatasets/csv/causaldata/restaurant_inspections.csv)
+
 [^1]: Guido W. Imbens, “Statistical Significance, *p*-Values, and the Reporting of Uncertainty,” *Journal of Economic Perspectives* 35, no. 3, Summer (2021): 157–74, doi:[10.1257/jep.35.3.157](https://doi.org/10.1257/jep.35.3.157).
 
 [^2]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.

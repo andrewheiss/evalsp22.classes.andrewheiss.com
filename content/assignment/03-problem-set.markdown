@@ -1,8 +1,8 @@
 ---
 title: "Problem set 3"
 linktitle: "Problem set 3"
-date: "2022-03-22"
-due_date: "2022-03-22"
+date: "2022-03-03"
+due_date: "2022-03-03"
 due_time: "11:59 PM"
 menu:
   assignment:

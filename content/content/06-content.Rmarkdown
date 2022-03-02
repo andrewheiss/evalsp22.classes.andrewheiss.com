@@ -64,16 +64,12 @@ youtube_list(slide_details, playlist_id)
 
 ## In-class stuff
 
-```{comment}
-
 Here are all the materials we'll use in class:
 
 - [**Session 6 FAQ slides**](/slides/06-class.html) ([PDF](/slides/06-class.pdf))
 - [Zilch!](/resource/zilch/)
-- [Bayes theorem, the geometry of changing beliefs](https://www.youtube.com/watch?v=HZGCoVF3YvM)
-- [Bayes and Covid](/files/bayes-covid.xlsx)
-- [Restaurant ratings](https://gist.github.com/andrewheiss/0edd0e64ba9c0be22b33c0ffddb791a2)
-```
+- [<i class="fab fa-r-project"></i> Live R script](https://www.dropbox.com/s/akez7ssaiyt6um3/bayes-fun.R)
+- [<i class="fas fa-file-csv"></i> `restaurant_inspections.csv`](https://vincentarelbundock.github.io/Rdatasets/csv/causaldata/restaurant_inspections.csv)
 
 ```{cat include=FALSE, eval=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFJtz7egfUASfhhz6zuj7GZ

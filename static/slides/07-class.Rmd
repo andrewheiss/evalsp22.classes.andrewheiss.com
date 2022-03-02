@@ -1,5 +1,5 @@
 ---
-title: "Class 7: RCTs, adjustment, and sensitivity"
+title: "Class 7: RCTs and IPW"
 author: "Andrew Heiss"
 date: "`r Sys.Date()`"
 output:
@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**October 4, 2021**
+**February 24, 2022**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -69,10 +69,6 @@ class: title title-inv-8
 
 .box-4.medium.sp-after-half[Matching and IPW]
 
---
-
-.box-6.medium.sp-after-half[Sensitivity analysis]
-
 ---
 
 layout: false
@@ -88,15 +84,15 @@ class: middle
 
 ---
 
-.box-3.large[Are there really studies linking PhD students and mozzarella cheese consumption?]
-
-.box-3.large[[No, but there's this website](https://www.tylervigen.com/spurious-correlations)]
-
----
-
 .box-3.large[Randomness]
 
 .box-3.medium[How do we use random.org for things in R?]
+
+---
+
+.box-3.medium[Do researchers actually check<br>all of the assumptions of OLS?<br>(or any statistical test?)]
+
+.box-inv-3.small[[Sometimes](https://stats.andrewheiss.com/donors-crackdowns-aid/03_h1-total-aid.html)]
 
 ---
 
@@ -135,9 +131,55 @@ How exactly do drug trials work? Like in TV shows, when they tell someone that t
 
 ---
 
-.box-2.large[Balance tests]
+.center[
+<figure>
+  <img src="img/07-class/coins.jpg" alt="Stack of coins" title="Stack of coins" width="70%">
+</figure>
+]
+
+???
+
+[Coins](http://www.freestockphotos.biz/stockphoto/8215)
 
 ---
+
+.box-2.medium[Wordle!]
+
+.center[
+<figure>
+  <img src="img/07-class/blank-wordle.png" alt="Blank Wordle" title="Blank Wordle" width="40%">
+</figure>
+]
+
+???
+
+<https://twitter.com/dave_andersen/status/1495530221096873993>
+<https://twitter.com/johnlray/status/1495421626074214402?s=21>
+
+---
+
+.center[
+```text
+Feb 10 2022 Day 236 PAUSE
+Feb 11 2022 Day 237 ULCER
+Feb 12 2022 Day 238 ULTRA
+Feb 13 2022 Day 239 ROBIN
+ -----NYT TAKES OVER-----
+Feb 14 2022 Day 240 CYNIC
+Feb 15 2022 Day 241 AGORA
+Feb 16 2022 Day 242 AROMA
+Feb 17 2022 Day 243 CAULK
+Feb 18 2022 Day 244 SHAKE
+```
+]
+
+???
+
+<https://medium.com/@owenyin/here-lies-wordle-2021-2027-full-answer-list-52017ee99e86>
+
+---
+
+.box-2.large[Balance tests]
 
 ???
 
@@ -161,6 +203,9 @@ Stratified randomization is okay
 </figure>
 ]
 
+---
+
+.box-2.large[Can you walk through an example of<br>RCTs in class?]
 
 ---
 
@@ -196,22 +241,3 @@ class: middle
 Since there's no uniform scale for inverse probability weight scales, how do you decide what's "weird?" Just by comparing to other points in the data set? Or does it not really matter since it's just a step in the overall calculations?
 
 By weighing things when there's not enough in the sample, doesn't that heavily distort the information? In the last class you had mentioned that there was a study where there was only one black man and his weigh in the survey was significantly weighted, but that is just the opinion of one person?  
-
----
-
-layout: false
-name: sensitivity
-class: center middle section-title section-title-6 animated fadeIn
-
-# Sensitivity analysis
-
----
-
-layout: true
-class: middle
-
----
-
-.box-6.medium.sp-after[How do we know when we've got<br>the right confounders in our DAG?]
-
-.box-6.medium[How do we solve the fact that<br>we have so many unknowns in our DAG?]

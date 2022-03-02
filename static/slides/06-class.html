@@ -4,8 +4,8 @@
     <title>Class 6: Validity + confidence intervals</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2021-09-29" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <meta name="date" content="2022-02-17" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
@@ -29,7 +29,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**September 27, 2021**
+**February 17, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -94,13 +94,23 @@ class: middle
 
 .box-3.large[Power calculations and sample size]
 
+.box-3.medium[Won't we always be able to find&lt;br&gt;a significant effect if the&lt;br&gt;sample size is big enough?]
+
+.box-inv-3.small[Yes!]
+
 ---
 
-.box-3.large[Won't we always be able to find&lt;br&gt;a significant effect if the&lt;br&gt;sample size is big enough?]
+.box-3.huge[Math with computers]
+
+.box-inv-3[andhs.co/live]
 
 ---
 
-.box-3.large[Yes!]
+.box-3.large[Are the results from&lt;br&gt;p-hacking actually a&lt;br&gt;threat to validity?]
+
+???
+
+&lt;https://projects.fivethirtyeight.com/p-hacking/&gt;
 
 ---
 
@@ -108,11 +118,11 @@ class: middle
 
 ---
 
-.box-3.large[Yes!]
+.box-3.large.sp-after[Yes!]
 
 .box-3.medium[[OSF](https://osf.io/prereg/)]
 
-.box-inv-3[See [this](https://stats.andrewheiss.com/ngo-crackdowns-philanthropy/preregistration.html) and [this](https://stats.andrewheiss.com/why-donors-donate/preregistration.html) for examples]
+.box-inv-3.sp-after[See [this](https://stats.andrewheiss.com/ngo-crackdowns-philanthropy/preregistration.html) and [this](https://stats.andrewheiss.com/why-donors-donate/preregistration.html) for examples]
 
 .box-3.medium[[As Predicted](https://aspredicted.org/)]
 
@@ -120,13 +130,9 @@ class: middle
 
 ---
 
-.box-3.medium[Do you (yourself) always check the&lt;br&gt;statistical assumptions for each test?] 
-
-.box-inv-3.small[[Sometimes](https://stats.andrewheiss.com/donors-crackdowns-aid/03_h1-total-aid.html)]
-
----
-
 .box-3.medium[Do you have any tips for identifying the&lt;br&gt;threats to validity in articles since&lt;br&gt;they're often not super clear?]
+
+.box-3[Especially things like spillovers,&lt;br&gt;Hawthorne effects, and John Henry effects?]
 
 ---
 
@@ -148,16 +154,9 @@ class: center middle section-title section-title-5 animated fadeIn
 
 ---
 
-layout: true
 class: middle
 
----
-
-&gt; So we've read how p-values aren't necessarily the most reliable. So... what now? I hear about this jazzy bayesian statistics, but who's teaching it, lol? I'm not sure if I met any students in my ddepartment that have been introduced to that type of stats. Maybe the Ph.D. nerds.
-
----
-
-.box-5.large[It's nerd time.]
+.box-5.large[In the absence of p-values,&lt;br&gt;I'm confused about how&lt;br&gt;we report… significance?]
 
 ---
 
@@ -184,7 +183,7 @@ class: title title-5
 
 .box-inv-5[Report point estimates and some sort of range]
 
-&gt; It would be preferable if reporting standards emphasized confidence intervals or standard errors, and, even better, Bayesian posterior intervals.
+&gt; "It would be preferable if reporting standards emphasized confidence intervals or standard errors, and, even better, Bayesian posterior intervals."
 
 --
 
@@ -199,12 +198,6 @@ class: title title-5
 
 .box-5.small[A range of possible values]
 ]
-
----
-
-# Samples, populations, and truth
-
-.box-inv-5[Population parameter]
 
 ---
 
@@ -307,7 +300,7 @@ $$
 
 # Variability
 
-.box-inv-5.medium[You have an estimate, but how different might that&lt;br&gt;estimate be if you take another sample?]
+.box-inv-5.medium[You have an estimate,&lt;br&gt;but how different might that&lt;br&gt;estimate be if you take another sample?]
 
 ---
 
@@ -317,15 +310,15 @@ $$
 
 --
 
-.box-5.less-medium[If you take a different random sample of 50 GSU students, how many would you expect to be left-handed?]
+.box-5.less-medium[If you take a different random sample of&lt;br&gt;50 GSU students, how many would you&lt;br&gt;expect to be left-handed?]
 
 --
 
-.box-5[3 are left-handed. Is that surprising?]
+.box-inv-5[3 are left-handed. Is that surprising?]
 
 --
 
-.box-5[40 are left-handed. Is that surprising?]
+.box-inv-5[40 are left-handed. Is that surprising?]
 
 ---
 
@@ -361,6 +354,8 @@ class: title title-5
 ---
 
 # WARNING
+
+--
 
 .box-inv-5.medium[It is way too tempting to say &lt;br&gt;“We’re 95% sure that the&lt;br&gt;population parameter is X”]
 
@@ -409,7 +404,15 @@ class: title title-5
 
 .box-inv-5.medium[This kind of statistics is called "frequentism"]
 
-.box-5[The population parameter is fixed and singular&lt;br&gt;while the data can vary]
+--
+
+.box-5[The population parameter θ is fixed and singular&lt;br&gt;while the data can vary]
+
+$$
+P(\text{Data} \mid \theta)
+$$
+
+--
 
 .box-5[You can do an experiment over and over again;&lt;br&gt;take more and more samples and polls]
 
@@ -432,13 +435,6 @@ class: middle
 
 ---
 
-layout: false
-class: middle
-
-.box-5.huge[Math with computers]
-
----
-
 layout: true
 class: title title-5
 
@@ -456,6 +452,8 @@ class: title title-5
 ]
 
 .pull-right.small[
+
+`$$P(\theta \mid \text{Data})$$`
 
 &amp;nbsp;
 
@@ -488,52 +486,6 @@ class: title title-5
 
 ---
 
-layout: false
-
-&lt;iframe width="100%" height="600" src="https://www.youtube.com/embed/HZGCoVF3YvM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-
----
-
-layout: true
-class: title title-5
-
----
-
-# Bayesian Covid testing
-
-.box-inv-5.medium[You just got a negative Covid test.&lt;br&gt;What's the probability it's right?]
-
---
-
-.pull-left-3[
-.box-5.medium[Specificity]
-
-.box-inv-5.small[True negative rate]
-]
-
-.pull-middle-3[
-.box-5.medium[Sensitivity]
-
-.box-inv-5.small[True positive rate]
-]
-
-.pull-right-3[
-.box-5.medium[Prevalence]
-
-.box-inv-5.small[How common it is]
-]
-
-???
-
-- Antigen and PCR tests are highly specific: &lt;https://medical.mit.edu/faqs/faq-testing-covid-19&gt; - almost never gives a false positive - &lt;https://www.fda.gov/medical-devices/letters-health-care-providers/potential-false-positive-results-antigen-tests-rapid-detection-sars-cov-2-letter-clinical-laboratory&gt;
-- They are not equally sensitive
-
-&gt; The RT-PCR test is highly specific. That is, if someone truly doesn’t have the infection, there is a high probability the test will come out negative. The test is also highly sensitive. So, if someone truly is infected with the virus, there is a high probability the test will come back positive. (&lt;https://theconversation.com/why-are-some-covid-test-results-false-positives-and-how-common-are-they-162163&gt;)
-
-- Rice and false positives (&lt;https://www.houstonchronicle.com/news/houston-texas/education/article/Rice-officials-say-COVID-19-testing-provider-16408580.php&gt;) 
-
----
-
 layout: true
 class: middle
 
@@ -553,25 +505,6 @@ $$
 \color{blue}{P(\text{Evidence} \mid \text{Hypothesis})}
 }{
 \color{black}{P(\text{Evidence})}
-}
-$$
-
----
-
-`$$\color{orange}{P(\text{H} \mid \text{E})} = \frac{\color{red}{P(\text{H})} \times\color{blue}{P(\text{E} \mid \text{H})}}{\color{black}{P(\text{E})}}$$`
-
-&amp;nbsp;
-
-$$
-\color{orange}{P(\text{Disease} \mid \text{Negative})} = 
-$$
-
-$$
-\frac{
-\color{red}{P(\text{Disease})} \times
-\color{blue}{P(\text{Negative} \mid \text{Disease})}
-}{
-\color{black}{P(\text{Negative})}
 }
 $$
 
@@ -624,11 +557,31 @@ class: title title-5
 
 # Bayesianism and parameters
 
-.box-inv-5.medium.sp-after[In the world of frequentism,&lt;br&gt;there's a fixed population parameter&lt;br&gt;and the data can hypothetically vary]
+.center[
+.pull-left-wide[
+.box-inv-5[In the world of frequentism,&lt;br&gt;there's a fixed population parameter&lt;br&gt;and the data can hypothetically vary]
+]
+
+.pull-right-narrow[
+$$
+P(\text{Data} \mid \theta)
+$$
+]
+]
 
 --
 
-.box-inv-5.medium[In the world of Bayesianism,&lt;br&gt;the data is fixed (you collected it just once!)&lt;br&gt;and the population parameter can vary]
+.center[
+.pull-left-wide[
+.box-inv-5[In the world of Bayesianism,&lt;br&gt;the data is fixed .small[(you collected it just once!)]&lt;br&gt;and the population parameter can vary]
+]
+
+.pull-right-narrow[
+$$
+P(\theta \mid \text{Data})
+$$
+]
+]
 
 ???
 
@@ -701,6 +654,33 @@ Bayesian p-value = probability that it's greater than 0 - you can say that there
 .box-inv-5.less-medium.sp-before[BUT Imbens cites research that&lt;br&gt;that's actually generally okay] 
 
 .box-5[Often credible intervals are super similar to confidence intervals]
+
+
+---
+
+# Bayesian inference
+
+.box-inv-5.medium[What do you do without p-values then?]
+
+--
+
+.pull-left[
+.box-5.small[Probability&lt;br&gt;of direction]
+
+&lt;figure&gt;
+  &lt;img src="img/06-class/plot-pd-1.png" alt="Probability of direction" title="Probability of direction" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.pull-right[
+.box-5.small[Region of practical&lt;br&gt;equivalence (ROPE)]
+
+&lt;figure&gt;
+  &lt;img src="img/06-class/plot-rope-1.png" alt="ROPE" title="ROPE" width="100%"&gt;
+&lt;/figure&gt;
+]
 
 ---
 
