@@ -9,7 +9,8 @@ library(broom)
 library(scales)  # For things like percent()
 
 results <- read_csv("data/math_survey.csv") %>% 
-  mutate(anxious_num = recode(math_anxiety, Yes = 1, No = 0))
+  mutate(anxious_num = recode(math_anxiety, Yes = 1, No = 0)) %>% 
+  mutate(treatment = fct_relevel(treatment, "Normal story"))
 ```
 
 
@@ -30,7 +31,9 @@ group_props
 
 We care about the difference in the differences:
 
-(After - before)_treatment - (After - before)_control
+$$
+(\text{After} - \text{before})_{\text{treatment}} - (\text{After} - \text{before})_{\text{control}}
+$$
 
 ```{r}
 after_treatment <- group_props %>% 

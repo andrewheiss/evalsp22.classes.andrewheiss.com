@@ -3,7 +3,7 @@ title: "Penguins and interactions"
 output: html_document
 ---
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(tidyverse)
 library(broom)
 library(palmerpenguins)

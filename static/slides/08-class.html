@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Classes 8-9: Diff-in-diff</title>
+    <title>Class 8: Diff-in-diff I</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2022-01-05" />
+    <meta name="date" content="2022-03-03" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
@@ -29,7 +29,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**October 11, 2021**
+**March 3, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -46,23 +46,27 @@ class: title title-inv-8
 
 --
 
-.box-3.medium.sp-after-half[Econ Nobel!]
+.box-5.medium.sp-after-half[Models vs. designs]
 
 --
 
-.box-6.medium.sp-after-half[Sensitivity analysis]
+.box-3.medium.sp-after-half[Interactions and regression]
 
 --
 
-.box-5.medium.sp-after-half[Diff-in-diff FAQs]
+.box-1.medium.sp-after-half[Simple diff-in-diff]
+
+--
+
+.box-6.medium.sp-after-half[Two-way fixed effects]
 
 ---
 
 layout: false
-name: econ-nobel
-class: center middle section-title section-title-3 animated fadeIn
+name: models-designs
+class: center middle section-title section-title-5 animated fadeIn
 
-# Econ Nobel
+# Models vs. designs
 
 ---
 
@@ -95,6 +99,10 @@ class: middle
 &lt;/figure&gt;
 ]
 
+???
+
+Alan Krueger died by suicide in 2019
+
 ---
 
 .center[
@@ -117,45 +125,6 @@ https://twitter.com/matt_blackwell/status/1447518447882096642
 
 ---
 
-layout: false
-name: sensitivity
-class: center middle section-title section-title-6 animated fadeIn
-
-# Sensitivity analysis
-
----
-
-layout: true
-class: middle
-
----
-
-.box-6.medium.sp-after[How do we know when we've got&lt;br&gt;the right confounders in our DAG?]
-
-.box-6.medium[How do we solve the fact that&lt;br&gt;we have so many unknowns in our DAG?]
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/08-class/2020-2021-meme-garnick-1.jpg" alt="OVB" title="OVB" width="40%"&gt;
-&lt;/figure&gt;
-]
-
-???
-
-https://owenozier.github.io/teaching/2020-2021-memes
-
----
-
-layout: false
-name: faqs
-class: center middle section-title section-title-5 animated fadeIn
-
-# Diff-in-diff FAQs
-
----
-
 layout: true
 class: middle
 
@@ -164,6 +133,10 @@ class: middle
 .box-5.large[Design-based vs.&lt;br&gt;model-based inference]
 
 .box-inv-5[Special situations vs. controlling for stuff]
+
+---
+
+.box-5.medium[How would you know when it is appropriate to use a quasi-experiment over an RCT?]
 
 ---
 
@@ -267,13 +240,33 @@ class: middle
 
 ---
 
-.box-5.large[Can we talk more about interaction terms and how to interpret them?]
+layout: false
+name: interactions
+class: center middle section-title section-title-3 animated fadeIn
 
-.box-5[Are interaction effects in regression always more accurate of a difference than running a "regular" regression without them?]
+# Interactions and regression
 
 ---
 
-.box-5.large[Can causal effects be negative&lt;br&gt;or are they always positive?]
+class: middle
+
+.box-3.large[Can we talk more about interaction terms and how to interpret them?]
+
+.box-3[Are interaction effects in regression always more accurate of a difference than running a "regular" regression without them?]
+
+---
+
+class: middle
+
+.box-3.large[Regression is just fancy averages!]
+
+---
+
+layout: false
+name: diff-in-diff
+class: center middle section-title section-title-1 animated fadeIn
+
+# Simple diff-in-diff
 
 ---
 
@@ -285,83 +278,28 @@ class: middle
 
 ---
 
+class: middle
+
 .pull-left[
-.box-5.medium[**1849**]
+.box-1.medium[**1849**]
 
-.box-5[Cholera deaths per 100,000]
+.box-1[Cholera deaths per 100,000]
 
-.box-inv-5[Southwark &amp; Vauxhall: **1,349**]
+.box-inv-1[Southwark &amp; Vauxhall: **1,349**]
 
-.box-inv-5[Lambeth: **847**]
+.box-inv-1[Lambeth: **847**]
 
 ]
 
 .pull-right[
-.box-5.medium[**1854**]
+.box-1.medium[**1854**]
 
-.box-5[Cholera deaths per 100,000]
+.box-1[Cholera deaths per 100,000]
 
-.box-inv-5[Southwark &amp; Vauxhall: **1,466**]
+.box-inv-1[Southwark &amp; Vauxhall: **1,466**]
 
-.box-inv-5[Lambeth: **193**]
+.box-inv-1[Lambeth: **193**]
 ]
-
----
-
-.box-5.large[Multiple adjustment sets]
-
-???
-
-DAG from exam 1 and why there are multiple adjustment sets
-
----
-
-.box-5.large[Where do we get all this data?]
-
-.box-inv-5[lolz]
-
-.box-inv-5[[Data resources](https://evalsp22.classes.andrewheiss.com/resource/data/)]
-
-.box-inv-5[[See this](https://skranz.github.io//r/2021/01/05/FindingEconomicArticles4.html)]
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/08-class/file-not-found.png" alt="The Verge 'File Not Found'" title="The Verge 'File Not Found'" width="100%"&gt;
-&lt;/figure&gt;
-]
-
-???
-
-https://www.theverge.com/22684730/students-file-folder-directory-structure-education-gen-z
-
-- Absolute vs. relative paths
-- Best practices for project structures
-- File types - jpg/png/pdf, CSV vs. Excel, Word vs. txt vs. md vs. Rmd
-- Downloading files from the internet and using them in Rmd - dagitty specifically
-
----
-
-.box-5.large[Project structures]
-
-.box-inv-5[[One approach](https://kdestasio.github.io/post/r_best_practices/)]
-
-.box-inv-5[[Another approach](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html#Organizing_your_working_directory)]
-
-.box-inv-5[[Yet another approach](https://github.com/andrewheiss/who-cares-about-crackdown)]
-
-.box-inv-5[[Another another approach](http://projecttemplate.net/)]
-
----
-
-.box-5.large[File types]
-
-.box-inv-5[[Image types slides](https://datavizs21.classes.andrewheiss.com/slides/02-slides.html#57)]
-
-.box-inv-5[CSV vs. Excel]
-
-.box-inv-5[`.docx` vs. `.txt` vs. `.md` vs `.Rmd`]
 
 ---
 
@@ -381,27 +319,38 @@ https://www.theverge.com/22684730/students-file-folder-directory-structure-educa
 
 ---
 
-.box-5.medium[If the control group changes in the same way, and the causal effect was zero, would we say that the treatment didn't work?]
+layout: true
+class: middle
 
 ---
 
-.box-5.medium[When doing your subtracting to get&lt;br&gt;your differences in the matrix, is it better &lt;br&gt;to do the vertical or horizontal subtractions?]
+.box-1.medium[When doing your subtracting to get&lt;br&gt;your differences in the matrix, is it better &lt;br&gt;to do the vertical or horizontal subtractions?]
 
-.box-5.medium[Are there situations where&lt;br&gt;one is preferable to the other?]
-
----
-
-.box-5.medium[Why are we learning&lt;br&gt;two ways to do diff-in-diff?&lt;br&gt;(2x2 matrix vs. `lm()`)]
+.box-1.medium[Are there situations where&lt;br&gt;one is preferable to the other?]
 
 ---
 
-.box-5.less-medium[What group level is best for comparison? For example, if we are looking at policy change in NJ, is it best to compare with just one or two similar states? How similar do the populations need to be?]
+.box-1.medium[Why are we learning&lt;br&gt;two ways to do diff-in-diff?&lt;br&gt;(2x2 matrix vs. `lm()`)]
 
-.box-5.medium.sp-after[Wouldn't matching be better?]
+---
 
-.box-5.less-medium[Do we have to think about balance when dealing with observational data in diff in diff?]
+.box-1.large[What happened to confounding??]
 
-.box-inv-5[[Two-way fixed effects (TWFE)](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
+.box-1.large[Now we're only looking&lt;br&gt;at just two "confounders"?]
+
+???
+
+The parallel trends assumption takes care of that
+
+---
+
+.box-1.less-medium[What group level is best for comparison? For example, if we are looking at policy change in NJ, is it best to compare with just one or two similar states? How similar do the populations need to be?]
+
+.box-1.medium.sp-after[Wouldn't matching be better?]
+
+.box-1.less-medium[Do we have to think about balance when dealing with observational data in diff in diff?]
+
+.box-inv-1[[Two-way fixed effects (TWFE)](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
 
 ???
 
@@ -412,33 +361,7 @@ https://www.theverge.com/22684730/students-file-folder-directory-structure-educa
 
 ---
 
-.box-5.large[Minimum legal drinking age]
-
----
-
-`$$\begin{aligned}
-\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
-&amp;\ \beta_3\ (\text{Alabama} \times \text{After 1975})
-\end{aligned}$$`
-
----
-
-`$$\text{Mortality}\ =\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
-
----
-
-`$$\begin{aligned}
-\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State}\ + \\
-&amp;\ \beta_3\ \text{Year} + \beta_4\ (\text{State} \times \text{Year})
-\end{aligned}$$`
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/08-class/mm-tbl-5-2.png" alt="Mastering Metrics Table 5.2" title="Mastering Metrics Table 5.2" width="55%"&gt;
-&lt;/figure&gt;
-]
+.box-1.large[Minimum legal drinking age]
 
 ---
 
@@ -466,33 +389,149 @@ https://www.theverge.com/22684730/students-file-folder-directory-structure-educa
 
 ---
 
-.box-5.large[What happened to confounding??]
+.box-inv-1.medium[MLDA reduction]
 
-.box-5.large[Now we're only looking&lt;br&gt;at just two "confounders"?]
+.box-1.medium[Two states: Alabama vs. Arkansas]
 
-???
-
-The parallel trends assumption takes care of that
-
----
-
-.box-5.medium[Is it reasonable to conduct&lt;br&gt;sensitivity analysis when working&lt;br&gt;with diff in diff?]
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \beta_3\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
 
 ---
 
-.box-5.large[How do we play with time&lt;br&gt;to check for parallel trends?]
+.box-inv-1.medium[Organ donations]
+
+.box-1.medium[Two states: California vs. New Jersey]
+
+`$$\begin{aligned}
+\text{Donation rate}\ =&amp;\ \beta_0 + \beta_1\ \text{California} + \beta_2\ \text{After Q22011}\ + \\
+&amp;\ \beta_3\ (\text{California} \times \text{After Q22011})
+\end{aligned}$$`
 
 ---
 
-.box-5.large[What about this&lt;br&gt;staggered treatment stuff?]
+layout: false
+name: twfe
+class: center middle section-title section-title-6 animated fadeIn
 
-.box-inv-5[[See this](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
+# Two-way fixed effects&lt;br&gt;(TWFE)
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.medium[Two states: Alabama vs. Arkansas]
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \beta_3\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+---
+
+.box-6.medium[All states: `Treatment == 1`&lt;br&gt;if legal for 18-20-year-olds to drink]
+
+`$$\text{Mortality}\ =\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+---
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \color{red}{\beta_3}\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+.center[vs.]
+
+`$$\text{Mortality}\ =\ \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+---
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \color{red}{\beta_3}\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+.center[vs.]
+
+`$$\text{Mortality}\ =\ \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+.center[vs.]
+
+`$$\begin{aligned}
+\text{Mortality}\ =\ &amp; \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}\ +\\
+&amp;\beta_4\ (\text{State} \times \text{Year})
+\end{aligned}$$`
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-tbl-5-2.png" alt="Mastering Metrics Table 5.2" title="Mastering Metrics Table 5.2" width="55%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+`$$\begin{aligned}
+\text{Donation rate}\ =&amp;\ \beta_0 + \beta_1\ \text{California} + \beta_2\ \text{After Q22011}\ + \\
+&amp;\ \beta_3\ (\text{California} \times \text{After Q22011})
+\end{aligned}$$`
+
+.center[vs.]
+
+$$
+`\begin{aligned}
+\text{Donation rate}\ =\ &amp; \beta_0 + \color{red}{\beta_1}\ \text{Treatment}\ + \\
+&amp; \beta_2\ \text{State} + \beta_3\ \text{Quarter}
+\end{aligned}`
+$$
+
+---
+
+.box-6.large[What about this&lt;br&gt;staggered treatment stuff?]
+
+.box-inv-6[[See this](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
 
 ???
 
 This is good for ethical reasons!
 
 Blog post
+
+---
+
+layout: false
+name: sensitivity
+class: center middle section-title section-title-2 animated fadeIn
+
+# Sensitivity analysis
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.medium.sp-after[How do we know when we've got&lt;br&gt;the right confounders in our DAG?]
+
+.box-2.medium[How do we solve the fact that&lt;br&gt;we have so many unknowns in our DAG?]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/2020-2021-meme-garnick-1.jpg" alt="OVB" title="OVB" width="40%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://owenozier.github.io/teaching/2020-2021-memes
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>

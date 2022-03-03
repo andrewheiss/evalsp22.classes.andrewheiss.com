@@ -127,6 +127,11 @@ You can also watch the playlist (and skip around to different sections) here:
 
 ## In-class stuff
 
+Here are all the materials we’ll use in class:
+
+-   [**Session 8 FAQ slides**](/slides/08-class.html) ([PDF](/slides/08-class.pdf))
+-   [Session 8 R code](/projects/week-8.zip) (on [RStudio.cloud](https://rstudio.cloud/spaces/205054/project/3679422))
+
 [^1]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.
 
 [^2]: Nick Huntington-Klein, *The Effect: An Introduction to Research Design and Causality* (Boca Raton, Florida: Chapman and Hall / CRC, 2021), <https://theeffectbook.net/>.

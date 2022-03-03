@@ -45,6 +45,18 @@ ggplot(al_ar, aes(x = year, y = mrate, color = state_name)) +
   geom_line()
 ```
 
+```{r}
+al_ar %>% 
+  group_by(is_alabama, after_change) %>% 
+  summarize(avg_mrate = mean(mrate))
+```
+
+$$
+\begin{aligned}
+\text{Mortality}\ =&\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&\ \beta_3\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}
+$$
 
 ```{r}
 model_al_ar <- lm(mrate ~ after_change + is_alabama + 
@@ -56,15 +68,21 @@ tidy(model_al_ar)
 ```{r}
 deaths_filtered <- deaths %>% 
   filter(year <= 1983, agegr == "18-20 yrs", dtype == "all")
+```
 
-model <- lm(mrate ~ legal + state_name + factor(year), 
+$$
+\text{Mortality}\ =\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}
+$$
+
+```{r}
+model <- lm(mrate ~ legal + state_name + year, 
             data = deaths_filtered)
 tidy(model)
 
 model_fe <- feols(mrate ~ legal | state_name + year,
                   cluster = ~ state_name,
                   data = deaths_filtered,
-                  dof = dof(fixef.K = "full"))
+                  ssc = ssc(fixef.K = "full"))
 tidy(model_fe)
 ```
 
@@ -73,16 +91,22 @@ ggplot(deaths_filtered, aes(x = year, y = mrate, color = state_name)) +
   geom_line()
 ```
 
+$$
+\begin{aligned}
+\text{Mortality}\ =\ & \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year} +\\
+&\beta_4\ (\text{State} \times \text{Year})
+\end{aligned}
+$$
 
 ```{r}
 model2 <- lm(mrate ~ legal + state_name + factor(year) + state_name:year, 
              data = deaths_filtered)
 tidy(model2)
 
-model2_fe <- feols(mrate ~ legal + i(state_name, year) | state_name + year,
+model2_fe <- feols(mrate ~ legal + i(state_name, factor(year)) | state_name + year,
                    cluster = ~ state_name,
                    data = deaths_filtered,
-                   dof = dof(fixef.K = "full"))
+                   ssc = ssc(fixef.K = "full"))
 tidy(model2)
 ```
 

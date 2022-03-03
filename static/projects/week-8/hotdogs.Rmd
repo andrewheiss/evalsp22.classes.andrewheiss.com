@@ -3,14 +3,14 @@ title: "Hot dogs"
 output: html_document
 ---
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(tidyverse)
 library(broom)
 
 # This way is hard to read and can be miserable
 hotdogs <- tibble(price = c(2.00, 2.35, 2.35, 2.70),
                   cheese = c(FALSE, TRUE, FALSE, TRUE),
-                  child = c(FALSE, FALSE, TRUE, TRUE))
+                  chili = c(FALSE, FALSE, TRUE, TRUE))
 
 # This way lets you specify tables row-wise (hence t*r*ibble) and is far easier to read
 hotdogs <- tribble(
