@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 9: Diff-in-diff II</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2022-03-10" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 9
+
+.class-info[
+
+**March 10, 2022**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-3.medium[General questions]
+
+--
+
+.box-7.medium[Final project]
+
+--
+
+.box-1.medium[Simple diff-in-diff]
+
+--
+
+.box-6.medium[Two-way fixed effects]
+
+--
+
+.box-2.medium[Sensitivity analysis]
+
+---
+
+layout: false
+name: general-questions
+class: center middle section-title section-title-3 animated fadeIn
+
+# General questions
+
+---
+
+class: middle
+
+.box-3.large[Should we control for variables&lt;br&gt;to close as many backdoors as&lt;br&gt;possible in our diff-in-diff model?]
+
+---
+
+class: title title-3
+
+# Design-based identification
+
+.box-inv-3[Use a special situation to isolate arrow]
+
+.pull-left[
+.box-3[RCTs]
+
+.box-inv-3.small[Use randomization&lt;br&gt;to remove confounding]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="05-slides_files/figure-html/experimental-dag-1.png" alt="RCT DAG" title="RCT DAG" width="60%"&gt;
+&lt;/figure&gt;
+]
+]
+
+--
+
+.pull-right[
+.box-3[Difference-in-differences]
+
+.box-inv-3.small[Use before/after &amp; treatment/control&lt;br&gt;differences to remove confounding]
+
+.center[
+&lt;figure&gt;
+  &lt;img src="08-slides_files/figure-html/min-wage-dag-1.png" alt="Diff-in-diff DAG" title="Diff-in-diff DAG" width="90%"&gt;
+&lt;/figure&gt;
+]
+]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-3.large[How does moving time back&lt;br&gt;let us check for parallel trends?]'
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-fig-5-4.png" alt="Mastering Metrics Figure 5.4" title="Mastering Metrics Figure 5.4" width="65%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-3.large[Can you conduct diff-in-diff&lt;br&gt;with a binary outcome?]
+
+---
+
+.box-3.large[I keep reading about estimates, estimands, and estimators.&lt;br&gt;What are these and are they the same thing?]
+
+---
+
+layout: false
+class: title title-3
+
+# Estima(and|or|ate)s
+
+.box-inv-3.less-medium[Estimand]
+
+.box-3.sp-after[Theoretical thing you want to know (β)]
+
+.box-inv-3.less-medium[Estimator]
+
+.box-3.sp-after[Process for guessing the thing .small[(e.g., diff-in-diff with interaction term)]]
+
+.box-inv-3.less-medium[Estimate]
+
+.box-3[The guess (β-hat)]
+
+---
+
+class: middle
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/09-class/estimandateor.jpg" alt="Estimandateor" title="Estimandateor" width="45%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+&lt;https://twitter.com/WomenInStat/status/1449068312873287682&gt;
+
+---
+
+class: middle
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/09-class/estimands-methods.png" alt="Estimand methods" title="Estimand methods" width="75%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+&lt;https://arxiv.org/abs/2106.10577&gt;
+
+---
+
+class: middle
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/09-class/flowchart.png" alt="Estimand flowchart" title="Estimand flowchart" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+class: middle
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/09-class/three-step-process.png" alt="Three-step process" title="Three-step process" width="75%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+layout: false
+name: final-project
+class: center middle section-title section-title-7 animated fadeIn
+
+# Final project
+
+---
+
+class: middle
+
+.box-7.large[Tell us more about&lt;br&gt;the final project!]
+
+---
+
+layout: false
+name: diff-in-diff
+class: center middle section-title section-title-1 animated fadeIn
+
+# Simple diff-in-diff
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-1.large[Minimum legal drinking age]
+
+---
+
+.box-inv-1.medium[MLDA reduction]
+
+.box-1.medium[Two states: Alabama vs. Arkansas]
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \beta_3\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+---
+
+.box-inv-1.medium[Organ donations]
+
+.box-1.medium[Two states: California vs. New Jersey]
+
+`$$\begin{aligned}
+\text{Donation rate}\ =&amp;\ \beta_0 + \beta_1\ \text{California} + \beta_2\ \text{After Q22011}\ + \\
+&amp;\ \beta_3\ (\text{California} \times \text{After Q22011})
+\end{aligned}$$`
+
+---
+
+layout: false
+name: twfe
+class: center middle section-title section-title-6 animated fadeIn
+
+# Two-way fixed effects&lt;br&gt;(TWFE)
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.medium[Two states: Alabama vs. Arkansas]
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \beta_3\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+---
+
+.box-6.medium[All states: `Treatment == 1`&lt;br&gt;if legal for 18-20-year-olds to drink]
+
+`$$\text{Mortality}\ =\ \beta_0 + \beta_1\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+---
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \color{red}{\beta_3}\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+.center[vs.]
+
+`$$\text{Mortality}\ =\ \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+---
+
+`$$\begin{aligned}
+\text{Mortality}\ =&amp;\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
+&amp;\ \color{red}{\beta_3}\ (\text{Alabama} \times \text{After 1975})
+\end{aligned}$$`
+
+.center[vs.]
+
+`$$\text{Mortality}\ =\ \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$`
+
+.center[vs.]
+
+`$$\begin{aligned}
+\text{Mortality}\ =\ &amp; \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}\ +\\
+&amp;\beta_4\ (\text{State} \times \text{Year})
+\end{aligned}$$`
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/mm-tbl-5-2.png" alt="Mastering Metrics Table 5.2" title="Mastering Metrics Table 5.2" width="55%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+`$$\begin{aligned}
+\text{Donation rate}\ =&amp;\ \beta_0 + \beta_1\ \text{California} + \beta_2\ \text{After Q22011}\ + \\
+&amp;\ \color{red}{\beta_3}\ (\text{California} \times \text{After Q22011})
+\end{aligned}$$`
+
+.center[vs.]
+
+$$
+`\begin{aligned}
+\text{Donation rate}\ =\ &amp; \beta_0 + \color{red}{\beta_1}\ \text{Treatment}\ + \\
+&amp; \beta_2\ \text{State} + \beta_3\ \text{Quarter}
+\end{aligned}`
+$$
+
+---
+
+.box-6.large[What about this&lt;br&gt;staggered treatment stuff?]
+
+.box-inv-6[[See this](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)]
+
+???
+
+This is good for ethical reasons!
+
+Blog post
+
+---
+
+.box-6.large[What are random effects?]
+
+.box-inv-6[[See this](https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/)]
+
+---
+
+layout: false
+name: sensitivity
+class: center middle section-title section-title-2 animated fadeIn
+
+# Sensitivity analysis
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.medium.sp-after[How do we know when we've got&lt;br&gt;the right confounders in our DAG?]
+
+.box-2.medium[How do we solve the fact that&lt;br&gt;we have so many unknowns in our DAG?]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/08-class/2020-2021-meme-garnick-1.jpg" alt="OVB" title="OVB" width="40%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+https://owenozier.github.io/teaching/2020-2021-memes
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
