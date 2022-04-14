@@ -91,13 +91,6 @@ slide_tabs(slide_details, "/slides/14-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-## In-class stuff
-
-```{comment}
-Here are all the materials we'll use in class:
-
-- [**Week 14 FAQ slides**](/slides/14-class.html) ([PDF](/slides/14-class.pdf))
-```
 
 ```{cat include=FALSE, eval=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sEKfedoOEFJvvNNHtDiYS-Q

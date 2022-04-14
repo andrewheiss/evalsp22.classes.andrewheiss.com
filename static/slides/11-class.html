@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Class 11: RDD and IV</title>
+    <title>Class 11: IV I</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2022-01-05" />
+    <meta name="date" content="2022-03-31" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
-    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
     <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
@@ -31,7 +29,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**November 1, 2021**
+**March 31, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -48,36 +46,15 @@ class: title title-inv-8
 
 --
 
-.box-2.medium.sp-after-half[Diff-in-diff effect sizes]
+.box-5.medium[Super quick R thing]
 
 --
 
-.box-5.medium.sp-after-half[Miscellaneous R stuff]
+.box-2.medium[IV questions]
 
 --
 
-.box-6.medium.sp-after-half[RDD fun times]
-
---
-
-.box-1.medium.sp-after-half[IV fun times]
-
----
-
-layout: false
-name: ps5
-class: center middle section-title section-title-2 animated fadeIn
-
-# Diff-in-diff effect sizes
-
----
-
-layout: true
-class: middle
-
----
-
-.box-2.large[What the heck was happening at&lt;br&gt;the end of problem set 5?!]
+.box-6.medium[IV fun times]
 
 ---
 
@@ -85,266 +62,108 @@ layout: false
 name: r-stuff
 class: center middle section-title section-title-5 animated fadeIn
 
-# Miscellaneous R stuff
+# Quick R stuff
 
 ---
 
-layout: true
 class: middle
 
----
-
-.box-5.large[Is there a way to make&lt;br&gt;the date update automatically&lt;br&gt;in the title area?]
+.box-5.large[Why can't we use `rdrobust()`&lt;br&gt;with `tidy()` or `modelsummary()`?]
 
 ---
-
-.box-5.large[Lines across categories]
-
----
-
-.box-5.large[What do all those things like&lt;br&gt;"AIC" mean in model tables?]
-
-.box-5.large[Can we control what&lt;br&gt;shows up in those tables?]
-
-.center[[See this](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
-
----
-
-layout: false
-name: rdd
-class: center middle section-title section-title-6 animated fadeIn
-
-# RDD fun times
-
----
-
-layout: true
-class: middle
-
----
-
-.box-6.medium[With RDD we rely on "the rule" to determine treatment and control groups]
-
-.box-6[How do you decide on the rule? You mentioned that it's arbitrary—we can choose whatever rule we want?]
-
----
-
-.box-6.medium[Can we use RDD to evaluate a program that doesn't have a rule for participation?]
-
----
-
-.box-6.medium[If a program is implemented in City A and not City B, can we use RDD to analyze its effect?]
-
----
-
-.box-6.medium[Is there a rule of thumb to determine which quasi-experiment method we should use?]
-
----
-
-.box-6.medium[Where do these eligibility thresholds come from? Do policy makers research them first and reexamine them later?]
-
----
-
-layout: true
-class: title title-6
-
----
-
-# Discontinuities everywhere!
-
-.pull-left-wide.small[
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:center;"&gt; Size &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Annual &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; Monthly &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; 138% &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; 150% &lt;/th&gt;
-   &lt;th style="text-align:center;"&gt; 200% &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $12,760 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $1,063 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $17,609 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $19,140 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $25,520 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $17,240 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $1,437 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $23,791 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $25,860 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $34,480 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $21,720 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $1,810 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $29,974 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $32,580 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $43,440 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 4 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $26,200 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $2,183 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $36,156 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $39,300 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $52,400 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 5 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $30,680 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $2,557 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $42,338 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $46,020 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $61,360 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $35,160 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $2,930 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $48,521 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $52,740 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $70,320 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 7 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $39,640 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $3,303 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $54,703 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $59,460 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $79,280 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 8 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $44,120 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $3,677 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $60,886 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $66,180 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; $88,240 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-]
-
-.pull-right-narrow[
-.box-inv-6.smaller[**Medicaid**&lt;br&gt;138%*]
-
-.box-inv-6.smaller[**ACA subsidies**&lt;br&gt;138–400%*]
-
-.box-inv-6.smaller[**CHIP**&lt;br&gt;200%]
-
-.box-inv-6.smaller[**SNAP/Free lunch**&lt;br&gt;130%]
-
-.box-inv-6.smaller[**Reduced lunch**&lt;br&gt;130–185%]
-]
-
----
-
-# The US's official poverty measure
-
-.pull-left.center[
-&lt;figure&gt;
-  &lt;img src="img/11-class/orshansky.jpg" alt="Mollie Orshansky" title="Mollie Orshansky" width="70%"&gt;
-  &lt;figcaption&gt;Mollie Orshansky&lt;/figcaption&gt;
-&lt;/figure&gt;
-]
-
-.pull-right[
-.box-inv-6[Formula created in 1963]
-
-.box-inv-6[Based solely on food expenses from a survey of household budgets in 1955]]
-
-???
-
-- &lt;https://www.census.gov/topics/income-poverty/poverty/about/history-of-the-poverty-measure.html&gt;
-- &lt;https://www.ssa.gov/policy/docs/ssb/v68n3/v68n3p79.html&gt;
-
----
-
-# The US's official poverty measure
-
-.box-inv-6[Official formula:]
-
---
-
-.box-6.medium[**1955 annual food budget × 3**]
-
---
-
-.box-inv-6[That's all!]
-
-&lt;br&gt;
-
---
-
-.box-inv-6[In 1963 poverty line was 50% of median income;&lt;br&gt;in 2005 it was 28%; 18% today]
-
----
-
-layout: true
-class: middle
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/11-class/eitc-phaseout.png" alt="EITC phase out" title="EITC phase out" width="75%"&gt;
-&lt;/figure&gt;
-]
-
----
-
-.center[
-&lt;figure&gt;
-  &lt;img src="img/11-class/ctc-phase-out.jpg" alt="CTC phase out" title="CTC phase out" width="75%"&gt;
-&lt;/figure&gt;
-]
-
----
-
-.box-6.large[What's the difference between weighting with kernels and inverse probability weighting?]
-
-???
-
-- &lt;https://evalsp22.classes.andrewheiss.com/slides/07-slides.html#122&gt;
-- &lt;https://evalsp22.classes.andrewheiss.com/slides/10-slides.html#87&gt;
-- &lt;https://evalsp22.classes.andrewheiss.com/slides/10-slides.html#95&gt;
-
----
-
-.box-6.medium[There must be some math behind for the non-parametric lines. Should we care about that or should we just trust in R?]
-
-???
-
-- &lt;https://evalsp22.classes.andrewheiss.com/slides/10-slides.html#75&gt;
-
----
-
-.box-6.medium[How should we think about the impact of the program on people who score really high or low on the running variable?]
-
----
-
-.box-6.medium[If we're throwing most of the data away and only looking at a narrow bandwidth of people, what does this say about generalizability?]
-
----
-
 
 layout: false
 name: iv
-class: center middle section-title section-title-1 animated fadeIn
+class: center middle section-title section-title-2 animated fadeIn
 
-# IV fun times
+# IV questions
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2[Given the strict criteria for instrumental variables,&lt;br&gt;they seem pretty impractical and uncommon&lt;br&gt;(especially compared to diff-in-diff and RDD).&lt;br&gt;&lt;br&gt;Why do you include instrumental variables&lt;br&gt;as a part of this course?]
+
+.box-2[What's really the point of doing IV if finding instruments&lt;br&gt;is so difficult and easy to mess up?]
+
+.box-2.large[Why even bother?]
+
+---
+
+.box-2.medium[Is there like a “bank” of good IVs?&lt;br&gt;Finding the right IV seems like&lt;br&gt;taking a bunny out of a magician’s hat.]
+
+.box-2.medium[Do you have a method that helps you think of instruments, or a popular process that people usually use to come up with ideas?]
+
+---
+
+.box-2.medium[What does it mean to tell a good story about excludability and exogeneity?]
 
 ???
 
-- &lt;https://evalsp22.classes.andrewheiss.com/slides/11-slides.html#31&gt;
+- https://braddelong.substack.com/p/podcast-hexapodia-is-e-key-insight-331
+- Matthew Suandi, "Promoting to Opportunity: Evidence and Implications from the U.S. Submarine Service" - https://are.berkeley.edu/sites/are.berkeley.edu/files/job-candidates/paper/MatthewSuandi_JMP_Nov_21_Berkeley.pdf
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/14-class/torpedo.png" alt="WWII torpedo" title="WWII torpedo" width="70%"&gt;
+&lt;/figure&gt;
+]
+
+???
+
+Via &lt;https://braddelong.substack.com/p/podcast-hexapodia-is-e-key-insight-331&gt;:
+
+- In the early stages of the Pacific War, whether a US submarine-launched torpedo exploded was a matter of luck.
+- If a submarine captain had an enlisted man marked out for promotion, those promotions happened much more often if the submarine returned from its cruise having succeeded in sinking ships.
+- Those promoted because they happened to be on lucky submarines with torpedoes that exploded lived 2.4 years longer than their counterparts who happened to be on unlucky submarines and were not promoted.
+- Those promoted because they happened to be on lucky submarines with torpedoes that exploded are recorded as having a last known address in a zip code with housing prices higher by 7 percentiles than their counterparts who happened to be on unlucky submarines and were not promoted.
+- Early promotion to a job with more responsibility and scope—at least in the WWII-era USN—shapes your life to a remarkable degree by giving you scope to develop and exercise your talents.
+- If the WWII-era USN is typical, we waste huge amounts of human potential by not giving people workplace opportunities to show what they can learn to do.
+- Equality isn’t just about money: it is about scope for action, about developing and exercising talents, and about receiving external validation.
+- A good society would give people much more opportunity to discover how big a deal they are and can become, and remind them of this at every opportunity.
+
+---
+
+.box-2[Why would we use instrumental variables when we can simply use DAGs to control for things instead?]
+
+.box-2[What is the advantage of using an IV versus trying to find a variable that is correlated with the excluded variable of interest? For example, trying to find a variable highly correlated with "ability"? This seems also difficult but less difficult than finding a true IV.]
+
+.box-2[Could we assume that things like “ability” are latent variables and then try to model them directly?]
+
+---
+
+&lt;img src="11-class_files/figure-html/iv-dag-example-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.box-2.less-medium[In the lecture you mentioned that the instrumental variable should be weird (or make people say huh?). However, in *The Effect*, the author states that the instrument should be relevant. This is a bit mixed messaging. Which approach should we use?]
+
+&amp;nbsp;
+
+.center[[Formal definitions of relevancy, excludability, and exogeneity](/slides/11-slides.html#43)]
+
+---
+
+.box-2.less-medium[Why are things like weather, distance, or terrain bad instruments? How do they violate the exclusion restriction?]
+
+.center[[Lecture slides](/slides/11-slides.html#75)]
+
+---
+
+.box-2.medium[Fuzzy RDD requires an instrument,&lt;br&gt;but instruments seem impossible to find,&lt;br&gt;so can we ever really do fuzzy RDD?]
+
+---
+
+layout: false
+name: iv
+class: center middle section-title section-title-6 animated fadeIn
+
+# IV fun times
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>

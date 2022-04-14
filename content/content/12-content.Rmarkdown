@@ -1,6 +1,6 @@
 ---
 title: "Instrumental variables II + Regression discontinuity II"
-linktitle: "12: IV I & II"
+linktitle: "12: IV II & RDD II"
 date: "2022-04-07"
 class_date: "2022-04-07"
 menu:
@@ -59,13 +59,10 @@ youtube_list(slide_details, playlist_id)
 
 ## In-class stuff
 
-```{comment}
-
 Here are all the materials we'll use in class:
 
 - [**Week 12 FAQ slides**](/slides/12-class.html) ([PDF](/slides/12-class.pdf))
-- [Week 12 R code](/projects/week-12.zip) (on [RStudio.cloud](https://rstudio.cloud/spaces/160211/project/3189708))
-```
+- [<i class="fab fa-r-project"></i> Live R script](https://www.dropbox.com/s/ezk2cujsx8lmval/synthetic-data.R)
 
 
 ```{r create-save-data, include=FALSE}

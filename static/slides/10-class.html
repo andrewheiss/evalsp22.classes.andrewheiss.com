@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Class 10: Regression discontinuity I</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Heiss" />
+    <meta name="date" content="2022-03-24" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center middle main-title section-title-3
+
+# In-person&lt;br&gt;session 10
+
+.class-info[
+
+**March 24, 2022**
+
+.light[PMAP 8521: Program evaluation&lt;br&gt;
+Andrew Young School of Policy Studies
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-8
+
+# Plan for today
+
+--
+
+.box-2.medium.sp-after-half[Diff-in-diff effect sizes]
+
+--
+
+.box-5.medium.sp-after-half[Miscellaneous R stuff]
+
+--
+
+.box-6.medium.sp-after-half[RDD fun times]
+
+---
+
+layout: false
+name: ps5
+class: center middle section-title section-title-2 animated fadeIn
+
+# Diff-in-diff effect sizes
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-2.large[What the heck is happening at&lt;br&gt;the end of problem set 5?!]
+
+---
+
+layout: false
+name: r-stuff
+class: center middle section-title section-title-5 animated fadeIn
+
+# Miscellaneous R stuff
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.large[Is there a way to make&lt;br&gt;the date update automatically&lt;br&gt;in the title area?]
+
+---
+
+.box-5.large[Lines across categories]
+
+---
+
+.box-5.large[What do all those things like&lt;br&gt;"AIC" mean in model tables?]
+
+.box-inv-5.medium[(And do we care about them?)]
+
+???
+
+&lt;https://evalsp22.classes.andrewheiss.com/slides/02-class.html#16&gt;
+
+Goodness of fit stats focus on the outcome; good for prediction
+
+We don’t care so much about that - we care about the one single predictor X - the point of DAGs and quasi-experiments, etc. is identification, which is a theoretical thing, not a numerical thing, so you don’t really need to try to maximize R2 or minimize AIC or whatever
+
+---
+
+.box-5.large[Can we control what&lt;br&gt;shows up in those tables?]
+
+.center[[See this](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
+
+---
+
+layout: false
+name: rdd
+class: center middle section-title section-title-6 animated fadeIn
+
+# RDD fun times
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.medium[With RDD we rely on "the rule" to&lt;br&gt;determine treatment and control groups]
+
+.box-6[How do you decide on the rule?&lt;br&gt;You mentioned that it's arbitrary—&lt;br&gt;we can choose whatever rule we want?]
+
+---
+
+.box-6.medium[Can we use RDD to evaluate a program&lt;br&gt;that doesn't have a rule for participation?]
+
+---
+
+.box-6.medium[Is there a rule of thumb to determine which&lt;br&gt;quasi-experimental method we should use?]
+
+.box-6.medium[How do we know which method applies&lt;br&gt;to which circumstance? Does the data tell us?]
+
+---
+
+.pull-left-narrow[
+&lt;figure&gt;
+  &lt;img src="img/10-class/vigdor.png" alt="Jake Vigdor working paper" title="Jake Vigdor working paper" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+.pull-right-wide.small[
+&gt; Teachers in North Carolina Public schools earn a bonus of $750 if the students in their school meet a standard called "expected growth." A summary statistic called "average growth" is computed for each school; the expected growth standard is met when this summary measure exceeds zero.
+
+&gt; Does getting a bonus in year `\(t\)` cause improved student performance in year `\(t + 1\)`?
+]
+
+---
+
+.box-6.large[How common are these kinds of rules&lt;br&gt;in the real world?]
+
+???
+
+- Anything income-based or means-tested - sliding scale community health clinics, school truancy programs
+- Anything with a test: SAT/ACT, AIG programs
+- Elections - causal effect of candidates
+- Grades - 89.49 vs. 89.51
+- Poverty, EITC
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/10-class/goodreads.png" alt="Goodreads" title="Goodreads" width="80%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-6.medium[Where do these eligibility thresholds come from? Do policy makers research them first and reexamine them later?]
+
+---
+
+layout: true
+class: title title-6
+
+---
+
+# Discontinuities everywhere!
+
+.pull-left-wide.small[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; Size &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Annual &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Monthly &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 138% &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 150% &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 200% &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $12,760 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $1,063 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $17,609 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $19,140 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $25,520 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $17,240 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $1,437 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $23,791 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $25,860 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $34,480 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $21,720 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $1,810 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $29,974 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $32,580 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $43,440 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $26,200 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $2,183 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $36,156 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $39,300 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $52,400 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $30,680 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $2,557 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $42,338 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $46,020 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $61,360 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $35,160 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $2,930 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $48,521 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $52,740 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $70,320 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $39,640 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $3,303 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $54,703 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $59,460 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $79,280 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $44,120 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $3,677 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $60,886 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $66,180 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; $88,240 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right-narrow[
+.box-inv-6.smaller[**Medicaid**&lt;br&gt;138%*]
+
+.box-inv-6.smaller[**ACA subsidies**&lt;br&gt;138–400%*]
+
+.box-inv-6.smaller[**CHIP**&lt;br&gt;200%]
+
+.box-inv-6.smaller[**SNAP/Free lunch**&lt;br&gt;130%]
+
+.box-inv-6.smaller[**Reduced lunch**&lt;br&gt;130–185%]
+]
+
+---
+
+# The US's official poverty measure
+
+.pull-left.center[
+&lt;figure&gt;
+  &lt;img src="img/10-class/orshansky.jpg" alt="Mollie Orshansky" title="Mollie Orshansky" width="70%"&gt;
+  &lt;figcaption&gt;Mollie Orshansky&lt;/figcaption&gt;
+&lt;/figure&gt;
+]
+
+.pull-right[
+.box-inv-6[Formula created in 1963]
+
+.box-inv-6[Based solely on food expenses from a survey of household budgets in 1955]]
+
+???
+
+- &lt;https://www.census.gov/topics/income-poverty/poverty/about/history-of-the-poverty-measure.html&gt;
+- &lt;https://www.ssa.gov/policy/docs/ssb/v68n3/v68n3p79.html&gt;
+
+---
+
+# The US's official poverty measure
+
+.box-inv-6[Official formula:]
+
+--
+
+.box-6.medium[**1955 annual food budget × 3**]
+
+--
+
+.box-inv-6[That's all!]
+
+&lt;br&gt;
+
+--
+
+.box-inv-6[In 1963 poverty line was 50% of median income;&lt;br&gt;in 2005 it was 28%; 18% today]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6[Why don't we change it?]
+
+.center[
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/q9EehZlw-zk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/10-class/eitc-phaseout.png" alt="EITC phase out" title="EITC phase out" width="75%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.center[
+&lt;figure&gt;
+  &lt;img src="img/10-class/ctc-phase-out.jpg" alt="CTC phase out" title="CTC phase out" width="75%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-6.medium[What if there are multiple cutoffs?]
+
+.box-inv-6[College admission is based on GPA *and* test scores…]
+
+.box-inv-6[WIC/SNAP/Medicaid are based on income *and* family size…]
+
+---
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/10-class/one-running-var.png" alt="One running variable" title="One running variable" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/10-class/multiple-running-vars.png" alt="Multiple running variables" title="Multiple running variables" width="100%"&gt;
+&lt;/figure&gt;
+]
+
+---
+
+.box-6.large[Why do we center&lt;br&gt;the running variable?]
+
+---
+
+.box-6.large[Regression is just fancy averages!]
+
+---
+
+&lt;img src="10-class_files/figure-html/tutoring-plot-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+lm(exit_exam ~ entrance_exam + tutoring,
+   data = filter(tutoring, entrance_exam &lt;= 80, 
+                 entrance_exam &gt;= 60)) %&gt;% 
+  tidy()
+```
+
+```
+## # A tibble: 3 × 5
+##   term          estimate std.error statistic  p.value
+##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)     33.2       8.64       3.84 1.43e- 4
+## 2 entrance_exam    0.388     0.114      3.40 7.45e- 4
+## 3 tutoringTRUE     9.27      1.31       7.09 6.27e-12
+```
+
+---
+
+
+```r
+tutoring_centered &lt;- tutoring %&gt;%
+  mutate(entrance_centered = entrance_exam - 70)
+
+lm(exit_exam ~ entrance_centered + tutoring,
+   data = filter(tutoring_centered, entrance_exam &lt;= 80, 
+                 entrance_exam &gt;= 60)) %&gt;% 
+  tidy()
+```
+
+```
+## # A tibble: 3 × 5
+##   term              estimate std.error statistic   p.value
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)         60.4       0.752     80.3  2.99e-249
+## 2 entrance_centered    0.388     0.114      3.40 7.45e-  4
+## 3 tutoringTRUE         9.27      1.31       7.09 6.27e- 12
+```
+
+---
+
+&lt;img src="10-class_files/figure-html/tutoring-plot-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.box-6.large[What's the difference between weighting with kernels and inverse probability weighting?]
+
+???
+
+- &lt;https://evalsp22.classes.andrewheiss.com/slides/07-slides.html#122&gt;
+- &lt;https://evalsp22.classes.andrewheiss.com/slides/10-slides.html#87&gt;
+- &lt;https://evalsp22.classes.andrewheiss.com/slides/10-slides.html#95&gt;
+
+---
+
+.box-6.medium[There must be some math behind for the non-parametric lines. Should we care about that or should we just trust in R?]
+
+???
+
+- &lt;https://evalsp22.classes.andrewheiss.com/slides/10-slides.html#75&gt;
+
+---
+
+.box-6.medium[How do we decide on the right model?]
+
+.center[
+- Parametric with `\(y = x\)`?
+- With `\(y = x^2 + x\)`? 
+- With `\(y = x^\text{whatever} + x^\text{whatever} + x\)`? 
+- Nonparametric? 
+- `rdrobust()` or just `lm()`? 
+- Controls or no controls?
+]
+
+---
+
+.box-6.medium[How do you justify a bandwidth?]
+
+.box-6.medium[Does the bandwidth need to be&lt;br&gt;the same on both sides?]
+
+---
+
+.box-6.less-medium[How should we think about the impact of the program on people who score really high or low on the running variable?]
+
+.box-6.less-medium[If we're throwing most of the data away and only looking at a narrow bandwidth of people, what does this say about generalizability?]
+
+---
+
+.box-6.medium[What do we do about noncompliance?]
+
+.box-6.medium[What is fuzzy regression discontinuity?]
+
+---
+
+.box-6.huge[RD play time!]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

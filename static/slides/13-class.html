@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Class 12: IV II and RDD II</title>
+    <title>Class 13: Choosing and planning ethical evaluations</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andrew Heiss" />
-    <meta name="date" content="2022-04-07" />
+    <meta name="date" content="2022-04-14" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
@@ -25,11 +25,11 @@
 
 class: center middle main-title section-title-3
 
-# In-person&lt;br&gt;session 12
+# In-person&lt;br&gt;session 13
 
 .class-info[
 
-**April 7, 2022**
+**April 14, 2022**
 
 .light[PMAP 8521: Program evaluation&lt;br&gt;
 Andrew Young School of Policy Studies
@@ -46,19 +46,39 @@ class: title title-inv-8
 
 --
 
-.box-5.medium[FAQs]
+.box-1.medium[Exam and final project stuff]
 
 --
 
-.box-3.medium[Synthetic data fun times!]
+.box-5.medium[Control variables and confounding]
+
+--
+
+.box-3.medium[Ethics + pre-analysis plans]
+
+--
+
+.box-2.medium[Sharing your stuff]
+
+--
+
+.box-6.medium[Simulating data]
 
 ---
 
 layout: false
-name: faqs
+name: exam
+class: center middle section-title section-title-1 animated fadeIn
+
+# Exam and&lt;br&gt;final project stuff
+
+---
+
+layout: false
+name: controls-confounding
 class: center middle section-title section-title-5 animated fadeIn
 
-# FAQs
+# Control variables&lt;br&gt;and confounding
 
 ---
 
@@ -67,106 +87,157 @@ class: middle
 
 ---
 
-.box-5.medium[Why are my estimates for OLS and 2SLS&lt;br&gt;in opposite direction in problem set 7?]
+.box-5.large[Do we really not need to&lt;br&gt;interpret every coefficient?!]
 
 ---
 
-.box-5.medium[What happened to the "huh?" factor&lt;br&gt;with these more logical instruments?]
+.box-5.less-medium[Why do we teach stats with the idea of throwing&lt;br&gt;in a bunch of control variables if that's&lt;br&gt;really not the best way to evaluate impact?]
+
+.box-5.less-medium[What is the point of using control variables&lt;br&gt;if they aren't going to be interpreted?]
+
+.box-5.less-medium[How do we know which coefficients we&lt;br&gt;need to ultimately worry about and interpret?]
+
+---
+
+.box-5.large[Why did we control for things&lt;br&gt;in the RCT section of problem set 8?]
+
+---
+
+.box-5.large[How can you NOT have unobserved confounders unless you're doing a laboratory study where you can control everything?]
+
+---
+
+.box-5.medium[Design-based inference seems easier since&lt;br&gt;there's no unobserved confounding?&lt;br&gt;&lt;br&gt;Why don't we just do that all the time?]
 
 ???
 
-Instruments address endogeneity - they let you split treatments into their endogenous and exogenous parts as long as they meet that criteria. The huh? factor is great for that - it’s a good shorthand for the “only through” exclusion argument. The simpler more logical instruments still work—the only way someone will have a change in their outcome because of assignment to treatment will be because of going through the treatment
+Yeah, but you have to discover weird situations. Like WWII submarine thing!
+
+- https://braddelong.substack.com/p/podcast-hexapodia-is-e-key-insight-331
+-  Matthew Suandi, "Promoting to Opportunity: Evidence and Implications from the U.S. Submarine Service" - https://are.berkeley.edu/sites/are.berkeley.edu/files/job-candidates/paper/MatthewSuandi_JMP_Nov_21_Berkeley.pdf
 
 ---
 
-.box-5.less-medium[The World Bank book mentions that "the promotion itself should not directly affect the outcomes of interest." How can we be sure that this has been adhered to when promotion campaign is run to increase enrollment rates which I assume is because of a change in the outcome interest of the new enrollees?]
-
-???
-
-Yeah, it’s the only-through story. If a random promoter encourages someone to sign up for Obamacare and then drives that person to the hospital, that’s bad.
+.box-5.less-medium[You said that choosing between&lt;br&gt;model-based inference versus design-based&lt;br&gt;inference is based on the situation that we are in.&lt;br&gt;&lt;br&gt;Which one of the approaches do you think&lt;br&gt;will be used the most in the real world?]
 
 ---
 
-.box-5.medium[How ethical is randomized promotion&lt;br&gt;for universal programs?]
+.box-5.large[Do we not need to use a DAG&lt;br&gt;if we use one of&lt;br&gt;the design-based methods?]
 
 ---
 
-.box-5.medium[Do programs ever consider always-takers, never-takers, compliers, etc. before starting the program, or just deal with them when analyzing the data?]
-
----
-
-.box-5.medium[How often do we have data on non-compliers?]
-
-.box-5.medium[Why can we assume an equal distribution of always takers, never takers, and compliers in treatment groups and control groups since that's all unobserved?]
-
-???
-
-Same logic applies to necessity of checking for balance - we technically don’t need to check for balance but instead trust the random assignment process. Compliance-ness is unobserved, but we’re assuming it’s equal enough
-
----
-
-.box-5.medium[How often do people "sneak into" treatment? What does this say about the program?]
-
-???
-
-ACA exchanges and thresholds
-
----
-
-.box-5.medium[Can we really ignore defiers?]
-
-.box-5[I definitely think there are people who would do things&lt;br&gt;like tear down all existing bed nets out of spite.]
-
----
-
-.box-5.large[Why do we care about ITT?]
-
-???
-
-ITT - treatment group = people assigned to treatment, not people who necessarily did it
-Provides causal effect of the policy (or assignment to policy), not really the causal effect of a specific treatment
-
-Fixes attrition issues! If people drop out of the study (or die), the ATE will be wrong. Look at the ITT and you’ll see the effect of assignment. BUT you can’t use ITT as the actual causal effect of the treatment!
-
-If you use treatment status as an instrument in 2SLS, though, you can get the complier ATE of the *treatment* (not just the assignment)
-
----
-
-.box-5.medium[When we say "local", as in LATE,&lt;br&gt;does local just mean that we're only talking about the specific groups treated?&lt;br&gt;And that's why it's not very generalizable?]
-
-.box-5.medium[Are LATE and CACE the same?]
-
-.box-5.medium[What if you are looking for the global effect&lt;br&gt;(instead of local)? What then?]
-
-???
-
-Heterogenous vs. homogenous treatment effects
+.center[
+&lt;figure&gt;
+  &lt;img src="img/13-class/design-based-dags.png" alt="Design-based DAGs" title="Design-based DAGs" width="80%"&gt;
+&lt;/figure&gt;
+]
 
 ---
 
 layout: false
-name: synthetic-data
+name: ethics
 class: center middle section-title section-title-3 animated fadeIn
 
-# Synthetic data&lt;br&gt;fun times!
+# Ethics +&lt;br&gt;pre-analysis plans
 
 ---
 
-class: title title-3
+layout: true
+class: middle
 
-# Basic process
+---
 
-.box-inv-3.medium[1: Draw a DAG]
+.box-3.medium[Where can one publish their assumptions before running the numbers in research?]
 
-.box-inv-3.medium[2: Create standalone exogenous columns]
+.center.float-left[[OSF.io](https://www.cos.io/initiatives/prereg) &amp;ensp; [AsPredicted.org](https://aspredicted.org/)]
 
-.box-inv-3.medium[3: Connect endogenous columns]
+---
 
-.box-inv-3.medium[4: Polish columns]
+.box-3[Do people really provide all their code and analysis in advance?&lt;br&gt;What if you realize you made a mistake&lt;br&gt;or want to explore something later?]
+
+.box-3[What if we have additional variables to investigate that we missed out during our simulation of fake data and pre-registration/pre-analysis stage? Can we add them once they have been registered?]
+
+.box-3[Does pre-registering include interactions&lt;br&gt;or quadratics you want to test?]
+
+---
+
+.center[[Standard operating procedures](https://github.com/acoppock/Green-Lab-SOP)]
+
+.center[—]
+
+.center[[Departures from preregistered plan](https://osf.io/x5w7h/wiki/02%20Departures%20from%20Preregistered%20Plan/)]
+
+.center[—]
+
+.center[[Example](https://www.andrewheiss.com/research/articles/chaudhry-heiss-ngos-philanthropy/)]
+
+---
+
+.box-3.medium[Should you share the synthetic data&lt;br&gt;as part of a preanalysis plan?]
+
+---
+
+.box-3.medium[Does pre-registration kill&lt;br&gt;creativity and "ah-ha" moments?]
+
+.center[[Example of confirmatory vs.&lt;br&gt;exploratory preregistration](https://osf.io/hsbyd)]
+
+---
+
+layout: false
+name: sharing
+class: center middle section-title section-title-2 animated fadeIn
+
+# Sharing your stuff
+
+---
+
+class: middle
+
+.box-2.large[What can we put&lt;br&gt;on our resumes now?]
+
+---
+
+class: middle
+
+.box-2.large[Can I really just post R stuff&lt;br&gt;on a website or on Twitter?]
+
+.box-2.large[It seems like that's what&lt;br&gt;the experts do, not me!]
+
+.center.small[[(Public work)](https://evalsp22.classes.andrewheiss.com/slides/14-slides.html#133)]
+
+---
+
+class: title title-2
+
+# Websites for sharing R stuff
+
+.box-inv-2[Super easiest (but least flexible): [RPubs](https://rpubs.com/)]
 
 --
 
-.box-3.large.sp-before-half[Iterate. Iterate so so much.]
+.box-inv-2[Easiest (but less flexible): [R Markdown websites](https://rmarkdown.rstudio.com/lesson-13.html)]
+
+.center.small[[Example](https://stats.andrewheiss.com/who-cares-about-crackdowns/); [example](https://talks.andrewheiss.com/2021-seacen/)]
+
+--
+
+.box-inv-2.sp-before[Medium-est: [Distill](https://rstudio.github.io/distill/)]
+
+.center.small[[Example](https://www.pipinghotdata.com/)]
+
+--
+
+.box-inv-2.sp-before[Hardest (but most flexible): [Blogdown](https://pkgs.rstudio.com/blogdown/)]
+
+.center.small[[Example](https://evalsp22.classes.andrewheiss.com/); [example](https://www.andrewheiss.com/)]
+
+---
+
+layout: false
+name: fake-data
+class: center middle section-title section-title-6 animated fadeIn
+
+# Simulating data
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>

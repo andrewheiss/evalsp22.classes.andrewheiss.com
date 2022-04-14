@@ -114,6 +114,13 @@ You can also watch the playlist (and skip around to different sections) here:
 
 </div>
 
+## In-class stuff
+
+Here are all the materials we’ll use in class:
+
+-   [**Week 13 FAQ slides**](/slides/13-class.html) ([PDF](/slides/13-class.pdf))
+-   [<i class="fab fa-r-project"></i> Live R script](https://www.dropbox.com/s/ezk2cujsx8lmval/synthetic-data.R)
+
 [^1]: Paul Hünermund and Beyers Louw, “On the Nuisance of Control Variables in Regression Analysis,” October 1, 2020, <https://arxiv.org/abs/2005.10314>.
 
 [^2]: Paul J. Gertler et al., *Impact Evaluation in Practice*, 2nd ed. (Inter-American Development Bank; World Bank, 2016), <https://openknowledge.worldbank.org/handle/10986/25030>.
